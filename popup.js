@@ -19,7 +19,7 @@ function copyToClipboard(evt) {
     const tsv = evt.currentTarget.parentNode.getAttribute('data-tsv');
 
     navigator.clipboard.writeText(JSON.stringify({ from: 'rows_extension', data: tsv.toString() })).then(() => {
-        window.open('https://app-development.rows.com/new');
+        window.open('https://app-13038.app.qa-rows.com/new');
     });
 }
 

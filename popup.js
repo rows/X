@@ -1,78 +1,42 @@
-function encodeInformation (info, hidden) {
-    if (info.includes('.png') || info.includes('.gif') || info.includes('.jpg') || info.includes('.jpeg') || info.includes('/image/')) {
-        return hidden ? `=IMAGE('${info}')` : `<img src="${info}" />`;
-    } else if (info.includes('http://') || info.includes('https://')) {
-        return hidden ? info : `<a href="${info}">${info}</a>`;
-    }
 
-    return info;
+function array2tsv(data = []) {
+    return `${data.map(row => row.map(col => col.startsWith('+') ? `='${col}'` : col).join('\t')).join('\n').toString().replaceAll('"','&#34')}`;
 }
 
-function copyElementToClipboard(element) {
-    window.getSelection().removeAllRanges();
-    let range = document.createRange();
-    range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-    window.getSelection().removeAllRanges();
-  }
 
-function json2table(headers, items, hidden = false) {
-    const capitalizeFirstLetter = (string) => {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-    const chunkSize = headers.length;
-    const parsedItems = [];
-       
-    for (let i = 0; i < items.length; i += chunkSize) {
-        const chunk = items.slice(i, i + chunkSize);
-        
-        const data = chunk.reduce((acc, curr, index) => {
-            acc[headers[index]] = curr;
-            return acc;
-        }, {});
+function array2table(header, data = []) {
+    return `<div data-tsv="${array2tsv(data)}">
+              <h1>${header}</h1>
+              <div>${data.length}</div>
+              <div class="table-preview">
+                <table style="width:100%">${data.slice(0,5).map(row => `<tr>${row.map(col => `<td>${col}</td>`).join('')}</tr>`).join('')}</table>
+              </div>
+              <button>Copy</button>
+            </div>`;
+}
 
-        parsedItems.push(data);
-    }
+function copyToClipboard(evt) {
+    const tsv = evt.currentTarget.parentNode.getAttribute('data-tsv');
 
-    let headerRow = '';
-    let bodyRows = '';    
-  
-  
-    headers.map(function(col) {
-      headerRow += '<th><strong>' + capitalizeFirstLetter(col) + '</strong></th>';
+    navigator.clipboard.writeText(JSON.stringify({ from: 'rows_extension', data: tsv.toString() })).then(() => {
+        window.open('https://app-development.rows.com/new');
     });
-
-    const data = hidden ? parsedItems : parsedItems.slice(0,6);
-
-  
-    data.map(function(row) {
-      bodyRows += '<tr>';
-  
-      headers.map(function(header) {
-        bodyRows += '<td>' + encodeInformation(row[header], hidden) + '</td>';
-      })
-  
-      bodyRows += '</tr>';
-    });
-  
-    return '<table id="table-'+ hidden +'"><thead><tr>' +
-           headerRow +
-           '</tr></thead><tbody>' +
-           bodyRows +
-           '</tbody></table>';
-  }
+}
 
 (() => {
     chrome.runtime.sendMessage('rows-scrapper:start', (response) => {
         const element = document.querySelector('#preview');
-        const copy = document.querySelector('#preview-hidden');
 
-        element.innerHTML = json2table(response.data.headers, response.data.items, false);
-        copy.innerHTML = json2table(response.data.headers, response.data.items, true);
-        document.querySelector('#title').innerHTML = response.title;
-        document.querySelector('#description').innerHTML = `We found ${response.data.items.length/response.data.headers.length} results`;
+        if (response.length <= 0) {
+            element.innerHTML = `<div class="noResults">
+                                    <b>No results</b>
+                                    <p>We are sorry but we couldn't identify any list or table</p>
+                                </div>`;
+        } else {
+            element.innerHTML = response.map(table => array2table('header', table)).join('');
+
+            document.querySelectorAll('button').forEach(element => element.addEventListener('click', copyToClipboard))
+        }
+
     });
-
-    document.getElementById('copy').addEventListener("click", () => copyElementToClipboard('table-true'));
 })();

@@ -5,13 +5,13 @@ function array2tsv(data = []) {
 
 
 function array2table(header, data = []) {
-    return `<div data-tsv="${array2tsv(data)}">
-              <h1>${header}</h1>
-              <div>${data.length}</div>
-              <div class="table-preview">
-                <table style="width:100%">${data.slice(0,5).map(row => `<tr>${row.map(col => `<td>${col}</td>`).join('')}</tr>`).join('')}</table>
-              </div>
-              <button>Copy</button>
+    return `<div class="grid-container" data-tsv="${array2tsv(data)}">
+                <div class="tab_header">${header}</div>
+                <div class="data_lenght">${data.length}</div>
+                <div class="table-preview">
+                    <table>${data.slice(0,5).map(row => `<tr>${row.map(col => `<td>${col}</td>`).join('')}</tr>`).join('')}</table>
+                </div>
+                <button class="copy-button">Add data to new spreadsheet</button>
             </div>`;
 }
 
@@ -33,7 +33,7 @@ function copyToClipboard(evt) {
                                     <p>We are sorry but we couldn't identify any list or table</p>
                                 </div>`;
         } else {
-            element.innerHTML = response.map(table => array2table('header', table)).join('');
+            element.innerHTML = response.map(table => array2table('Number of rows:', table)).join('');
 
             document.querySelectorAll('button').forEach(element => element.addEventListener('click', copyToClipboard))
         }

@@ -29,6 +29,7 @@ function toArray (table)  {
   return data.map((a) => a.map((a) => a.value))
 }
 
+
 function parseHTMLTableElem() {
   const tables = Array.from(document.querySelectorAll('table'));
 
@@ -54,19 +55,60 @@ function parseHTMLTableElem() {
 }
 
 function parseYCombinatorData() {
+  function getText(element, query) {
+    const elm = element.querySelector(query);
+
+    return elm ? elm.innerText : '';
+  }
+
+  function getImageLink(element, query) {
+    const elm = element.querySelector(query);
+
+    return elm ? elm.src : '';
+  }
+
   const elements = Array.from(document.querySelectorAll('[class*="_results_"] > a[class*="_company_"]'))
     .map((element) => [
-      element.querySelector('img') ? element.querySelector('img').src : ' - ',
-      element.querySelector('[class*="_coName_"]').innerText,
-      element.querySelector('[class*="_coDescription_"]').innerText,
-      element.querySelector('[class*="_coLocation_"]').innerText,
-      '',
-      ''
+      getImageLink(element, 'img'),
+      getText(element, '[class*="_coName_"]'),
+      getText(element, '[class*="_coDescription_"]'),
+      getText(element, '[class*="_coLocation_"]')
     ]);
 
   return [
     [
-      ['Logo' ,'Company name', 'Description', 'Location', 'Tags'],
+      ['Logo' ,'Company name', 'Description', 'Location'],
+      ...elements
+    ]
+  ]
+}
+
+function parseLinkedinData() {
+  function getText(element, query) {
+    const elm = element.querySelector(query);
+
+    return elm ? elm.innerText : '';
+  }
+
+  function getImageLink(element, query) {
+    const elm = element.querySelector(query);
+
+    return elm ? elm.src : '';
+  }
+
+  const elements = Array.from(document.querySelectorAll('.reusable-search__entity-result-list > li'))
+    .map((element) => [
+      getImageLink(element, 'img'),
+      getText(element, '.entity-result__title-text > .app-aware-link'),
+      getText(element, '.entity-result__primary-subtitle'),
+      getText(element, '.entity-result__secondary-subtitle')
+    ]);
+
+  debugger;
+
+  return [
+    [
+      ['Avatar' ,'Name', 'Job', 'Location'],
       ...elements
     ]
   ]
@@ -100,6 +142,8 @@ async function scrap() {
 
    if (tab.url.includes('ycombinator.com/companies')) {
      tables =  await getElements(tab.id, parseYCombinatorData);
+   } else if (tab.url.includes('linkedin.com/search')) {
+     tables = await getElements(tab.id, parseLinkedinData);
    } else {
      const elements = await getElements(tab.id, parseHTMLTableElem) ?? [];
      tables = elements.map(toArray);

@@ -1,5 +1,5 @@
 function hasImage(cell) {
-    return cell.startsWith('http') && (cell.endsWith('.jpg') || cell.endsWith('.jpeg') || cell.endsWith('.png'));
+    return cell.startsWith('http') && cell.includes('image') || (cell.endsWith('.jpg') || cell.endsWith('.jpeg') || cell.endsWith('.png'));
 }
 
 function processCell(cell) {
@@ -31,7 +31,7 @@ function array2table(header, data = []) {
                 <div class="tab_header">${header}</div>
                 <div class="data_lenght">${data.length}</div>
                 <div class="table-preview">
-                    <table>${data.slice(0,5).map(row => `<tr>${row.map(col => `<td>${renderCell(col)}</td>`).join('')}</tr>`).join('')}</table>
+                    <table>${data.slice(0,6).map(row => `<tr>${row.map(col => `<td>${renderCell(col)}</td>`).join('')}</tr>`).join('')}</table>
                 </div>
                 <button class="copy-button">Add data to new spreadsheet</button>
             </div>`;

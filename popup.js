@@ -1,6 +1,28 @@
+function hasImage(cell) {
+    return cell.startsWith('http') && (cell.endsWith('.jpg') || cell.endsWith('.jpeg') || cell.endsWith('.png'));
+}
+
+function processCell(cell) {
+    if (cell.startsWith('+')) {
+        return `='${cell}'`;
+    } else if (hasImage(cell)) {
+        return `=IMAGE("${cell}")`
+    }
+
+    return cell;
+}
+
+
+function renderCell(cell) {
+     if (hasImage(cell)) {
+        return `<img src="${cell}" />`;
+     }
+
+     return cell;
+}
 
 function array2tsv(data = []) {
-    return `${data.map(row => row.map(col => col.startsWith('+') ? `='${col}'` : col).join('\t')).join('\n').toString().replaceAll('"','&#34')}`;
+    return `${data.map(row => row.map(processCell).join('\t')).join('\n').toString().replaceAll('"','&#34')}`;
 }
 
 
@@ -9,7 +31,7 @@ function array2table(header, data = []) {
                 <div class="tab_header">${header}</div>
                 <div class="data_lenght">${data.length}</div>
                 <div class="table-preview">
-                    <table>${data.slice(0,5).map(row => `<tr>${row.map(col => `<td>${col}</td>`).join('')}</tr>`).join('')}</table>
+                    <table>${data.slice(0,5).map(row => `<tr>${row.map(col => `<td>${renderCell(col)}</td>`).join('')}</tr>`).join('')}</table>
                 </div>
                 <button class="copy-button">Add data to new spreadsheet</button>
             </div>`;

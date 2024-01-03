@@ -53,6 +53,25 @@ function parseHTMLTableElem() {
   });
 }
 
+function parseYCombinatorData() {
+  const elements = Array.from(document.querySelectorAll('[class*="_results_"] > a[class*="_company_"]'))
+    .map((element) => [
+      element.querySelector('img') ? element.querySelector('img').src : ' - ',
+      element.querySelector('[class*="_coName_"]').innerText,
+      element.querySelector('[class*="_coDescription_"]').innerText,
+      element.querySelector('[class*="_coLocation_"]').innerText,
+      '',
+      ''
+    ]);
+
+  return [
+    [
+      ['Logo' ,'Company name', 'Description', 'Location', 'Tags'],
+      ...elements
+    ]
+  ]
+}
+
 async function getCurrentTab() {
     const tabs = await chrome.tabs.query({
         active: true,
@@ -61,13 +80,13 @@ async function getCurrentTab() {
     return tabs[0];
 }
 
-async function getTableElements(tabId) {
+async function getElements(tabId, func) {
     const result = await chrome.scripting.executeScript({
       target: { tabId },
-      function: parseHTMLTableElem
+      function: func
     });
 
-    if ( result[0].length <= 0) {
+    if (result[0].length <= 0) {
       return [];
     }
 
@@ -77,9 +96,16 @@ async function getTableElements(tabId) {
 async function scrap() {
     const tab = await getCurrentTab();
 
-    const tables = await getTableElements(tab.id);
+    let tables = [];
 
-    return tables.map(toArray);
+   if (tab.url.includes('ycombinator.com/companies')) {
+     tables =  await getElements(tab.id, parseYCombinatorData);
+   } else {
+     const elements = await getElements(tab.id, parseHTMLTableElem) ?? [];
+     tables = elements.map(toArray);
+   }
+
+   return tables;
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

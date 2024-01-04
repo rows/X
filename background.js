@@ -140,6 +140,33 @@ function parseLinkedinData() {
   ]
 }
 
+function parseIdealistaData() {
+  function getText(element, query) {
+    const elm = element.querySelector(query);
+
+    return elm ? elm.innerText.replaceAll('\n', ' ').trim() : '';
+  }
+
+  const elements = Array.from(document.querySelectorAll('.item'))
+    .map((element) => {
+      return [
+        getText(element, '.item-link'),
+        getText(element, '.item-price'),
+        getText(element, '.item-detail-char > .item-detail:nth-child(1)'),
+        getText(element, '.item-detail-char > .item-detail:nth-child(2)'),
+        getText(element, '.item-description'),
+
+      ];
+    });
+
+  return [
+    [
+      ['Home' ,'Price', 'Typology', 'Area', 'Description'],
+      ...elements
+    ]
+  ]
+}
+
 async function getCurrentTab() {
     const tabs = await chrome.tabs.query({
         active: true,
@@ -173,6 +200,9 @@ async function scrap() {
    } else if (tab.url.includes('linkedin.com/search')) {
      tables = await getElements(tab.id, parseLinkedinData);
      headers = ['Linkedin search']
+   } else if (tab.url.includes('idealista.pt')) {
+     tables = await getElements(tab.id, parseIdealistaData);
+     headers = ['Idealista results'];
    } else {
      const elements = await getElements(tab.id, parseHTMLTableElem) ?? [];
      headers = await getElements(tab.id, parseHTMLTableTitles) ?? [];

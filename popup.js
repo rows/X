@@ -28,7 +28,7 @@ function array2tsv(data = []) {
 
 function array2table(header, data = []) {
     return `<div class="table-header">
-                <h1>header</h1>
+                <h1>${header}</h1>
                 <div class="pill">${data.length}</div>
             </div>
             <div class="grid-container" data-tsv="${array2tsv(data)}">
@@ -52,13 +52,13 @@ function copyToClipboard(evt) {
     chrome.runtime.sendMessage('rows-scrapper:start', (response) => {
         const element = document.querySelector('#preview');
 
-        if (response.length <= 0) {
+        if (response.tables.length <= 0) {
             element.innerHTML = `<div class="no-results">
                                     <b>No results</b>
                                     <p>We are sorry but we couldn't identify any list or table</p>
                                 </div>`;
         } else {
-            element.innerHTML = response.map(table => array2table('Number of rows:', table)).join('');
+            element.innerHTML = response.tables.map((table , index)=> array2table(response.headers[index], table )).join('');
 
             document.querySelectorAll('button').forEach(element => element.addEventListener('click', copyToClipboard))
         }

@@ -29,7 +29,6 @@ function toArray (table)  {
   return data.map((a) => a.map((a) => a.value))
 }
 
-
 function parseHTMLTableElem() {
   const tables = Array.from(document.querySelectorAll('table'));
 
@@ -52,6 +51,25 @@ function parseHTMLTableElem() {
       });
     })
   });
+}
+
+function parseHTMLTableTitles() {
+ return  [...document.querySelectorAll('table')].map(elem => {
+
+   let title = '';
+   let scrapElement = elem;
+   do {
+     const titleElement = scrapElement.querySelector('caption,h6,h5,h4,h3,h2,h1,title')
+
+     if (titleElement) {
+       title = titleElement.innerText.replaceAll('\n', ' ').trim();
+     }
+
+     scrapElement = scrapElement.parentElement;
+   } while (title === '');
+
+   return title;
+ });
 }
 
 function parseYCombinatorData() {
@@ -104,8 +122,6 @@ function parseLinkedinData() {
       getText(element, '.entity-result__secondary-subtitle')
     ]);
 
-  debugger;
-
   return [
     [
       ['Avatar' ,'Name', 'Job', 'Location'],
@@ -139,17 +155,24 @@ async function scrap() {
     const tab = await getCurrentTab();
 
     let tables = [];
+    let headers = [];
 
    if (tab.url.includes('ycombinator.com/companies')) {
      tables =  await getElements(tab.id, parseYCombinatorData);
+     headers = ['YCombinator companies']
    } else if (tab.url.includes('linkedin.com/search')) {
      tables = await getElements(tab.id, parseLinkedinData);
+     headers = ['Linkedin search']
    } else {
      const elements = await getElements(tab.id, parseHTMLTableElem) ?? [];
+     headers = await getElements(tab.id, parseHTMLTableTitles) ?? [];
      tables = elements.map(toArray);
    }
 
-   return tables;
+   return {
+     headers,
+     tables
+   };
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

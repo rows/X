@@ -36,15 +36,26 @@ function array2table(header, data = []) {
                     <table>${data.slice(0,6).map(row => `<tr>${row.map(col => `<td>${renderCell(col)}</td>`).join('')}</tr>`).join('')}</table>
                     ${data.length > 6 ? '<div class="shade"></div>' : '' }
                 </div>
-                <button class="copy-button">Add data to new spreadsheet</button>
+            <div class="buttons">
+                <button id="copy-button" class="copy-button"><img class="copy" src="./copy.png" /></button>
+                <button id="add-button" class="add-button">Add to new spreadsheet</button>
+            </div>
             </div>`;
 }
 
 function copyToClipboard(evt) {
-    const tsv = evt.currentTarget.parentNode.getAttribute('data-tsv');
+    const tsv = evt.currentTarget.parentNode.parentNode.getAttribute('data-tsv');
 
     navigator.clipboard.writeText(JSON.stringify({ from: 'rows_extension', data: tsv.toString() })).then(() => {
         window.open('https://app-13038.app.qa-rows.com/new');
+    });
+}
+
+function copyToClipboardOnly(evt) {
+    const tsv = evt.currentTarget.parentNode.parentNode.getAttribute('data-tsv')
+
+    navigator.clipboard.writeText(JSON.stringify({ from: 'rows_extension', data: tsv.toString() })).then(() => {
+        window.close();
     });
 }
 
@@ -60,7 +71,8 @@ function copyToClipboard(evt) {
         } else {
             element.innerHTML = response.tables.map((table , index)=> array2table(response.headers[index], table )).join('');
 
-            document.querySelectorAll('button').forEach(element => element.addEventListener('click', copyToClipboard))
+            document.querySelectorAll("#add-button").forEach(element => element.addEventListener('click', copyToClipboard));
+            document.querySelectorAll("#copy-button").forEach(element => element.addEventListener('click', copyToClipboardOnly))
         }
 
     });

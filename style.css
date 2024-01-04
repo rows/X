@@ -171,7 +171,14 @@ p {
     margin-bottom:16px;
 }
 
-.copy-button {
+.buttons {
+    display: grid;
+    grid-template-columns: auto 1fr ;
+    column-gap: 10px;
+    align-items: right;
+}
+
+.add-button {
     width: 100%;
     background: #FFC800;
     padding: 10px 32px;
@@ -183,10 +190,27 @@ p {
     margin-top: 8px;
 }
 
-.copy-button:hover {
+.add-button:hover {
     background: #f0bc00;
 }
 
-.copy-button:active {
+.add-button:active {
     background: #dfaf00;
+}
+
+.copy {
+    width: 14px;
+    height: 14px;
+}
+
+.copy-button {
+    width: 100%;
+    background: #EAEAEA;
+    padding: 13px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 8px;
 }

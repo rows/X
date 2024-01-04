@@ -40,7 +40,7 @@ function array2table(header, data = []) {
                 <button class="copy-button">
                     <img class="copy" src="./copy.png" />
                 </button>
-                <button class="add-button">Add to new spreadsheet</button>
+                <button class="add-button">Open in Rows</button>
             </div>
             </div>`;
 }

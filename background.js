@@ -105,7 +105,7 @@ function parseLinkedinData() {
   function getText(element, query) {
     const elm = element.querySelector(query);
 
-    return elm ? elm.innerText : '';
+    return elm ? elm.innerText.replaceAll('\n', ' ').trim() : '';
   }
 
   function getImageLink(element, query) {
@@ -115,16 +115,26 @@ function parseLinkedinData() {
   }
 
   const elements = Array.from(document.querySelectorAll('.reusable-search__entity-result-list > li'))
-    .map((element) => [
-      getImageLink(element, 'img'),
-      getText(element, '.entity-result__title-text > .app-aware-link'),
-      getText(element, '.entity-result__primary-subtitle'),
-      getText(element, '.entity-result__secondary-subtitle')
-    ]);
+    .map((element) => {
+      let link = ''
+
+      if (element.querySelector('.entity-result__title-text > .app-aware-link')) {
+        const url = new URL(element.querySelector('.entity-result__title-text > .app-aware-link').href);
+        link = url.origin + url.pathname
+      }
+
+      return [
+        getImageLink(element, 'img'),
+        getText(element, '.entity-result__title-text > .app-aware-link span[aria-hidden="true"]'),
+        getText(element, '.entity-result__primary-subtitle'),
+        getText(element, '.entity-result__secondary-subtitle'),
+        link
+      ];
+    });
 
   return [
     [
-      ['Avatar' ,'Name', 'Job', 'Location'],
+      ['Avatar' ,'Name', 'Job', 'Location', 'Profile URL'],
       ...elements
     ]
   ]

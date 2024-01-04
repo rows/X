@@ -37,8 +37,10 @@ function array2table(header, data = []) {
                     ${data.length > 6 ? '<div class="shade"></div>' : '' }
                 </div>
             <div class="buttons">
-                <button id="copy-button" class="copy-button"><img class="copy" src="./copy.png" /></button>
-                <button id="add-button" class="add-button">Add to new spreadsheet</button>
+                <button class="copy-button">
+                    <img class="copy" src="./copy.png" />
+                </button>
+                <button class="add-button">Add to new spreadsheet</button>
             </div>
             </div>`;
 }
@@ -54,9 +56,7 @@ function copyToClipboard(evt) {
 function copyToClipboardOnly(evt) {
     const tsv = evt.currentTarget.parentNode.parentNode.getAttribute('data-tsv')
 
-    navigator.clipboard.writeText(tsv).then(() => {
-        window.close();
-    });
+    navigator.clipboard.writeText(tsv.toString()).then(() => setTimeout(() => window.close() , 200));
 }
 
 (() => {
@@ -71,8 +71,8 @@ function copyToClipboardOnly(evt) {
         } else {
             element.innerHTML = response.tables.map((table , index)=> array2table(response.headers[index], table )).join('');
 
-            document.querySelectorAll("#add-button").forEach(element => element.addEventListener('click', copyToClipboard));
-            document.querySelectorAll("#copy-button").forEach(element => element.addEventListener('click', copyToClipboardOnly))
+            document.querySelectorAll(".add-button").forEach(element => element.addEventListener('click', copyToClipboard));
+            document.querySelectorAll(".copy-button").forEach(element => element.addEventListener('click', copyToClipboardOnly))
         }
 
     });

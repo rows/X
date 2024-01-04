@@ -54,7 +54,7 @@ function copyToClipboard(evt) {
 function copyToClipboardOnly(evt) {
     const tsv = evt.currentTarget.parentNode.parentNode.getAttribute('data-tsv')
 
-    navigator.clipboard.writeText(JSON.stringify({ from: 'rows_extension', data: tsv.toString() })).then(() => {
+    navigator.clipboard.writeText(tsv).then(() => {
         window.close();
     });
 }

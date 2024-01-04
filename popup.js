@@ -27,11 +27,14 @@ function array2tsv(data = []) {
 
 
 function array2table(header, data = []) {
-    return `<div class="grid-container" data-tsv="${array2tsv(data)}">
-                <div class="tab_header">${header}</div>
-                <div class="data_lenght">${data.length}</div>
+    return `<div class="table-header">
+                <h1>header</h1>
+                <div class="pill">${data.length}</div>
+            </div>
+            <div class="grid-container" data-tsv="${array2tsv(data)}">
                 <div class="table-preview">
                     <table>${data.slice(0,6).map(row => `<tr>${row.map(col => `<td>${renderCell(col)}</td>`).join('')}</tr>`).join('')}</table>
+                    ${data.length > 6 ? '<div class="shade"></div>' : '' }
                 </div>
                 <button class="copy-button">Add data to new spreadsheet</button>
             </div>`;
@@ -50,7 +53,7 @@ function copyToClipboard(evt) {
         const element = document.querySelector('#preview');
 
         if (response.length <= 0) {
-            element.innerHTML = `<div class="noResults">
+            element.innerHTML = `<div class="no-results">
                                     <b>No results</b>
                                     <p>We are sorry but we couldn't identify any list or table</p>
                                 </div>`;

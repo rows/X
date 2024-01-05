@@ -3,7 +3,9 @@ function hasImage(cell) {
 }
 
 function processCell(cell) {
-    if (cell.startsWith('+')) {
+    if (!cell) {
+        return '';
+    } else if (cell.startsWith('+')) {
         return `='${cell}'`;
     } else if (hasImage(cell)) {
         return `=IMAGE("${cell}")`

@@ -1,0 +1,26 @@
+{
+    "name": "@types/filesystem",
+    "version": "0.0.35",
+    "description": "TypeScript definitions for filesystem",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/filesystem",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Kon",
+            "url": "http://phyzkit.net/"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/filesystem"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/filewriter": "*"
+    },
+    "typesPublisherContentHash": "84b4ee28d506ce8c499d3e1476c49043570d628616c3748acded42a65e6119b5",
+    "typeScriptVersion": "4.5"
+}

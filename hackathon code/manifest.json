@@ -1,0 +1,17 @@
+{
+  "name": "Rows",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_icon": "rows.png",
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "../../../../../@crx/manifest": {
+    "file": "assets/crx-manifest.js-fESQ07K0.js",
+    "isEntry": true,
+    "src": "../../../../../@crx/manifest"
+  },
+  "index.html": {
+    "assets": [
+      "assets/Output Sans Regular-NdATkqnj.woff2",
+      "assets/Output Sans-bAf1NGVu.woff2"
+    ],
+    "css": [
+      "assets/index-7NtFk7Ca.css"
+    ],
+    "file": "assets/index.html-B3nTy8qA.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "public/fonts/Output Sans Regular.woff2": {
+    "file": "assets/Output Sans Regular-NdATkqnj.woff2",
+    "src": "public/fonts/Output Sans Regular.woff2"
+  },
+  "public/fonts/Output Sans.woff2": {
+    "file": "assets/Output Sans-bAf1NGVu.woff2",
+    "src": "public/fonts/Output Sans.woff2"
+  },
+  "src/background.ts": {
+    "file": "assets/background.ts-n_HpMY_0.js",
+    "isEntry": true,
+    "src": "src/background.ts"
+  }
+}

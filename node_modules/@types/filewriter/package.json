@@ -1,0 +1,24 @@
+{
+    "name": "@types/filewriter",
+    "version": "0.0.32",
+    "description": "TypeScript definitions for filewriter",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/filewriter",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Kon",
+            "url": "http://phyzkit.net/"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/filewriter"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "525ad667a8bf8ce9c80f9b1b826479e78d9c693ef951c38fbb6cf11deef493f1",
+    "typeScriptVersion": "4.5"
+}

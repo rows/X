@@ -1,0 +1,18 @@
+.no-results-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 255px;
+    flex-direction: column;
+    border: 1px dashed var(--light-grey);
+    border-radius: 8px;
+    color: var(--grey);
+    padding: 1rem;
+}

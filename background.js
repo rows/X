@@ -56,9 +56,10 @@ function parseHTMLTableElem() {
 function parseHTMLTableTitles() {
  return  [...document.querySelectorAll('table')].map(elem => {
 
-   let title = '';
+   let title = elem.previousElementSibling? elem.previousElementSibling.innerText.trim() : '';
    let scrapElement = elem;
-   do {
+
+   while  (title === '' || title.startsWith('.')) {
      const titleElement = scrapElement.querySelector('caption,h6,h5,h4,h3,h2,h1,title')
 
      if (titleElement) {
@@ -66,9 +67,9 @@ function parseHTMLTableTitles() {
      }
 
      scrapElement = scrapElement.parentElement;
-   } while (title === '');
+   }
 
-   return title;
+   return title.replace('[edit]', '');
  });
 }
 

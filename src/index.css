@@ -1,6 +1,11 @@
 :root {
+    --lighter-grey: #F7F7F7;
     --light-grey: #EAEAEA;
     --grey: #6F6F6F;
+    --button-secondary: #E1E1E1;
+    --button-secondary-hover: #E1E1E1;
+    --button-primary: #FFC800;
+    --button-primary-hover: #F0BC00;
 }
 
 @font-face {
@@ -22,6 +27,8 @@
 html, body, #root {
     margin: 0;
     padding: 0;
+    font-size: 14px;
+    color: black;
 }
 
 header {
@@ -41,13 +48,13 @@ header {
     letter-spacing: 0.2px;
 }
 
-b {
+b, strong {
     color: black;
     font-weight: 700;
 }
 
 .container {
-    margin: 1rem;
-    width: 360px;
-    height: 600px;
+    padding: 1rem;
+    width: 22.5rem;
+    max-height: 600px;
 }

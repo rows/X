@@ -10,9 +10,9 @@
       "assets/Output Sans-bAf1NGVu.woff2"
     ],
     "css": [
-      "assets/index-7NtFk7Ca.css"
+      "assets/index-5SghaCSG.css"
     ],
-    "file": "assets/index.html-B3nTy8qA.js",
+    "file": "assets/index.html-ZOaalt9n.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -25,7 +25,7 @@
     "src": "public/fonts/Output Sans.woff2"
   },
   "src/background.ts": {
-    "file": "assets/background.ts-n_HpMY_0.js",
+    "file": "assets/background.ts-j6lB_Uir.js",
     "isEntry": true,
     "src": "src/background.ts"
   }

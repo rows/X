@@ -1,21 +1,25 @@
 import {useEffect, useState} from "react";
 import './index.css'
-import NoResults from "./no-results.tsx";
+import NoResults from "./components/no-results.tsx";
+import Header from "./components/header.tsx";
+import Preview from "./components/preview.tsx";
 
 const App = () => {
-    const [message, setMessage] = useState(['1']);
+    const [results, setResults] = useState([]);
 
     useEffect(() => {
         chrome.runtime.sendMessage('rows-x:scrap', (response) => {
-            setMessage(response);
+            setResults(response);
         });
     }, []);
 
     return (
-        <div className="container">
-            {message.length > 0 ? <h1>Hello</h1> : <NoResults />}
-            {message.toString()}
-        </div>
+        <>
+        <Header />
+            <div className="container">
+                {results.length > 0 ? <Preview results={results} /> : <NoResults />}
+            </div>
+        </>
     );
 }
 

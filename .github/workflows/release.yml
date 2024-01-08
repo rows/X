@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-chrome-extension:
+    name: Build Chrome extension artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+          npm i
+          npm run build
+
+      - name: Create zip
+        run: |-
+          zip -r chrome-extension-${{ github.event.pull_request.head.sha }}.zip dist
+
+      - name: Archive chrome-extension artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: chrome-extension-${{ github.sha }}
+          path: chrome-extension-${{ github.event.pull_request.head.sha }}.zip

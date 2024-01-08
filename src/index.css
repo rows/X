@@ -53,6 +53,10 @@ b, strong {
     font-weight: 700;
 }
 
+a:visited{
+    color: var(--grey)
+}
+
 .container {
     padding: 1rem;
     width: 22.5rem;

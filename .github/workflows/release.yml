@@ -19,11 +19,12 @@ jobs:
           npm run build
 
       - name: Create zip
-        run: |-
-          zip -r chrome-extension-${{ github.event.pull_request.head.sha }}.zip dist
+        run: | 
+          cd dist
+          zip -r ../chrome-extension-${{ github.sha }}.zip *
 
       - name: Archive chrome-extension artifact
         uses: actions/upload-artifact@v2
         with:
           name: chrome-extension-${{ github.sha }}
-          path: chrome-extension-${{ github.event.pull_request.head.sha }}.zip
+          path: chrome-extension-${{ github.sha }}.zip

@@ -14,10 +14,10 @@ function getScrapperOptionsByUrl(url: string) {
         };
     }
 
-    if (url.includes('linkedin.com/search')) {
+    if (url.includes('linkedin.com') && url.includes('search')) {
         return {
             header: 'Linkedin search results',
-            listElementsQuery: '.reusable-search__entity-result-list > li',
+            listElementsQuery: '[data-chameleon-result-urn*="urn:li:member:"]',
             elementParser: [
                 { title: 'Avatar', query: 'img', type: 'image' },
                 { title: 'Name', query: '.entity-result__title-text > .app-aware-link span[aria-hidden="true"]', type: 'text' },
@@ -39,6 +39,35 @@ function getScrapperOptionsByUrl(url: string) {
                 { title: 'Area', query: '.item-detail-char > .item-detail:nth-child(2)', type: 'text' },
                 { title: 'Description', query: '.item-description', type: 'text' },
                 { title: 'Link', query: '.item-link', type: 'link' }
+            ]
+        }
+    }
+
+    if (url.includes('deliveroo') && url.includes('/restaurants/')) {
+        return {
+            header: 'Deliveroo search results',
+            listElementsQuery: 'a[class*="HomeFeedUICard-"]',
+            elementParser: [
+                { title: 'Restaurant', query: 'p', type: 'text' },
+                { title: 'Description', type: 'get-attribute', attribute: 'aria-label' },
+                { title: 'Rating', query: 'li:nth-child(2) > span:nth-child(3) > span', type: 'text' },
+                { title: 'Delivery time', query: '[class*="Bubble-"]', type: 'text'},
+                { title: 'Promotions', query: '[class*="BadgesOverlay-"]', type: 'text' },
+                { title: 'Restaurant link', type: 'clean-url' }
+            ]
+        }
+    }
+
+    if (url.includes('amazon') && url.includes('/s?k')) {
+        return {
+            header: 'Amazon search results',
+            listElementsQuery: '[class*="sg-"][data-cel-widget*="search_result_"]',
+            elementParser: [
+                { title: 'Product image', query: 'img', type: 'image' },
+                { title: 'Product name', query: '[data-cy="title-recipe"]', type: 'text' },
+                { title: 'Price', query: '.a-price .a-offscreen', type: 'text' },
+                { title: 'Rating', query: '.a-row.a-size-small > span', type: 'get-attribute', attribute: 'aria-label' },
+                { title: 'Amazon link', query : '[data-cy="title-recipe"] a', type: 'link' },
             ]
         }
     }

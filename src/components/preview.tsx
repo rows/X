@@ -32,7 +32,7 @@ function Preview({ results = [] }) {
                         </div>
                         <div className="table-actions">
                             <Button type="secondary" onClick={() => {
-                                navigator.clipboard.writeText(array2tsv(result.table)).then(() => window.close());
+                                navigator.clipboard.writeText(array2tsv(result.table)).then(() => setTimeout(() => window.close(), 200));
                             }}>
                                 <img src="/icons/copy.svg" />
                             </Button>

@@ -6,7 +6,7 @@ const NoResults = () => {
             <div className="no-results">
                 <img src="/empty.svg" />
                 <strong>No results</strong>
-                We are sorry but we couldn't identify any list or table in the page
+                Are we missing something? <a>Request website</a> and we will make it work for you!
             </div>
         </div>
     );

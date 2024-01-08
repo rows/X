@@ -104,35 +104,61 @@ export async function runScrapper(options: any) {
             func: (options) => {
                 // parser functions
                 function getText(element: any, query: string) {
-                    const elem = element.querySelector(query);
+                   let elem = element;
+
+                    if (query) {
+                        elem = element.querySelector(query);
+                    }
 
                     return elem?.innerText?.replaceAll('\n', ' ')?.trim() ?? '';
                 }
 
                 function getImageSrc(element: any, query: string) {
-                    const elem = element.querySelector(query);
+                   let elem = element;
+
+                    if (query) {
+                        elem = element.querySelector(query);
+                    }
 
                     return elem ? elem.src : '';
                 }
 
                 function getLink(element: any, query: any) {
-                    const elem = element.querySelector(query);
+                    let elem = element;
+
+                    if (query) {
+                        elem = element.querySelector(query);
+                    }
 
                     return elem ? elem.href : '';
                 }
 
                 function getCleanUrl(element: any, query: string) {
-                    const elem = element.querySelector(query);
+                    let elem = element;
+
+                    if (query) {
+                        elem = element.querySelector(query);
+                    }
 
                     if (!elem) {
                         return '';
                     }
 
                     const url = new URL(elem.href);
-                    return url.origin + url.pathname
+                    return url.origin + url.pathname;
                 }
 
-                function parse(element: any, query: string, type: string) {
+                function getAttribute(element: any, query: string, attribute: string) {
+                    let elem = element;
+
+                    if (query) {
+                        elem = element.querySelector(query);
+                    }
+
+                    return elem?.getAttribute(attribute)?.replaceAll('\n', ' ').trim() ?? '';
+                }
+
+                function parse(element: any, query: string, type: string, attribute: string) {
                     switch (type) {
                         case 'text':
                             return getText(element, query);
@@ -142,6 +168,8 @@ export async function runScrapper(options: any) {
                             return getCleanUrl(element, query);
                         case 'link':
                             return getLink(element, query);
+                        case 'get-attribute':
+                            return getAttribute(element, query, attribute)
                         default:
                             return '';
                     }
@@ -150,7 +178,7 @@ export async function runScrapper(options: any) {
                 const tableElements = Array.from(document.querySelectorAll(options.listElementsQuery))
                     .map((element) => {
                         return options.elementParser
-                            .map((parserInfo: any) => parse(element, parserInfo.query, parserInfo.type))
+                            .map((parserInfo: any) => parse(element, parserInfo.query, parserInfo.type, parserInfo.attribute))
                     });
 
                 return [{

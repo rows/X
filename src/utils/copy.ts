@@ -1,7 +1,7 @@
 export function hasImage(cell: any) {
     return cell.startsWith('http') && (
         cell.includes('image') || (
-            cell.endsWith('.jpg') || cell.endsWith('.jpeg') || cell.endsWith('.png')
+            cell.includes('.jpg') || cell.includes('.jpeg') || cell.includes('.png')
         )
     );
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Rows X",
-  "version": "1.0.0",
+  "name": "RowsX",
+  "version": "1.0.1",
   "manifest_version": 3,
   "background": {
     "service_worker": "src/background.ts",
@@ -12,7 +12,12 @@
     "scripting"
   ],
   "action": {
-    "default_icon": "rows.png",
+    "default_icon": "48x48.png",
     "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "16x16.png",
+    "48": "48x48.png",
+    "128": "128x128.png"
   }
 }

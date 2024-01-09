@@ -7,35 +7,47 @@ export async function getCurrentTab() {
 }
 
 export async function scrapHTMLTables() {
+    function removeEmptyColumns (arr: any[]) {
+        // detect empty columns
+        const emptyColumns = (arr[0] || []).map((_: any, index: number) => arr.some(col => col[index]));
+
+        // filter empty columns
+        return arr.map(column => column.filter((_: any, index: number) => emptyColumns[index]));
+    }
+
     function toArray (table: any)  {
         const data : any = []
 
         for (let i = 0; i < table.length; i++) {
-            const tr : any = table[i]
+            const tr : any = table[i];
 
             for (let j = 0; j < tr.length; j++) {
-                const td = tr[j]
+                const td = tr[j];
 
                 for (let c = 0; c < td.colspan; c++) {
-                    if (!data[i]) data[i] = []
+                    if (!data[i]) {
+                        data[i] = [];
+                    }
 
-                    data[i].push({ ...td, colspan: 1 })
+                    data[i].push({ ...td, colspan: 1 });
                 }
             }
         }
 
         for (let i = 0; i < data.length; i++) {
-            const tr : any = data[i]
+            const tr : any = data[i];
             for (let j = 0; j < tr.length; j++) {
-                const td = tr[j]
+                const td = tr[j];
                 for (let r = 1; r < td.rowspan; r++) {
-                    if (!data[i + r]) data[i + r] = []
-                    data[i + r].splice(j, 0, { ...td, rowspan: 1 })
+                    if (!data[i + r]) {
+                        data[i + r] = [];
+                    }
+                    data[i + r].splice(j, 0, { ...td, rowspan: 1 });
                 }
             }
         }
 
-        return data.map((a : any) => a.map((a : any) => a.value))
+        return removeEmptyColumns(data.map((row : any) => row.map((col : any) => col.value)));
     }
 
     const titles: string[] = [];
@@ -84,7 +96,9 @@ export async function scrapHTMLTables() {
     });
 
 
-    return tables.map((table: any, index: number) => ({ title: titles[index], table: toArray(table) }));
+    return tables
+        .map((table: any, index: number) => ({ title: titles[index], table: toArray(table) }))
+        .filter((table => !table.table.every((row: any) => row.every((col: any) => col === ''))));
 }
 
 export async function runScrapper(options: any) {

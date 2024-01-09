@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "preact/hooks";
 import './index.css'
 import NoResults from "./components/no-results.tsx";
 import Header from "./components/header.tsx";

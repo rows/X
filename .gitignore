@@ -322,6 +322,8 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 
+.idea/**/*.xml
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db

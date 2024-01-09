@@ -37,8 +37,8 @@ function Preview({ results = [] }) {
                                 <img src="/icons/copy.svg" />
                             </Button>
                             <Button className="open-rows-btn" type="primary" onClick={() => {
-                                navigator.clipboard.writeText(JSON.stringify({ from: 'rows_extension', data: array2tsv(result.table) })).then(() => {
-                                    window.open('https://app-13038.app.qa-rows.com/new');
+                                navigator.clipboard.writeText(JSON.stringify({ from: '%ROWS_X%', data: array2tsv(result.table) })).then(() => {
+                                    window.open('https://qa-rows.com/new');
                                 });
                             }}>Open in Rows</Button>
                         </div>

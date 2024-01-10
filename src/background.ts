@@ -89,7 +89,6 @@ function getScrapperOptionsByUrl(url: string) {
         }
     }
 
-
     if (url.includes('producthunt.com')) {
         return {
             header: 'ProductHunt results',
@@ -103,6 +102,19 @@ function getScrapperOptionsByUrl(url: string) {
             ]
         }
     }
+
+    /*if (url.includes('file://')) { // Pitchbook
+        return {
+            header: 'PitchBook results',
+            parseTables: {
+                tables: [
+                    { rows: '#search-results-data-table-left .data-table__row', cols: '.data-table__cell' },
+                    { rows: '#search-results-data-table-right .data-table__row, #search-results-data-table-right .data-table__headers', cols: '.data-table__cell' },
+                ],
+                mergeTablesBy: 'column',
+            },
+        }
+    }*/
 
     return null;
 }

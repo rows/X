@@ -28,7 +28,7 @@ function getScrapperOptionsByUrl(url: string) {
         };
     }
 
-    if (url.includes('idealista.pt/comprar-')) {
+    if (url.includes('idealista.pt') && url.includes('/comprar-')) {
         return {
             header: 'Idealista search results',
             listElementsQuery: '.item',

@@ -209,6 +209,21 @@ function getScrapperOptionsByUrl(url: string, title: string) {
         }
     }
 
+    if (url.includes('google.com/maps/search')) {
+        return {
+            header: title,
+            listElementsQuery: '[role="feed"] [jsaction*="mouseover"]',
+            elementParser: [
+                { title: 'Image', query: 'img', type: 'image' },
+                { title: 'Name', query: 'a', type: 'get-attribute', attribute: 'aria-label' },
+                { title: 'Rating', query: 'span[role="img"]', type: 'get-attribute', attribute: 'aria-label'},
+                { title: 'Link', query: 'a', type: 'clean-url' }
+            ]
+        }
+    }
+
+    //
+
     return null;
 }
 

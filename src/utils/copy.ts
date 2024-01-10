@@ -6,6 +6,8 @@ export function hasImage(cell: any) {
     return cell.startsWith('http') && (
         cell.toLowerCase().includes('/image/')
         || cell.toLowerCase().includes('/images/')
+        || cell.toLowerCase().includes('thumbnail')
+        || cell.includes('googleusercontent.com/p/')
         || (
             cell.includes('.jpg')
             || cell.includes('.jpeg')

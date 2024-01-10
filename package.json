@@ -6,16 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "preact": "^10.19.3"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "^2.0.0-beta.15",
-    "@types/chrome": "^0.0.256",
+    "@crxjs/vite-plugin": "^2.0.0-beta.21",
     "@preact/preset-vite": "^2.8.1",
+    "@types/chrome": "^0.0.256",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "eslint": "^8.55.0",

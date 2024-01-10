@@ -103,7 +103,11 @@ function getScrapperOptionsByUrl(url: string) {
         }
     }
 
-    /*if (url.includes('file://')) { // Pitchbook
+    if (url.includes('https://my.pitchbook.com/search-results') && (
+        url.includes('deals')
+        || url.includes('companies')
+        || url.includes('investors')
+    )) {
         return {
             header: 'PitchBook results',
             parseTables: {
@@ -114,7 +118,7 @@ function getScrapperOptionsByUrl(url: string) {
                 mergeTablesBy: 'column',
             },
         }
-    }*/
+    }
 
     if (url.includes('finance.yahoo.com/quote/') && url.includes('financials')) {
         return {

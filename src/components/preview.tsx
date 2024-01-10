@@ -17,7 +17,7 @@ function Preview({ results = [] }) {
                 <div className="table-preview">
                     <div className="table-header">
                         <caption className="title">{result.title}</caption>
-                        <div className="pill">{`${result.table.length} records`}</div>
+                        <div className="pill">{`${result.table.length - 1} records`}</div>
                     </div>
                     <div className="table-body">
                         <div className="table-container">

@@ -28,7 +28,10 @@ function getScrapperOptionsByUrl(url: string, title: string) {
         };
     }
 
-    if (url.includes('idealista.pt') && url.includes('/comprar-')) {
+    if (url.includes('idealista.pt') && (
+        url.includes('/comprar-')
+        || url.includes('/arrendar-')
+    )) {
         return {
             header: 'Idealista search results',
             listElementsQuery: '.item',
@@ -150,7 +153,7 @@ function getScrapperOptionsByUrl(url: string, title: string) {
 
 async function scrap() {
     const tab = await getCurrentTab();
-    const options = getScrapperOptionsByUrl(tab.url!, tab.title);
+    const options = getScrapperOptionsByUrl(tab.url!, tab.title!);
 
     const elements = await runScrapper(options);
 

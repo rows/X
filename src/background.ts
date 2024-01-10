@@ -148,6 +148,38 @@ function getScrapperOptionsByUrl(url: string, title: string) {
         }
     }
 
+    if (url.includes('yellowpages.com/search')) {
+        return {
+            header: title,
+            listElementsQuery: '.result',
+            elementParser: [
+                { title: 'Logo', query: 'img', type: 'image' },
+                { title: 'Name', query: '.business-name', type: 'text' },
+                { title: 'Phone number', query: '.phone', type: 'text' },
+                { title: 'Address', query: '.adr', type: 'text' },
+                { title: 'Categories', query: '.categories', type: 'text' },
+                { title: 'Website', query: '.track-visit-website', type: 'link' }
+            ]
+        }
+    }
+
+    if (url.includes('yelp.com/search')) {
+        return {
+            header: title,
+            listElementsQuery: '[data-testid="serp-ia-card"]',
+            elementParser: [
+                { title: 'Image', query: 'img', type: 'image' },
+                { title: 'Name', query: '[class*="businessName_"]', type: 'text' },
+                { title: 'Rating', query: 'span[data-font-weight="semibold"]', type: 'text' },
+                { title: 'Categories', query: '[class*="priceCategory"]', type: 'text' },
+                { title: 'Yelp link', query: '[class*="businessName_"] a', type: 'clean-url' }
+            ]
+        }
+    }
+
+
+    //
+
     return null;
 }
 

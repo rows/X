@@ -26,7 +26,7 @@ function Preview({ results = [] }) {
                                     <tr>{row.map((col: any) => <td>{renderCell(col)}</td>)}</tr>
                                 )}
                             </table>
-                            {result.table.length > 0 && (
+                            {result.table.length > 5 && (
                                 <div className="shade" />
                             )}
                         </div>

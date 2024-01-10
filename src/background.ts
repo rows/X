@@ -116,6 +116,19 @@ function getScrapperOptionsByUrl(url: string) {
         }
     }*/
 
+    if (url.includes('finance.yahoo.com/quote/') && url.includes('financials')) {
+        return {
+            header: 'Yahoo quote results',
+            parseTables: {
+                tables: [
+                    { rows: '[class*="(tbhg)"]>[class*="(tbr)"]', cols: 'div > span' },
+                    { rows: '[class*="(tbr)"]', cols: '[data-test="fin-col"], [title]' },
+                ],
+                mergeTablesBy: 'row'
+            },
+        }
+    }
+
     return null;
 }
 

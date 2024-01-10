@@ -1,4 +1,8 @@
 export function hasImage(cell: any) {
+    if (!cell) {
+        return '';
+    }
+
     return cell.startsWith('http') && (
         cell.includes('/image/')
         || (
@@ -7,6 +11,7 @@ export function hasImage(cell: any) {
             || cell.includes('.png')
             || cell.includes('.gif')
             || cell.includes('.svg')
+            || cell.includes('.webp')
         )
     );
 }
@@ -14,7 +19,7 @@ export function hasImage(cell: any) {
 function processCell(cell: string) {
     if (!cell) {
         return '';
-    } else if (cell.startsWith('+')) {
+    } else if (cell?.startsWith('+')) {
         return `='${cell}'`;
     } else if (hasImage(cell)) {
         return `=IMAGE("${cell}")`

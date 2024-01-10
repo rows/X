@@ -23,6 +23,8 @@ export async function scrapDivHTMLTables(options: any) {
         for(let i = 0; i <= tables[0].length; ++i) {
             table.push(tables.map((table: any) => table[i]).flat(Infinity));
         }
+    } else if (options.mergeTablesBy === 'row') {
+        table= [...tables.flat(1)];
     } else {
         table = tables;
     }

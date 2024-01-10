@@ -129,6 +129,18 @@ function getScrapperOptionsByUrl(url: string) {
         }
     }
 
+    if (url.includes('www.netflix.com/browse')) {
+        return {
+            header: 'Netflix browse results',
+            listElementsQuery: '.title-card',
+            elementParser: [
+                { title: 'Cover', query: 'img', type: 'image' },
+                { title: 'Title', query: '.fallback-text', type: 'text' },
+                { title: 'Link', query: 'a', type: 'clean-url' },
+            ]
+        }
+    }
+
     return null;
 }
 

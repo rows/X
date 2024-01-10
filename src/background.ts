@@ -1,6 +1,6 @@
 import {getCurrentTab, runScrapper} from './utils/chrome';
 
-function getScrapperOptionsByUrl(url: string) {
+function getScrapperOptionsByUrl(url: string, title: string) {
     if (url.includes('ycombinator.com/companies')) {
         return {
             header: 'YCombinator results',
@@ -109,8 +109,8 @@ function getScrapperOptionsByUrl(url: string) {
         || url.includes('investors')
     )) {
         return {
-            header: 'PitchBook results',
             parseTables: {
+                header: title,
                 tables: [
                     { rows: '#search-results-data-table-left .data-table__row', cols: '.data-table__cell' },
                     { rows: '#search-results-data-table-right .data-table__row, #search-results-data-table-right .data-table__headers', cols: '.data-table__cell' },
@@ -122,8 +122,8 @@ function getScrapperOptionsByUrl(url: string) {
 
     if (url.includes('finance.yahoo.com/quote/') && url.includes('financials')) {
         return {
-            header: 'Yahoo quote results',
             parseTables: {
+                header: title,
                 tables: [
                     { rows: '[class*="(tbhg)"]>[class*="(tbr)"]', cols: 'div > span' },
                     { rows: '[class*="(tbr)"]', cols: '[data-test="fin-col"], [title]' },
@@ -150,7 +150,7 @@ function getScrapperOptionsByUrl(url: string) {
 
 async function scrap() {
     const tab = await getCurrentTab();
-    const options = getScrapperOptionsByUrl(tab.url!);
+    const options = getScrapperOptionsByUrl(tab.url!, tab.title);
 
     const elements = await runScrapper(options);
 

@@ -177,8 +177,21 @@ function getScrapperOptionsByUrl(url: string, title: string) {
         }
     }
 
-
-    //
+    if (url.includes('zillow.com') && url.includes('?search')) {
+        return {
+            header: title,
+            listElementsQuery: '[data-test="property-card"]',
+            elementParser: [
+                { title: 'Image', query: 'img', type: 'image' },
+                { title: 'Address', query: '[data-test="property-card-addr"]', type: 'text' },
+                { title: 'Price', query: '[data-test="property-card-price"]', type: 'text' },
+                { title: 'Bedrooms', query: 'ul[class*="StyledPropertyCardHomeDetailsList"] li:nth-child(1)', type: 'text' },
+                { title: 'Bathrooms', query: 'ul[class*="StyledPropertyCardHomeDetailsList"] li:nth-child(2)', type: 'text' },
+                { title: 'Area', query: 'ul[class*="StyledPropertyCardHomeDetailsList"] li:nth-child(3)', type: 'text' },
+                { title: 'Zillow link', query: '[data-test="property-card-link"]', type: 'link' },
+            ]
+        }
+    }
 
     return null;
 }

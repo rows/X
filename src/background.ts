@@ -193,6 +193,22 @@ function getScrapperOptionsByUrl(url: string, title: string) {
         }
     }
 
+    if (url.includes('ebay.com/sch/')) {
+        return {
+            header: title,
+            listElementsQuery: 'ul > [id*="item"]',
+            elementParser: [
+                { title: 'Image', query: 'img', type: 'image' },
+                { title: 'Name', query: '.s-item__title', type: 'text' },
+                { title: 'Price', query: '.s-item__price', type: 'text' },
+                { title: 'State', query: '.s-item__subtitle', type: 'text' },
+                { title: 'From', query: '.s-item__itemLocation', type: 'text' },
+                { title: 'Seller info', query: '.s-item__seller-info-text', type: 'text' },
+                { title: 'Product link', query: '.s-item__info > a', type: 'clean-url' },
+            ]
+        }
+    }
+
     return null;
 }
 

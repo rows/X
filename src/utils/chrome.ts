@@ -1,9 +1,10 @@
 export async function getCurrentTab() {
-    const tabs = await chrome.tabs.query({
+    const [tab] = await chrome.tabs.query({
         active: true,
+        lastFocusedWindow: true
     });
 
-    return tabs[0];
+    return tab;
 }
 
 export async function scrapHTMLTables() {
@@ -134,7 +135,7 @@ export async function runScrapper(options: any) {
                         elem = element.querySelector(query);
                     }
 
-                    return elem ? elem.src : '';
+                    return elem ? elem.poster ?? elem.src : '';
                 }
 
                 function getLink(element: any, query: any) {

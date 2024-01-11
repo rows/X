@@ -8,13 +8,14 @@
     justify-content: center;
     align-items: center;
     width: auto;
-    min-width: 2.5rem;
     height: 2.5rem;
+    padding: 0.75rem;
 }
 
 .small {
     width: 22px;
     height: 22px;
+    padding: 0;
 }
 
 .btn:hover {

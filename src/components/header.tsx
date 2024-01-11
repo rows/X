@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <header className="header">
             <img src="/logo.svg" />
-            <Button onClick={() => window.close()}>
+            <Button size="small" onClick={() => window.close()}>
                 <img src="/icons/close.svg" />
             </Button>
         </header>

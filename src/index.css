@@ -53,7 +53,7 @@ b, strong {
     font-weight: 700;
 }
 
-a:visited{
+a:visited, a:link {
     color: var(--grey)
 }
 

@@ -1,6 +1,20 @@
 import {getCurrentTab, runScrapper} from './utils/chrome';
 
 function getScrapperOptionsByUrl(url: string, title: string) {
+    if (url.includes('bpinet.bancobpi.pt/BPINet_Contas/Movimentos.aspx')) {
+        return {
+            header: 'BPI Bank Account Transactions',
+            listElementsQuery: '.TableRecords > tbody > tr',
+            elementParser: [
+                { title: 'Date Movement', query: 'td:nth-child(1) > span', type: 'text' },
+                { title: 'Date Movement', query: 'td:nth-child(2) > div > span', type: 'text' },
+                { title: 'Description', query: 'td:nth-child(3) > div > div:nth-child(2) > div > div:nth-child(2) > a', type: 'text' },
+                { title: 'Value', query: 'td:nth-child(4) > div > span', type: 'text' },
+                { title: 'Balance', query: 'td:nth-child(5) > div > span', type: 'text' },
+            ]
+        };
+    }
+    
     if (url.includes('ycombinator.com/companies')) {
         return {
             header: 'YCombinator results',

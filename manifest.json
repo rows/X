@@ -1,6 +1,6 @@
 {
   "name": "RowsX",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "manifest_version": 3,
   "background": {
     "service_worker": "src/background.ts",
@@ -10,6 +10,11 @@
     "tabs",
     "activeTab",
     "scripting"
+  ],
+  "host_permissions": [
+    "https://rows.com/*",
+    "https://rows.new/*",
+    "https://*.rows.com/*"
   ],
   "action": {
     "default_icon": "app_icons/48x48.png",

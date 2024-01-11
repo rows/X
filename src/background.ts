@@ -236,9 +236,31 @@ async function scrap() {
     return elements;
 }
 
+function storeRowsXData(tsv: string) {
+    setTimeout(async () => {
+        const tab = await getCurrentTab();
+
+        await chrome.scripting.executeScript({
+            target: { tabId: tab.id! },
+            args: [tsv],
+            func: (tsv) => {
+                window.localStorage.setItem('rows_x', JSON.stringify({ source: '%ROWS_X%', data: tsv} ));
+            },
+        });
+    }, 400);
+
+}
+
 chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
-    if (message === 'rows-x:scrap') {
-        scrap().then((data) => sendResponse(data));
+    switch (message.action) {
+        case 'rows-x:scrap':
+            scrap().then((data) => sendResponse(data));
+            break;
+        case 'rows-x:store':
+            storeRowsXData(message.data);
+            break;
+        default:
+            break;
     }
 
     return true; // return true to indicate you want to send a response asynchronously

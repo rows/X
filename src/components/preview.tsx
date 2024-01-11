@@ -37,9 +37,11 @@ function Preview({ results = [] }) {
                                 <img src="/icons/copy.svg" />
                             </Button>
                             <Button className="open-rows-btn" type="primary" onClick={() => {
-                                navigator.clipboard.writeText(JSON.stringify({ source: '%ROWS_X%', data: array2tsv(result.table) })).then(() => {
+                                chrome.runtime.sendMessage({ action: 'rows-x:store', data: array2tsv(result.table) });
+
+                                setTimeout(() => {
                                     window.open('https://rows.new');
-                                });
+                                }, 0);
                             }}>Open in Rows</Button>
                         </div>
                     </div>

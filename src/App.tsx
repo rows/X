@@ -8,7 +8,7 @@ const App = () => {
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        chrome.runtime.sendMessage('rows-x:scrap', (response) => {
+        chrome.runtime.sendMessage({ action: 'rows-x:scrap' }, (response) => {
             setResults(response);
         });
     }, []);

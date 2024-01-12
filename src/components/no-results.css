@@ -22,3 +22,8 @@
 .no-results > img {
     margin: 1rem;
 }
+
+.btn-container {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}

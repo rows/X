@@ -24,6 +24,7 @@
 
 .primary {
     background: var(--button-primary);
+    padding: 0.5rem 2rem;
 }
 
 .primary:hover {

@@ -40,7 +40,7 @@ function Preview({ results = [] }) {
                                 chrome.runtime.sendMessage({ action: 'rows-x:store', data: array2tsv(result.table) });
 
                                 setTimeout(() => {
-                                    window.open('https://rows.new');
+                                    window.open('https://rows.com/new');
                                 }, 0);
                             }}>Open in Rows</Button>
                         </div>

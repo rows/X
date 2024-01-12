@@ -177,7 +177,7 @@ function getScrapperOptionsByUrl(url: string, title: string) {
         }
     }
 
-    if (url.includes('zillow.com') && url.includes('?search')) {
+    if (url.includes('zillow.com') && (url.includes('/for_') || url.includes('?search'))) {
         return {
             header: title,
             listElementsQuery: '[data-test="property-card"]',
@@ -247,7 +247,7 @@ function storeRowsXData(tsv: string) {
                 window.localStorage.setItem('rows_x', JSON.stringify({ source: '%ROWS_X%', data: tsv} ));
             },
         });
-    }, 400);
+    }, 250);
 
 }
 

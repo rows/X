@@ -20,32 +20,6 @@ export async function customScrapper(options: any) {
         return elem ? elem.poster ?? elem.src : '';
     }
 
-    function getDeferredImageSrc(element: any, query: string): string {
-        let elem = element;
-    
-        if (query) {
-            elem = element.querySelector(query);
-        }
-    
-        if (!elem) {
-            return '';
-        }
-    
-        const dataDeferredImageSrc = elem.getAttribute('data-deferred-image-src');
-    
-        if (!dataDeferredImageSrc) {
-            return '';
-        }
-    
-        // Split the content by commas
-        const srcArray = dataDeferredImageSrc.split(',');
-    
-        // Extract the first URL (before the space)
-        const firstSrc = srcArray[0].split(' ')[0];
-    
-        return firstSrc.trim();
-    }
-
     function getLink(element: any, query: any) {
         let elem = element;
 
@@ -93,8 +67,6 @@ export async function customScrapper(options: any) {
                 return getLink(element, query);
             case 'get-attribute':
                 return getAttribute(element, query, attribute)
-            case 'deferred-image':
-                return getDeferredImageSrc(element, query);
             default:
                 return '';
         }

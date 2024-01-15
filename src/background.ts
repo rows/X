@@ -19,12 +19,12 @@ function getScrapperOptionsByUrl(url: string, title: string) {
     if (url.includes('tiktok.com/search') || url.includes('tiktok.com/search/video')) {
         return {
             header: 'TikTok Search Results',
-            listElementsQuery: '.css-1soki6-DivItemContainerForSearch',
+            listElementsQuery: '[class*="-DivItemContainerForSearch"]',
             elementParser: [
-                { title: 'Url', query: '[class*="css-1as5cen-DivWrapper"] > a', type: 'link' },
-                { title: 'Description', query: '.css-j2a19r-SpanText', type: 'text' },
-                { title: 'Author', query: '.css-2zn17v-PUniqueId', type: 'text' },
-                { title: 'Views count', query: '.css-ws4x78-StrongVideoCount', type: 'text' },
+                { title: 'Url', query: '[class*="-DivWrapper"] > a', type: 'link' },
+                { title: 'Description', query: '[class*="-SpanText"]', type: 'text' },
+                { title: 'Author', query: '[class*="-PUniqueId"]', type: 'text' },
+                { title: 'Views count', query: '[class*="-StrongVideoCount"]', type: 'text' },
             ]
         };
     }

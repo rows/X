@@ -8,7 +8,7 @@ function getScrapperOptionsByUrl(url: string, title: string) {
             listElementsQuery: '.css-1d5vh4i-DivLink',
             elementParser: [
                 { title: 'Avatar', query: '.css-1zpj2q-ImgAvatar', type: 'image' },
-                { title: 'Name', query: 'css-1ns35wh-PTitle', type: 'text' },
+                { title: 'Name', query: '.css-1ns35wh-PTitle', type: 'text' },
                 { title: 'Followers count', query: '[class*="css-1n1o5vj-DivSubTitleWrapper"] > span', type: 'text' },
                 { title: 'Description', query: '.css-1jq7d8a-PDesc', type: 'text' },
             ]

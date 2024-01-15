@@ -5,7 +5,7 @@ function getScrapperOptionsByUrl(url: string, title: string) {
     if (url.includes('tiktok.com/search/user')) {
         return {
             header: 'TikTok Search Results',
-            listElementsQuery: '[class*="-DivLink"]',
+            listElementsQuery: '[class*="DivPanelContainer"] > [class*="-DivLink"]',
             elementParser: [
                 { title: 'Avatar', query: '[class*="-ImgAvatar"]', type: 'image' },
                 { title: 'Name', query: '[class*="-PTitle"]', type: 'text' },

@@ -15,6 +15,20 @@ function getScrapperOptionsByUrl(url: string, title: string) {
         };
     }
 
+    if (url.includes('g2.com/search')) {
+        return {
+            header: 'G2 results',
+            listElementsQuery: '[class*="paper mb-1"]',
+            elementParser: [
+                { title: 'Logo', query: '[class*="product-listing__img"] > img', type: 'get-attribute', attribute: 'data-deferred-image-src' },
+                { title: 'Product name', query: '.product-listing__product-name > a > div', type: 'text' },
+                { title: 'Total reviews', query: '.px-4th', type: 'text' },
+                { title: 'Rating', query: '.link--header-color', type: 'text' },
+                { title: 'Categories', query: '.product-listing__search-footer > .cell', type: 'text' },
+            ]
+        };
+    }
+
     if (url.includes('ycombinator.com/companies')) {
         return {
             header: 'YCombinator results',

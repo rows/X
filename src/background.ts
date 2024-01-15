@@ -7,10 +7,10 @@ function getScrapperOptionsByUrl(url: string, title: string) {
             header: 'TikTok Search Results',
             listElementsQuery: '.css-1d5vh4i-DivLink',
             elementParser: [
-                { title: 'Avatar', query: '[class*="css-1zpj2q-ImgAvatar"]', type: 'image' },
-                { title: 'Name', query: '[class*="css-1ns35wh-PTitle"]', type: 'text' },
+                { title: 'Avatar', query: '.css-1zpj2q-ImgAvatar', type: 'image' },
+                { title: 'Name', query: 'css-1ns35wh-PTitle', type: 'text' },
                 { title: 'Followers count', query: '[class*="css-1n1o5vj-DivSubTitleWrapper"] > span', type: 'text' },
-                { title: 'Description', query: '[class*="css-1jq7d8a-PDesc"]', type: 'text' },
+                { title: 'Description', query: '.css-1jq7d8a-PDesc', type: 'text' },
             ]
         };
     }
@@ -22,9 +22,9 @@ function getScrapperOptionsByUrl(url: string, title: string) {
             listElementsQuery: '.css-1soki6-DivItemContainerForSearch',
             elementParser: [
                 { title: 'Url', query: '[class*="css-1as5cen-DivWrapper"] > a', type: 'link' },
-                { title: 'Description', query: '[class*="css-j2a19r-SpanText"]', type: 'text' },
-                { title: 'Author', query: '[class*="css-2zn17v-PUniqueId"]', type: 'text' },
-                { title: 'Views count', query: '[class*="css-ws4x78-StrongVideoCount"]', type: 'text' },
+                { title: 'Description', query: '.css-j2a19r-SpanText', type: 'text' },
+                { title: 'Author', query: '.css-2zn17v-PUniqueId', type: 'text' },
+                { title: 'Views count', query: '.css-ws4x78-StrongVideoCount', type: 'text' },
             ]
         };
     }

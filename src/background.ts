@@ -1,6 +1,34 @@
 import {getCurrentTab, runScrapper} from './utils/chrome';
 
 function getScrapperOptionsByUrl(url: string, title: string) {
+    // TikTok - Accounts - Search Results
+    if (url.includes('tiktok.com/search/user')) {
+        return {
+            header: 'TikTok Search Results',
+            listElementsQuery: '[class*="DivPanelContainer"] > [class*="-DivLink"]',
+            elementParser: [
+                { title: 'Avatar', query: '[class*="-ImgAvatar"]', type: 'image' },
+                { title: 'Name', query: '[class*="-PTitle"]', type: 'text' },
+                { title: 'Followers count', query: '[class*="-DivSubTitleWrapper"] > span', type: 'text' },
+                { title: 'Description', query: '[class*="-PDesc"]', type: 'text' },
+            ]
+        };
+    }
+
+    // TikTok - Top - Search results or TikTok - Videos - Search Results
+    if (url.includes('tiktok.com/search') || url.includes('tiktok.com/search/video')) {
+        return {
+            header: 'TikTok Search Results',
+            listElementsQuery: '[class*="-DivItemContainerForSearch"]',
+            elementParser: [
+                { title: 'Url', query: '[class*="-DivWrapper"] > a', type: 'link' },
+                { title: 'Description', query: '[class*="-SpanText"]', type: 'text' },
+                { title: 'Author', query: '[class*="-PUniqueId"]', type: 'text' },
+                { title: 'Views count', query: '[class*="-StrongVideoCount"]', type: 'text' },
+            ]
+        };
+    }
+
     if (url.includes('bpinet.bancobpi.pt/BPINet_Contas/Movimentos.aspx')) {
         return {
             header: 'BPI Bank Account Transactions',

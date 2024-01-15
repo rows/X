@@ -20,7 +20,7 @@ function getScrapperOptionsByUrl(url: string, title: string) {
             header: 'G2 results',
             listElementsQuery: '[class*="paper mb-1"]',
             elementParser: [
-                { title: 'Logo', query: '[class*="product-listing__img"] > img', type: 'deferred-image' },
+                { title: 'Logo', query: '[class*="product-listing__img"] > img', type: 'get-attribute', attribute: 'data-deferred-image-src' },
                 { title: 'Product name', query: '[class*="product-listing__product-name"] > a > div', type: 'text' },
                 { title: 'Total reviews', query: '[class*="px-4th"]', type: 'text' },
                 { title: 'Rating', query: '[class*="link--header-color"]', type: 'text' },

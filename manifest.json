@@ -1,6 +1,6 @@
 {
   "name": "RowsX",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "manifest_version": 3,
   "background": {
     "service_worker": "src/background.ts",

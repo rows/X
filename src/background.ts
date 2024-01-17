@@ -292,19 +292,14 @@ async function scrap() {
     return elements;
 }
 
-function storeRowsXData(tsv: string) {
-    setTimeout(async () => {
-        const tab = await getCurrentTab();
-
-        await chrome.scripting.executeScript({
-            target: { tabId: tab.id! },
-            args: [tsv],
-            func: (tsv) => {
-                window.localStorage.setItem('rows_x', JSON.stringify({ source: '%ROWS_X%', data: tsv} ));
-            },
-        });
-    }, 250);
-
+async function storeRowsXData(tsv: string, tabId: number) {
+    await chrome.scripting.executeScript({
+        target: { tabId },
+        args: [tsv],
+        func: (tsv) => {
+            window.localStorage.setItem('rows_x', JSON.stringify({ source: '%ROWS_X%', data: tsv} ));
+        },
+    });
 }
 
 chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
@@ -313,7 +308,9 @@ chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
             scrap().then((data) => sendResponse(data));
             break;
         case 'rows-x:store':
-            storeRowsXData(message.data);
+            chrome.tabs.create({ url: 'https://rows.com/new'}, (tab) => {
+                return storeRowsXData(message.data, tab.id!);
+            });
             break;
         default:
             break;

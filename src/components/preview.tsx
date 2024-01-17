@@ -38,10 +38,6 @@ function Preview({ results = [] }) {
                             </Button>
                             <Button className="open-rows-btn" type="primary" onClick={() => {
                                 chrome.runtime.sendMessage({ action: 'rows-x:store', data: array2tsv(result.table) });
-
-                                setTimeout(() => {
-                                    window.open('https://rows.com/new');
-                                }, 0);
                             }}>Open in Rows</Button>
                         </div>
                     </div>

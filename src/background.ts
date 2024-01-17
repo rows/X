@@ -151,11 +151,11 @@ function getScrapperOptionsByUrl(url: string, title: string) {
     if (url.includes('producthunt.com')) {
         return {
             header: 'ProductHunt results',
-            listElementsQuery: '[class*="styles_item_"]',
+            listElementsQuery: '[class*="styles_item_"][data-test*="post-item-"],[class*="styles_item_"][data-test*="ad-slot"],[class*="styles_item_"][data-test*="product-"]',
             elementParser: [
                 { title: 'Product image', query: 'img,video', type: 'image' },
-                { title: 'Product name', query: '[data-test*="post-name"], a[href*="/products"] div:nth-child(1)', type: 'text' },
-                { title: 'Description', query: '[class*="styles_tagline"], a[href*="/products"] div:nth-child(2), [class*="_extraInfo"]', type: 'text' },
+                { title: 'Product name', query: '[data-test*="post-name"], a[href*="/products"] div:nth-child(1), [class*="titleTaglineItem"]', type: 'text' },
+                { title: 'Description', query: '[class*="styles_tagline"], a[href*="/products"] div:nth-child(2), [class*="_extraInfo"], [class*="styles_adMeta"]', type: 'text' },
                 { title: 'Up votes', query: '[data-test="vote-button"]', type: 'text' },
                 { title: 'Product hunt link', query: 'a[data-test*="post-name"], a[href*="/products"]', type: 'link' },
             ]

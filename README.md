@@ -36,13 +36,32 @@ Once your development environment is set up, follow these steps to start using o
 
 There are 2 different ways of building a custom scrapper:
 1. **The data is loaded from a list**
+```js
+{
+    header: 'ProductHunt results',
+    listElementsQuery: '<DOM query to find all elements for a list>',
+    elementParser: [
+        //...
+        { title: 'Product image', query: '<CSS query that will find an image on each element>', type: 'image' },
+        { title: 'Product name', query: '<CSS query that will find the desired text>', type: 'text' },
+        //...
+     ]
+}
+```
+In this configuration the only thing that changes is the `type`, and it could be of different types:
+- `image`, it will extract the src link of the image and will be used as `=IMAGE("<img link>")` on cells
+- `text` will extract all the text of the element
+- `clean-url` will get the src without query parameters, this is helpful in sites like LinkedIn.
+- `link` it will return the href src
+- `get-attribute`, is the most exotic one, because it will get the HTML value of a specficic attribute, because some elements has descriptions as aria-label. For example G2.com has a data for lazy loading, and the real img src is at the attribute `data-deferred-image-src`, for that scenario we need to use this parameter like this `{ title: 'Logo', query: '[class*="product-listing__img"] > img', type: 'get-attribute', attribute: 'data-deferred-image-src' },`.
+
 2. **The data is loaded from a DIV table (not the conventional HTML table)** - There is an example of a configuration for those scenarios:
 ```js
 parseTables: {
     header: "Custom div parser", // <- title that will presented on RowsX UI.
     tables: [
-        { rows: '<CSS query to find all rows>', cols: '<CSS query to find all cols>' },
-        { rows: '<CSS query to find all rows>', cols: '<CSS query to find all cols>' },
+        { rows: '<DOM query to find all rows>', cols: '<DOM query to find all cols>' },
+        { rows: '<DOM query to find all rows>', cols: '<DOM query to find all cols>' },
     ],
     mergeTablesBy: 'row' // <- it will merge the tables by row or by column this is opcional
 }
@@ -55,7 +74,7 @@ parseTables: {
 ## How does this work with the Rows? :thinking:
 In the following image, you can see how it works and each step will have a better explanation:
 
-![image](https://github.com/rows/X/assets/7489569/34f0fcec-332d-4226-acaf-9cb7ec46d3cf)
+![image](https://github.com/rows/X/assets/7489569/49213252-613d-46d2-beb8-3a196ce75511)
 
 1. **User Initiates Action** - The user clicks on the rowsX icon on their browser, prompting the extension to take action. This action triggers the opening of the RowsX UI, which is the main interface for interacting with the extension.
 2. **The RowsX UI is displayed and Event Trigger** - Initially, the RowsX UI displays an empty state component, indicating that no data has been extracted. This signifies the extension is ready to start extracting data from the current web page. And after rendering everything it will trigger the `rows-x:scrap` event.

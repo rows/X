@@ -22,7 +22,7 @@ npm run dev
 After the 
 
 > [!NOTE]
-> :warning: You need to do this just one time.
+> You need to do this just one time.
 > 
 > To enable development mode for your Chrome extension, follow these steps:
 > 
@@ -36,7 +36,7 @@ After the
 
 # How to add a new scrapper?
 
-# How this works with the Rows WebApp? :Thinking:
+# How this works with the Rows WebApp? :thinking:
 
 # Contributions
 Contributions to RowsX are welcome! If you happen to have issues or have suggestions for improving the extension, please feel free to open an issue or submit a pull request on the GitHub repository.

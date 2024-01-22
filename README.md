@@ -34,6 +34,24 @@ Once your development environment is set up, follow these steps to start using o
 
 ## How to add a new scrapper?
 
+There are 2 different ways of building a custom scrapper:
+1. **The data is loaded from a list**
+2. **The data is loaded from a DIV table (not the conventional HTML table)** - There is an example of a configuration for those scenarios:
+```js
+parseTables: {
+    header: "Custom div parser", // <- title that will presented on RowsX UI.
+    tables: [
+        { rows: '<CSS query to find all rows>', cols: '<CSS query to find all cols>' },
+        { rows: '<CSS query to find all rows>', cols: '<CSS query to find all cols>' },
+    ],
+    mergeTablesBy: 'row' // <- it will merge the tables by row or by column this is opcional
+}
+```
+> [!TIP]
+> The `mergeTablesBy` property defines the strategy for combining multiple tables into a single dataset. This parameter is optional and could be set as `row`, which means that tables will be merged by rows, resulting in a single table with all rows combined. If set to `column`, tables will be merged by columns, resulting in a single table with all columns combined.
+
+### When use `.example` and `[class*="example"]`
+
 ## How does this work with the Rows? :thinking:
 In the following image, you can see how it works and each step will have a better explanation:
 

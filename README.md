@@ -101,7 +101,7 @@ If I want to identify the list of elements that I want to extract information I 
 ## How does this work with the Rows? :thinking:
 In the following image, you can see how it works and each step will have a better explanation:
 
-![image](https://github.com/rows/X/assets/7489569/49213252-613d-46d2-beb8-3a196ce75511)
+![image](https://github.com/rows/X/assets/7489569/1425f71f-153c-4e8a-9bb2-cff78ef80a97)
 
 1. **User Initiates Action** - The user clicks on the rowsX icon on their browser, prompting the extension to take action. This action triggers the opening of the RowsX UI, which is the main interface for interacting with the extension.
 2. **The RowsX UI is displayed and Event Trigger** - Initially, the RowsX UI displays an empty state component, indicating that no data has been extracted. This signifies the extension is ready to start extracting data from the current web page. And after rendering everything it will trigger the `rows-x:scrap` event.

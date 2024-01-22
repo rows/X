@@ -39,11 +39,11 @@ There are 2 different ways of building a custom scrapper:
 ```js
 {
     header: 'ProductHunt results',
-    listElementsQuery: '<DOM query to find all elements for a list>',
+    listElementsQuery: '<CSS selector to find all elements for a list>',
     elementParser: [
         //...
-        { title: 'Product image', query: '<CSS query that will find an image on each element>', type: 'image' },
-        { title: 'Product name', query: '<CSS query that will find the desired text>', type: 'text' },
+        { title: 'Product image', query: '<CSS selector that will find an image on each element>', type: 'image' },
+        { title: 'Product name', query: '<CSS selector that will find the desired text>', type: 'text' },
         //...
      ]
 }
@@ -60,10 +60,10 @@ In this configuration the only thing that changes is the `type`, and it could be
 parseTables: {
     header: "Custom div parser", // <- title that will presented on RowsX UI.
     tables: [
-        { rows: '<DOM query to find all rows>', cols: '<DOM query to find all cols>' },
-        { rows: '<DOM query to find all rows>', cols: '<DOM query to find all cols>' },
+        { rows: '<CSS selector to find all rows>', cols: '<CSS selector to find all cols>' },
+        { rows: '<CSS selector to find all rows>', cols: '<CSS selector to find all cols>' },
     ],
-    mergeTablesBy: 'row' // <- it will merge the tables by row or by column this is opcional
+    mergeTablesBy: 'row' // <- it will merge the tables by row or by column this is optional
 }
 ```
 > [!TIP]
@@ -71,10 +71,31 @@ parseTables: {
 
 ### When use `.example` and `[class*="example"]`
 
+`.example` and `[class*="example"]` are both CSS selectors that can be used to select elements in an HTML document. However, they have different purposes and should be used in different situations.
+
+- The selector `.example` selects all elements that have the class example. This is a simple way to select elements with a specific class. 
+- The selector `[class*="example"]` selects all elements that have the word example as a part of their class name. This selector is more versatile than `.example`, because it allows you to select elements that have a class name that starts with `example`, ends with `example`, or has `example` anywhere in the middle. 
+
+> [!TIP]
+> The last selector (`[class*="example"]`) is more versatile but could lead to undesirable results, so use it with caution!
+
+#### Example of different selectors' usage
+
 <img width="724" alt="image" src="https://github.com/rows/X/assets/7489569/674d5939-9991-471b-99b5-240b24e0a8f7">
+
+For example, if I want to extract the element title from an item at idealista.pt we could use the following configuration:
+
+```js
+{ title: 'Description', query: '.item-link', type: 'get-attribute', attribute: 'title' }
+```
 
 <img width="726" alt="image" src="https://github.com/rows/X/assets/7489569/59cc34ab-bbaa-46e4-aef3-b19d8b7fd4e6">
 
+If I want to identify the list of elements that I want to extract information I can use
+
+```js
+{ listElementsQuery: '[data-test*="post-item-"]' }
+```
 
 
 ## How does this work with the Rows? :thinking:

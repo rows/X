@@ -19,13 +19,11 @@ you can initiate development mode by running the following command in your termi
 npm run dev
 ```
 
-After the 
+Once your development environment is set up, simply follow these steps to start using our Chrome extension at your machine:
 
 > [!NOTE]
 > You need to do this just one time.
-> 
-> To enable development mode for your Chrome extension, follow these steps:
-> 
+>  
 > 1. Open the chrome extensions page at [chrome://extensions](chrome://extensions/).
 > 2. In the right top corner, you have a switch called "Developer Mode" just active it.
 > 3. Click the "Load unpacked" button.
@@ -37,6 +35,7 @@ After the
 # How to add a new scrapper?
 
 # How this works with the Rows WebApp? :thinking:
+![image](https://github.com/rows/X/assets/7489569/34f0fcec-332d-4226-acaf-9cb7ec46d3cf)
 
 # Contributions
 Contributions to RowsX are welcome! If you happen to have issues or have suggestions for improving the extension, please feel free to open an issue or submit a pull request on the GitHub repository.

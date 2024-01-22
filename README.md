@@ -53,7 +53,7 @@ In this configuration the only thing that changes is the `type`, and it could be
 - `text` will extract all the text of the element
 - `clean-url` will get the src without query parameters, this is helpful in sites like LinkedIn.
 - `link` it will return the href src
-- `get-attribute`, is the most exotic one, because it will get the HTML value of a specficic attribute, because some elements has descriptions as aria-label. For example G2.com has a data for lazy loading, and the real img src is at the attribute `data-deferred-image-src`, for that scenario we need to use this parameter like this `{ title: 'Logo', query: '[class*="product-listing__img"] > img', type: 'get-attribute', attribute: 'data-deferred-image-src' },`.
+- `get-attribute`, is the most exotic one, because it will get the HTML value of a specific attribute because some elements have descriptions as aria-label. For example, G2.com has data for lazy loading, and the real image source is at the attribute `data-deferred-image-src`, for that scenario we need to use this parameter like this `{ title: 'Logo', query: '[class*="product-listing__img"] > img', type: 'get-attribute', attribute: 'data-deferred-image-src' },`.
 
 2. **The data is loaded from a DIV table (not the conventional HTML table)** - There is an example of a configuration for those scenarios:
 ```js
@@ -70,6 +70,12 @@ parseTables: {
 > The `mergeTablesBy` property defines the strategy for combining multiple tables into a single dataset. This parameter is optional and could be set as `row`, which means that tables will be merged by rows, resulting in a single table with all rows combined. If set to `column`, tables will be merged by columns, resulting in a single table with all columns combined.
 
 ### When use `.example` and `[class*="example"]`
+
+<img width="724" alt="image" src="https://github.com/rows/X/assets/7489569/674d5939-9991-471b-99b5-240b24e0a8f7">
+
+<img width="726" alt="image" src="https://github.com/rows/X/assets/7489569/59cc34ab-bbaa-46e4-aef3-b19d8b7fd4e6">
+
+
 
 ## How does this work with the Rows? :thinking:
 In the following image, you can see how it works and each step will have a better explanation:

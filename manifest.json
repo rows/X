@@ -6,11 +6,7 @@
     "service_worker": "src/background.ts",
     "type": "module"
   },
-  "permissions": [
-    "tabs",
-    "activeTab",
-    "scripting"
-  ],
+  "permissions": ["tabs", "activeTab", "scripting"],
   "host_permissions": [
     "https://rows.com/*",
     "https://rows.new/*",

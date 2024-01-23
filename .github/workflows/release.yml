@@ -19,7 +19,7 @@ jobs:
           npm run build
 
       - name: Create zip
-        run: | 
+        run: |
           cd dist
           zip -r ../chrome-extension-${{ github.sha }}.zip *
 

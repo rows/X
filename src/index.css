@@ -1,64 +1,68 @@
 :root {
-    --lighter-grey: #F7F7F7;
-    --light-grey: #EAEAEA;
-    --grey: #6F6F6F;
-    --button-secondary: #E1E1E1;
-    --button-secondary-hover: #E1E1E1;
-    --button-primary: #FFC800;
-    --button-primary-hover: #F0BC00;
+  --lighter-grey: #f7f7f7;
+  --light-grey: #eaeaea;
+  --grey: #6f6f6f;
+  --button-secondary: #e1e1e1;
+  --button-secondary-hover: #e1e1e1;
+  --button-primary: #ffc800;
+  --button-primary-hover: #f0bc00;
 }
 
 @font-face {
-    font-family: Output Sans;
-    src: url("../fonts/Output Sans Regular.woff2") format('woff2');
-    font-style: normal;
-    font-weight: 100;
-    font-display: swap;
+  font-family: Output Sans;
+  src: url("../fonts/Output Sans Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: Output Sans;
-    src: url("../fonts/Output Sans.woff2") format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: Output Sans;
+  src: url("../fonts/Output Sans.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-html, body, #root {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    color: black;
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: black;
 }
 
 header {
-    height: 48px;
-    border-bottom: 1px solid #E1E1E1;
-    display: flex;
-    padding: 16px;
-    align-items: center;
-    box-sizing: border-box;
+  height: 48px;
+  border-bottom: 1px solid #e1e1e1;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 * {
-    font-family: "Output Sans", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0.2px;
+  font-family: "Output Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
 }
 
-b, strong {
-    color: black;
-    font-weight: 700;
+b,
+strong {
+  color: black;
+  font-weight: 700;
 }
 
-a:visited, a:link {
-    color: var(--grey)
+a:visited,
+a:link {
+  color: var(--grey);
 }
 
 .container {
-    padding: 1rem;
-    width: 22.5rem;
-    max-height: 600px;
+  padding: 1rem;
+  width: 22.5rem;
+  max-height: 600px;
 }

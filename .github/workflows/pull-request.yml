@@ -38,3 +38,22 @@ jobs:
 
       - name: Type checking
         run: npm run check-types
+
+  build:
+    name: Build
+    runs-on: rows-fe-default
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-node
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Building extension
+        run: npm run build

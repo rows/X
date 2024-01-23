@@ -1,6 +1,6 @@
-import Button from "./button.tsx";
-import "./preview.css";
-import { array2tsv, hasImage } from "../utils/copy.ts";
+import Button from './button.tsx';
+import './preview.css';
+import { array2tsv, hasImage } from '../utils/copy.ts';
 
 function renderCell(cell: string) {
   if (hasImage(cell)) {
@@ -49,7 +49,7 @@ function Preview({ results = [] }) {
                   type="primary"
                   onClick={() => {
                     chrome.runtime.sendMessage({
-                      action: "rows-x:store",
+                      action: 'rows-x:store',
                       data: array2tsv(result.table),
                     });
                   }}

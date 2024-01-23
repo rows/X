@@ -1,14 +1,14 @@
-import { useEffect, useState } from "preact/hooks";
-import "./index.css";
-import NoResults from "./components/no-results.tsx";
-import Header from "./components/header.tsx";
-import Preview from "./components/preview.tsx";
+import { useEffect, useState } from 'preact/hooks';
+import './index.css';
+import NoResults from './components/no-results';
+import Header from './components/header';
+import Preview from './components/preview';
 
 const App = () => {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    chrome.runtime.sendMessage({ action: "rows-x:scrap" }, (response) => {
+    chrome.runtime.sendMessage({ action: 'rows-x:scrap' }, (response) => {
       setResults(response);
     });
   }, []);

@@ -1,5 +1,5 @@
-import "./header.css";
-import Button from "./button.tsx";
+import './header.css';
+import Button from './button.tsx';
 
 const Header = () => {
   return (

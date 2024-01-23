@@ -7,7 +7,7 @@ export async function customScrapper(options: any) {
       elem = element.querySelector(query);
     }
 
-    return elem?.innerText?.replaceAll("\n", " ")?.trim() ?? "";
+    return elem?.innerText?.replaceAll('\n', ' ')?.trim() ?? '';
   }
 
   function getImageSrc(element: any, query: string) {
@@ -17,7 +17,7 @@ export async function customScrapper(options: any) {
       elem = element.querySelector(query);
     }
 
-    return elem ? elem.poster ?? elem.src : "";
+    return elem ? elem.poster ?? elem.src : '';
   }
 
   function getLink(element: any, query: any) {
@@ -27,7 +27,7 @@ export async function customScrapper(options: any) {
       elem = element.querySelector(query);
     }
 
-    return elem ? elem.href : "";
+    return elem ? elem.href : '';
   }
 
   function getCleanUrl(element: any, query: string) {
@@ -38,7 +38,7 @@ export async function customScrapper(options: any) {
     }
 
     if (!elem) {
-      return "";
+      return '';
     }
 
     const url = new URL(elem.href);
@@ -52,41 +52,38 @@ export async function customScrapper(options: any) {
       elem = element.querySelector(query);
     }
 
-    return elem?.getAttribute(attribute)?.replaceAll("\n", " ").trim() ?? "";
+    return elem?.getAttribute(attribute)?.replaceAll('\n', ' ').trim() ?? '';
   }
 
   function parse(element: any, query: string, type: string, attribute: string) {
     switch (type) {
-      case "text":
+      case 'text':
         return getText(element, query);
-      case "image":
+      case 'image':
         return getImageSrc(element, query);
-      case "clean-url":
+      case 'clean-url':
         return getCleanUrl(element, query);
-      case "link":
+      case 'link':
         return getLink(element, query);
-      case "get-attribute":
+      case 'get-attribute':
         return getAttribute(element, query, attribute);
       default:
-        return "";
+        return '';
     }
   }
 
-  const tableElements = Array.from(
-    document.querySelectorAll(options.listElementsQuery),
-  ).map((element) => {
-    return options.elementParser.map((parserInfo: any) =>
-      parse(element, parserInfo.query, parserInfo.type, parserInfo.attribute),
-    );
-  });
+  const tableElements = Array.from(document.querySelectorAll(options.listElementsQuery)).map(
+    (element) => {
+      return options.elementParser.map((parserInfo: any) =>
+        parse(element, parserInfo.query, parserInfo.type, parserInfo.attribute)
+      );
+    }
+  );
 
   return [
     {
       title: options.header,
-      table: [
-        [...options.elementParser.map((element: any) => element.title)],
-        ...tableElements,
-      ],
+      table: [[...options.elementParser.map((element: any) => element.title)], ...tableElements],
     },
   ];
 }

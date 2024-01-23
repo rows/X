@@ -1,17 +1,19 @@
-import "./no-results.css";
-import Button from "./button.tsx";
-import { getCurrentTab } from "../utils/chrome.ts";
+import './no-results.css';
+import Button from './button';
+import { getCurrentTab } from '../utils/chrome';
 
 const NoResults = () => {
   const redirectToFeedback = async () => {
     const tab = await getCurrentTab();
     const url = new URL(tab.url!);
     const message =
-      "Hi Rows team,\n\n" +
+      'Hi Rows team,\n\n' +
       `I'd like to add "${tab.url}" to be compatible with RowsX.\n\nBest,\n\n--`;
 
     window.open(
-      `mailto:enterprise@rows.com?subject=Request RowsX to be compatible with ${url.origin}&body=${encodeURIComponent(message)}`,
+      `mailto:enterprise@rows.com?subject=Request RowsX to be compatible with ${
+        url.origin
+      }&body=${encodeURIComponent(message)}`
     );
   };
 

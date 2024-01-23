@@ -1,6 +1,6 @@
-import { customScrapper } from "./scrappers/custom.ts";
-import { scrapHTMLTables } from "./scrappers/html-tables.ts";
-import { scrapDivHTMLTables } from "./scrappers/div-tables.ts";
+import { customScrapper } from './scrappers/custom';
+import { scrapHTMLTables } from './scrappers/html-tables';
+import {scrapDivHTMLTables, ScrapDivTablesOptions} from './scrappers/div-tables';
 
 export async function getCurrentTab() {
   const [tab] = await chrome.tabs.query({
@@ -11,7 +11,11 @@ export async function getCurrentTab() {
   return tab;
 }
 
-export async function runScrapper(options: any) {
+interface ScrapperOptions {
+  parseTables?: ScrapDivTablesOptions;
+}
+
+export async function runScrapper(options?: ScrapperOptions) {
   const tab = await getCurrentTab();
 
   let computation: any = [];

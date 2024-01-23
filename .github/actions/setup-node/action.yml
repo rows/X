@@ -1,0 +1,19 @@
+name: Setup node
+description: "Prepare node env and SSH key (needs to be run after checkout code)"
+inputs:
+  node-version:
+    description: "Node version"
+    required: false
+    default: "18"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4
+      with:
+        cache: "npm"
+        node-version: ${{ inputs.node-version }}
+        registry-url: https://npm.pkg.github.com/
+        scope: "@rows"
+        cache-dependency-path: "**/package-lock.json"

@@ -1,9 +1,8 @@
-name: Release
+name: Pull Request
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
 
 jobs:
   audit:
@@ -39,30 +38,3 @@ jobs:
 
       - name: Type checking
         run: npm run check-types
-
-  build-chrome-extension:
-    name: Build Chrome extension artifact
-    runs-on: rows-fe-default
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - uses: ./.github/actions/install-dependencies
-        with:
-          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build - production file
-        run: |
-          npm run build
-
-      - name: Create zip
-        run: |
-          cd dist
-          zip -r ../chrome-extension-${{ github.sha }}.zip *
-
-      - name: Archive chrome-extension artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: chrome-extension-${{ github.sha }}
-          path: chrome-extension-${{ github.sha }}.zip

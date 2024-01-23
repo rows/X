@@ -1,40 +1,40 @@
 .btn {
-    border: none;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: transparent;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 2.5rem;
-    padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 2.5rem;
+  padding: 0.75rem;
 }
 
 .small {
-    width: 22px;
-    height: 22px;
-    padding: 0;
+  width: 22px;
+  height: 22px;
+  padding: 0;
 }
 
 .btn:hover {
-    background-color: var(--light-grey);
+  background-color: var(--light-grey);
 }
 
 .primary {
-    background: var(--button-primary);
-    padding: 0.5rem 2rem;
+  background: var(--button-primary);
+  padding: 0.5rem 2rem;
 }
 
 .primary:hover {
-    background: var(--button-primary-hover);
+  background: var(--button-primary-hover);
 }
 
 .secondary {
-    background: var(--button-secondary);
+  background: var(--button-secondary);
 }
 
 .secondary:hover {
-    background: var(--button-secondary-hover);
+  background: var(--button-secondary-hover);
 }

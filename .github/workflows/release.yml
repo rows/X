@@ -6,6 +6,40 @@ on:
       - main
 
 jobs:
+  audit:
+    name: Audit dependencies
+    runs-on: rows-fe-default
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-node
+
+      - name: Audit dependencies
+        run: npm audit --production --audit-level=high
+
+  static-analysis:
+    name: Static analysis
+    runs-on: rows-fe-default
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-node
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Linting JS/TS
+        run: npm run lint
+
+      - name: Type checking
+        run: npm run check-types
+
   build-chrome-extension:
     name: Build Chrome extension artifact
     runs-on: rows-fe-default
@@ -13,15 +47,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install packages
-        run: |
-          npm i
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Lint
-        run: |
-          npm run lint
-
-      - name: Build
+      - name: Build - production file
         run: |
           npm run build
 

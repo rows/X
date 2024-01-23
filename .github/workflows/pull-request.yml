@@ -13,9 +13,6 @@ jobs:
         uses: actions/checkout@v4
 
       - uses: ./.github/actions/setup-node
-        with:
-          ssh-key: ${{ secrets.SSH_KEY }}
-          known-hosts: ${{ secrets.KNOWN_HOSTS }}
 
       - name: Audit dependencies
         run: npm audit --production --audit-level=high
@@ -39,6 +36,5 @@ jobs:
       - name: Linting JS/TS
         run: npm run lint
 
-      #name: Type checking
-      #  if: ${{ steps.check-for-changes.outputs.CONTINUE == 'true' }}
-      #  run: npm run check-types -- --filter=...[origin/${{ github.base_ref }}]
+      - name: Type checking
+        run: npm run check-types

@@ -11,7 +11,15 @@ export async function getCurrentTab() {
   return tab;
 }
 
-interface ScrapperOptions {
+export interface ScrapperOptions {
+  header?: string;
+  listElementsQuery?: string;
+  elementParser?: Array<{
+    title: string;
+    query?: string; // if the query is not specified, the scrapper will use the own element
+    type: 'text' | 'image' | 'clean-url' | 'link' | 'get-attribute';
+    attribute?: string;
+  }>;
   parseTables?: ScrapDivTablesOptions;
 }
 
@@ -22,7 +30,7 @@ type ScrapperResultItem = {
 
 export type ScrapperResults = Array<ScrapperResultItem>;
 
-export async function runScrapper(options?: ScrapperOptions) {
+export async function runScrapper(options: ScrapperOptions | null) {
   const tab = await getCurrentTab();
 
   let computation: Array<{ result: ScrapperResults }>;

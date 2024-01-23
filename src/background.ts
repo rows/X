@@ -1,6 +1,6 @@
-import { getCurrentTab, runScrapper } from './utils/chrome';
+import { getCurrentTab, runScrapper, ScrapperOptions } from './utils/chrome';
 
-function getScrapperOptionsByUrl(url: string, title: string) {
+function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
   // TikTok - Accounts - Search Results
   if (url.includes('tiktok.com/search/user')) {
     return {

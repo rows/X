@@ -1,4 +1,4 @@
-export function hasImage(cell: any) {
+export function hasImage(cell: string) {
   if (!cell) {
     return '';
   }
@@ -30,9 +30,9 @@ function processCell(cell: string) {
   return cell;
 }
 
-export function array2tsv(data: any = []) {
+export function array2tsv(data: string[][] = []) {
   return `${data
-    .map((row: any) => row.map(processCell).join('\t'))
+    .map((row) => row.map(processCell).join('\t'))
     .join('\n')
     .toString()}`;
 }

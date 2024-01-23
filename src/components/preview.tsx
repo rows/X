@@ -6,7 +6,7 @@ import { ScrapperResults } from '../utils/chrome';
 
 function renderCell(cell: string) {
   if (hasImage(cell)) {
-    return <img src={cell} />;
+    return <img alt="rows_x_image" src={cell} />;
   }
 
   return cell;
@@ -48,7 +48,7 @@ const Preview: FunctionComponent<Props> = ({ results = [] }) => {
                       .then(() => setTimeout(() => window.close(), 200));
                   }}
                 >
-                  <img src="/icons/copy.svg" />
+                  <img alt="copy" src="/icons/copy.svg" />
                 </Button>
                 <Button
                   className="open-rows-btn"

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src -c ./.eslintrc.cjs --ext .jsx,.js,.ts,.tsx"
+    "lint": "eslint src -c ./.eslintrc.cjs --ext .jsx,.js,.ts,.tsx",
+    "check-types": "tsc --noEmit"
   },
   "prettier": "@rows/prettier-config",
   "dependencies": {

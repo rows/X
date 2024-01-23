@@ -41,17 +41,17 @@ export async function runScrapper(options: ScrapperOptions | null) {
       func: scrapHTMLTables,
     });
   } else if (options.parseTables) {
-    computation = await chrome.scripting.executeScript({
+    computation = (await chrome.scripting.executeScript({
       target: { tabId: tab.id! },
       args: [options.parseTables],
       func: scrapDivHTMLTables,
-    });
+    })) as Array<{ result: ScrapperResults }>;
   } else {
-    computation = await chrome.scripting.executeScript({
+    computation = (await chrome.scripting.executeScript({
       target: { tabId: tab.id! },
       args: [options],
       func: customScrapper,
-    });
+    })) as Array<{ result: ScrapperResults }>;
   }
 
   return computation[0].result ?? [];

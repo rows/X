@@ -13,9 +13,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build
+      - name: Install packages
         run: |
           npm i
+
+      - name: Lint
+        run: |
+          npm run lint
+
+      - name: Build
+        run: |
           npm run build
 
       - name: Create zip

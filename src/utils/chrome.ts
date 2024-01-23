@@ -1,6 +1,6 @@
 import { customScrapper } from './scrappers/custom';
 import { scrapHTMLTables } from './scrappers/html-tables';
-import {scrapDivHTMLTables, ScrapDivTablesOptions} from './scrappers/div-tables';
+import { scrapDivHTMLTables, ScrapDivTablesOptions } from './scrappers/div-tables';
 
 export async function getCurrentTab() {
   const [tab] = await chrome.tabs.query({

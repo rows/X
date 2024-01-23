@@ -1,9 +1,9 @@
 import './button.css';
-import { FunctionComponent } from 'preact';
+import { FunctionComponent, ComponentChildren } from 'preact';
 
 interface Props {
   onClick: () => void;
-  children: any;
+  children: ComponentChildren;
   type?: 'text' | 'primary' | 'secondary';
   className?: string;
   size?: 'small';

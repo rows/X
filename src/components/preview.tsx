@@ -1,6 +1,7 @@
-import Button from './button.tsx';
+import Button from './button';
 import './preview.css';
-import { array2tsv, hasImage } from '../utils/copy.ts';
+import { array2tsv, hasImage } from '../utils/copy';
+import { FunctionComponent } from 'preact';
 
 function renderCell(cell: string) {
   if (hasImage(cell)) {
@@ -10,10 +11,17 @@ function renderCell(cell: string) {
   return cell;
 }
 
-function Preview({ results = [] }) {
+interface Props {
+  results: Array<{
+    title: string;
+    table: Array<Array<string>>;
+  }>;
+}
+
+const Preview: FunctionComponent<Props> = ({ results = [] }) => {
   return (
     <div className="results">
-      {results.map((result: any) => {
+      {results.map((result) => {
         return (
           <div className="table-preview">
             <div className="table-header">
@@ -23,9 +31,9 @@ function Preview({ results = [] }) {
             <div className="table-body">
               <div className="table-container">
                 <table>
-                  {result.table.slice(0, 6).map((row: any) => (
+                  {result.table.slice(0, 6).map((row) => (
                     <tr>
-                      {row.map((col: any) => (
+                      {row.map((col) => (
                         <td>{renderCell(col)}</td>
                       ))}
                     </tr>
@@ -63,6 +71,6 @@ function Preview({ results = [] }) {
       })}
     </div>
   );
-}
+};
 
 export default Preview;

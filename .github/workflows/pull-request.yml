@@ -12,6 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - uses: ./.github/actions/setup-node
+        with:
+          ssh-key: ${{ secrets.SSH_KEY }}
+          known-hosts: ${{ secrets.KNOWN_HOSTS }}
+
       - name: Audit dependencies
         run: npm audit --production --audit-level=high
 
@@ -24,21 +29,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: ./.github/actions/setup-node
+
       - uses: ./.github/actions/install-dependencies
         with:
           node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check for changes
-        id: check-for-changes
-        run: |
-          if (npm run lint -- --filter=...[origin/${{ github.base_ref }}] --dry-run | grep "#lint"); then
-            echo "CONTINUE=true" >> $GITHUB_OUTPUT
-          fi
-
       - name: Linting JS/TS
-        if: ${{ steps.check-for-changes.outputs.CONTINUE == 'true' }}
-        run: npm run lint -- --filter=...[origin/${{ github.base_ref }}] -- --quiet
+        run: npm run lint
 
       #name: Type checking
       #  if: ${{ steps.check-for-changes.outputs.CONTINUE == 'true' }}

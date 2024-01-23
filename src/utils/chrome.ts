@@ -15,10 +15,17 @@ interface ScrapperOptions {
   parseTables?: ScrapDivTablesOptions;
 }
 
+type ScrapperResultItem = {
+  title: string;
+  table: Array<Array<string>>;
+};
+
+export type ScrapperResults = Array<ScrapperResultItem>;
+
 export async function runScrapper(options?: ScrapperOptions) {
   const tab = await getCurrentTab();
 
-  let computation: any = [];
+  let computation: Array<{ result: ScrapperResults }>;
 
   if (!options) {
     computation = await chrome.scripting.executeScript({

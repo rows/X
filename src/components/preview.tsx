@@ -2,6 +2,7 @@ import Button from './button';
 import './preview.css';
 import { array2tsv, hasImage } from '../utils/copy';
 import { FunctionComponent } from 'preact';
+import { ScrapperResults } from '../utils/chrome';
 
 function renderCell(cell: string) {
   if (hasImage(cell)) {
@@ -12,10 +13,7 @@ function renderCell(cell: string) {
 }
 
 interface Props {
-  results: Array<{
-    title: string;
-    table: Array<Array<string>>;
-  }>;
+  results: ScrapperResults;
 }
 
 const Preview: FunctionComponent<Props> = ({ results = [] }) => {

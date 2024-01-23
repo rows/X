@@ -7,7 +7,7 @@ on:
 jobs:
   audit:
     name: Audit dependencies
-    runs-on: ubuntu-latest
+    runs-on: rows-fe-default
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,7 +17,7 @@ jobs:
 
   static-analysis:
     name: Static analysis
-    runs-on: ubuntu-latest
+    runs-on: rows-fe-default
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

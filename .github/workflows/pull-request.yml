@@ -1,0 +1,45 @@
+name: Pull Request
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+jobs:
+  audit:
+    name: Audit dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Audit dependencies
+        run: npm audit --production --audit-level=high
+
+  static-analysis:
+    name: Static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for changes
+        id: check-for-changes
+        run: |
+          if (npm run lint -- --filter=...[origin/${{ github.base_ref }}] --dry-run | grep "#lint"); then
+            echo "CONTINUE=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Linting JS/TS
+        if: ${{ steps.check-for-changes.outputs.CONTINUE == 'true' }}
+        run: npm run lint -- --filter=...[origin/${{ github.base_ref }}] -- --quiet
+
+      #name: Type checking
+      #  if: ${{ steps.check-for-changes.outputs.CONTINUE == 'true' }}
+      #  run: npm run check-types -- --filter=...[origin/${{ github.base_ref }}]

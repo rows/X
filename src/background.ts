@@ -56,6 +56,24 @@ function getScrapperOptionsByUrl(url: string, title: string) {
             ]
         };
     }
+    // G2 product reviews
+    if (url.includes('g2.com/products') && url.includes('reviews')) {
+        return {
+            header: 'G2 product reviews',
+            listElementsQuery: '[id*="survey-response"]',
+            elementParser: [
+                { title: 'Author', query: '[itemprop="author"]', type: 'text' },
+                { title: 'Review date', query: '.x-current-review-date > time', type: 'text' },
+                { title: 'Title', query: 'div[itemprop="name"]', type: 'text' },
+                { title: 'What you like', query: 'div[itemprop="reviewBody"] > div:nth-child(1) > div:nth-child(2)', type: 'text' },
+                { title: 'What do you dislike', query: 'div[itemprop="reviewBody"] > div:nth-child(2) > div:nth-child(2)', type: 'text' },
+                { title: 'What problems solving', query: 'div[itemprop="reviewBody"] > div:nth-child(3) > div:nth-child(2)', type: 'text' },
+
+
+
+            ]
+        };
+    }
 
     if (url.includes('ycombinator.com/companies')) {
         return {

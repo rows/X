@@ -141,7 +141,7 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     };
   }
 
-  if (url.includes('idealista.pt') && (url.includes('/comprar-') || url.includes('/arrendar-'))) {
+  if (url.includes('idealista.')) {
     return {
       header: 'Idealista search results',
       listElementsQuery: '.item',

@@ -1,4 +1,7 @@
+/// <reference types="@modyfi/vite-plugin-yaml/modules" />
 import { getCurrentTab, runScrapper, ScrapperOptions } from './utils/chrome';
+import youtubeOptions from './scrappers/youtube.yml';
+import kuntoKustaOptions from './scrappers/kuanto-kusta.yml';
 
 function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
   // TikTok - Accounts - Search Results
@@ -192,24 +195,7 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
   }
 
   if (url.includes('youtube') && url.includes('/results')) {
-    return {
-      header: 'Youtube search results',
-      listElementsQuery: 'ytd-video-renderer',
-      elementParser: [
-        { title: 'Video thumbnail', query: 'img', type: 'image' },
-        { title: 'Video title', query: '#video-title', type: 'text' },
-        { title: 'Video views', query: '#metadata-line > span', type: 'text' },
-        {
-          title: 'Video description',
-          query: '.metadata-snippet-text',
-          type: 'text',
-        },
-        { title: 'Video duration', query: '#time-status', type: 'text' },
-        { title: 'Video URL', query: '#video-title', type: 'link' },
-        { title: 'Channel', query: '.ytd-channel-name a', type: 'text' },
-        { title: 'Channel URL', query: '.ytd-channel-name a', type: 'link' },
-      ],
-    };
+    return youtubeOptions;
   }
 
   if (url.includes('amazon') && url.includes('/s?k')) {
@@ -443,7 +429,9 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     };
   }
 
-  //
+  if (url.includes('kuantokusta.')) {
+    return kuntoKustaOptions;
+  }
 
   return null;
 }

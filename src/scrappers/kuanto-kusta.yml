@@ -1,0 +1,15 @@
+header: 'Kuanto Kusta search results'
+listElementsQuery: '[data-test-id="product-card"]'
+elementParser:
+  - title: "Product image"
+    query: ".card-header img:nth-child(2)"
+    type: "image"
+  - title: "Name"
+    query: '[data-test-id="product-card-name"]'
+    type: "text"
+  - title: "Minimum price"
+    query: '[data-test-id="product-card-offers-price-min"] > span'
+    type: "text"
+  - title: "Link"
+    query: 'a'
+    type: "link"

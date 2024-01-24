@@ -1,7 +1,12 @@
 /// <reference types="@modyfi/vite-plugin-yaml/modules" />
 import { getCurrentTab, runScrapper, ScrapperOptions } from './utils/chrome';
+
 import youtubeOptions from './scrappers/youtube.yml';
-import kuntoKustaOptions from './scrappers/kuanto-kusta.yml';
+import kuantoKustaOptions from './scrappers/kuanto-kusta.yml';
+import kuantoKustaProductOptions from './scrappers/kuanto-kusta-product.yml';
+import autotraderOptions from './scrappers/autotrader.yml';
+import g2ReviewsOptions from './scrappers/g2-reviews.yml';
+import g2SearchOptions from './scrappers/g2-search.yml';
 
 function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
   // TikTok - Accounts - Search Results
@@ -70,31 +75,12 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     };
   }
 
-  if (url.includes('g2.com/search')) {
-    return {
-      header: 'G2 results',
-      listElementsQuery: '[class*="paper mb-1"]',
-      elementParser: [
-        {
-          title: 'Logo',
-          query: '[class*="product-listing__img"] > img',
-          type: 'get-attribute',
-          attribute: 'data-deferred-image-src',
-        },
-        {
-          title: 'Product name',
-          query: '.product-listing__product-name > a > div',
-          type: 'text',
-        },
-        { title: 'Total reviews', query: '.px-4th', type: 'text' },
-        { title: 'Rating', query: '.link--header-color', type: 'text' },
-        {
-          title: 'Categories',
-          query: '.product-listing__search-footer > .cell',
-          type: 'text',
-        },
-      ],
-    };
+  if (url.includes('g2.com/')) {
+    if (url.includes('/search')) {
+      return g2SearchOptions;
+    } else if (url.includes('/reviews')) {
+      return g2ReviewsOptions;
+    }
   }
 
   if (url.includes('ycombinator.com/companies')) {
@@ -430,7 +416,14 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
   }
 
   if (url.includes('kuantokusta.')) {
-    return kuntoKustaOptions;
+    if (url.includes('/p/')) {
+      return kuantoKustaProductOptions;
+    }
+    return kuantoKustaOptions;
+  }
+
+  if (url.includes('autotrader.com')) {
+    return autotraderOptions;
   }
 
   return null;

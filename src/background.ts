@@ -3,6 +3,7 @@ import { getCurrentTab, runScrapper, ScrapperOptions } from './utils/chrome';
 
 import youtubeOptions from './scrappers/youtube.yml';
 import kuantoKustaOptions from './scrappers/kuanto-kusta.yml';
+import kuantoKustaProductOptions from './scrappers/kuanto-kusta-product.yml';
 import autotraderOptions from './scrappers/autotrader.yml';
 import g2ReviewsOptions from './scrappers/g2-reviews.yml';
 import g2SearchOptions from './scrappers/g2-search.yml';
@@ -415,10 +416,13 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
   }
 
   if (url.includes('kuantokusta.')) {
+    if (url.includes('/p/')) {
+      return kuantoKustaProductOptions;
+    }
     return kuantoKustaOptions;
   }
 
-  if (url.includes('autotrader.')) {
+  if (url.includes('autotrader.com')) {
     return autotraderOptions;
   }
 

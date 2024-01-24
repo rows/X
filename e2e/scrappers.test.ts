@@ -8,11 +8,15 @@ describe('Google', () => {
     page.on('request', async (request) => {
       const data = await fs.readFile(resolve(__dirname, './wikipedia/index.html'));
 
-      request.respond({
-        status: 200,
-        contentType: 'text/html',
-        body: data,
-      });
+      if (request.url().endsWith('/')) {
+        request.respond({
+          status: 200,
+          contentType: 'text/html',
+          body: data,
+        });
+      } else {
+        request.continue();
+      }
     });
   });
 

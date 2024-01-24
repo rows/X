@@ -39,6 +39,25 @@ jobs:
       - name: Type checking
         run: npm run check-types
 
+  test:
+    name: E2E Tests
+    runs-on: rows-fe-1core
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-node
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run E2E tests
+        run: npx puppeteer browsers install chrome && npm run test:e2e
+
   build:
     name: Build
     runs-on: rows-fe-default

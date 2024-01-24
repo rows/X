@@ -23,7 +23,7 @@ runs:
     - name: Install dependencies
       if: steps.cache-deps.outputs.cache-hit != 'true'
       shell: bash
-      run: npm ci --no-audit
+      run: npm ci --no-audit && npx puppeteer browsers install chrome
       env:
         NODE_AUTH_TOKEN: ${{ inputs.node-auth-token }}
         GITHUB_TOKEN: ${{ inputs.github-token }}

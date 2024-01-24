@@ -6,7 +6,6 @@ module.exports = {
     args: [
       '--disable-extensions-except=./dist',
       '--load-extension=./dist',
-      '--whitelisted-extension-id=phpjngkjjocinjepokdimcomfmgkogbe'
     ]
   },
 };

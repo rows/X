@@ -1,7 +1,9 @@
 /// <reference types="@modyfi/vite-plugin-yaml/modules" />
 import { getCurrentTab, runScrapper, ScrapperOptions } from './utils/chrome';
+
 import youtubeOptions from './scrappers/youtube.yml';
-import kuntoKustaOptions from './scrappers/kuanto-kusta.yml';
+import kuantoKustaOptions from './scrappers/kuanto-kusta.yml';
+import autotraderOptions from './scrappers/autotrader.yml';
 
 function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
   // TikTok - Accounts - Search Results
@@ -430,7 +432,11 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
   }
 
   if (url.includes('kuantokusta.')) {
-    return kuntoKustaOptions;
+    return kuantoKustaOptions;
+  }
+
+  if (url.includes('autotrader.')) {
+    return autotraderOptions;
   }
 
   return null;

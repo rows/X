@@ -241,45 +241,6 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
       ],
     };
   }
-  if (
-    (url.includes('idealista.pt') && (url.includes('/comprar-') || url.includes('/arrendar-'))) ||
-    (url.includes('idealista.com') && (url.includes('/venta-') || url.includes('/alquiler-'))) ||
-    (url.includes('idealista.it') && (url.includes('/vendita-') || url.includes('/affitto-')))
-  ) {
-    return {
-      header: 'Idealista search results',
-      listElementsQuery: '.item',
-      elementParser: [
-        { title: 'Home', query: '.item-link', type: 'text' },
-        { title: 'Price', query: '.item-price', type: 'text' },
-        { title: 'Typology', query: '.item-detail-char > .item-detail:nth-child(1)', type: 'text' },
-        { title: 'Area', query: '.item-detail-char > .item-detail:nth-child(2)', type: 'text' },
-        { title: 'Description', query: '.item-description', type: 'text' },
-        { title: 'Link', query: '.item-link', type: 'link' },
-      ],
-    };
-  }
-
-  if (
-    url.includes('standvirtual.com') &&
-    (url.includes('/carros') || url.includes('/comerciais') || url.includes('/pesados'))
-  ) {
-    return {
-      header: 'Standvirtual - Pequisa de Carros',
-      listElementsQuery: '.ooa-yca59n',
-      elementParser: [
-        { title: 'Título', query: '.e1oqyyyi9 ', type: 'text' },
-        { title: 'Link', query: '.e1oqyyyi9 > a ', type: 'link' },
-        { title: 'Imagem', query: '.e17vhtca4', type: 'image' },
-        { title: 'Preço', query: '.ooa-2p9dfw', type: 'text' },
-        { title: 'Kms', query: '[data-parameter="mileage"]', type: 'text' },
-        { title: 'Tipo de Combustível', query: '[data-parameter="fuel_type"]', type: 'text' },
-        { title: 'Tipo de Caixa', query: '[data-parameter="gearbox"]', type: 'text' },
-        { title: 'Data', query: '[data-parameter="first_registration_year"]', type: 'text' },
-        { title: 'Localização', query: '.ooa-1jb4k0u', type: 'text' },
-      ],
-    };
-  }
 
   if (url.includes('standvirtual.com') && url.includes('/motos')) {
     return {

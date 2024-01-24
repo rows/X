@@ -10,7 +10,6 @@
     "lint": "eslint src -c ./.eslintrc.cjs --ext .jsx,.js,.ts,.tsx",
     "check-types": "tsc --noEmit"
   },
-  "prettier": "@rows/prettier-config",
   "dependencies": {
     "eslint-plugin-import": "^2.29.1",
     "preact": "^10.19.3"
@@ -18,9 +17,6 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.21",
     "@modyfi/vite-plugin-yaml": "^1.1.0",
-    "@preact/preset-vite": "^2.8.1",
-    "@rows/eslint-config": "^2.1.4",
-    "@rows/prettier-config": "^1.0.0",
     "@types/chrome": "^0.0.256",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.0.0",

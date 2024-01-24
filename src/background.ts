@@ -144,6 +144,37 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     };
   }
 
+  if (url.includes('linkedin.com') && url.includes('connections')) {
+    return {
+      header: 'Linkedin connections',
+      listElementsQuery: '.mn-connection-card',
+      elementParser: [
+        { title: 'Avatar', query: '.presence-entity__image', type: 'image' },
+        { title: 'Name', query: '.mn-connection-card__name', type: 'text' },
+        { title: 'Job', query: '.mn-connection-card__occupation', type: 'text' },
+        { title: 'Profile url', query: '.mn-connection-card__picture', type: 'clean-url' },
+      ],
+    };
+  }
+
+  if (
+    (url.includes('idealista.pt') && (url.includes('/comprar-') || url.includes('/arrendar-'))) ||
+    (url.includes('idealista.com') && (url.includes('/venta-') || url.includes('/alquiler-'))) ||
+    (url.includes('idealista.it') && (url.includes('/vendita-') || url.includes('/affitto-')))
+  ) {
+    return {
+      header: 'Idealista search results',
+      listElementsQuery: '.item',
+      elementParser: [
+        { title: 'Home', query: '.item-link', type: 'text' },
+        { title: 'Price', query: '.item-price', type: 'text' },
+        { title: 'Typology', query: '.item-detail-char > .item-detail:nth-child(1)', type: 'text' },
+        { title: 'Area', query: '.item-detail-char > .item-detail:nth-child(2)', type: 'text' },
+        { title: 'Description', query: '.item-description', type: 'text' },
+        { title: 'Link', query: '.item-link', type: 'link' },
+      ],
+    };
+  }
   if (url.includes('idealista.')) {
     return {
       header: 'Idealista search results',
@@ -189,6 +220,121 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
           query: '[class*="BadgesOverlay-"]',
           type: 'text',
         },
+        { title: 'Restaurant link', type: 'clean-url' },
+      ],
+    };
+  }
+
+  if (
+    url.includes('standvirtual.com') &&
+    (url.includes('/carros') || url.includes('/comerciais') || url.includes('/pesados'))
+  ) {
+    return {
+      header: 'Standvirtual - Pequisa de Carros',
+      listElementsQuery: '.ooa-yca59n',
+      elementParser: [
+        { title: 'Título', query: '.e1oqyyyi9 ', type: 'text' },
+        { title: 'Link', query: '.e1oqyyyi9 > a ', type: 'link' },
+        { title: 'Imagem', query: '.e17vhtca4', type: 'image' },
+        { title: 'Preço', query: '.ooa-2p9dfw', type: 'text' },
+        { title: 'Kms', query: '[data-parameter="mileage"]', type: 'text' },
+        { title: 'Tipo de Combustível', query: '[data-parameter="fuel_type"]', type: 'text' },
+        { title: 'Tipo de Caixa', query: '[data-parameter="gearbox"]', type: 'text' },
+        { title: 'Data', query: '[data-parameter="first_registration_year"]', type: 'text' },
+        { title: 'Localização', query: '.ooa-1jb4k0u', type: 'text' },
+      ],
+    };
+  }
+
+  if (url.includes('standvirtual.com') && url.includes('/motos')) {
+    return {
+      header: 'Standvirtual - Pequisa de Motos',
+      listElementsQuery: '.ooa-yca59n',
+      elementParser: [
+        { title: 'Título', query: '.e1oqyyyi9 ', type: 'text' },
+        { title: 'Link', query: '.e1oqyyyi9 > a ', type: 'link' },
+        { title: 'Imagem', query: '.e17vhtca4', type: 'image' },
+        { title: 'Preço', query: '.ooa-2p9dfw', type: 'text' },
+        { title: 'Kms', query: '[data-parameter="mileage"]', type: 'text' },
+        { title: 'Data', query: '[data-parameter="first_registration_year"]', type: 'text' },
+        { title: 'Localização', query: '.ooa-1jb4k0u', type: 'text' },
+        { title: 'Tipo de Combustível', query: '[data-parameter="fuel_type"]', type: 'text' },
+      ],
+    };
+  }
+  if (url.includes('standvirtual.com') && url.includes('/autocaravanas')) {
+    return {
+      header: 'Standvirtual - Pequisa de Autocaravanas',
+      listElementsQuery: '.ooa-yca59n',
+      elementParser: [
+        { title: 'Título', query: '.e1oqyyyi9 ', type: 'text' },
+        { title: 'Link', query: '.e1oqyyyi9 > a ', type: 'link' },
+        { title: 'Imagem', query: '.e17vhtca4   +', type: 'image' },
+        { title: 'Preço', query: '.ooa-2p9dfw', type: 'text' },
+        { title: 'Kms', query: '[data-parameter="mileage"]', type: 'text' },
+        { title: 'Data', query: '[data-parameter="first_registration_year"]', type: 'text' },
+        { title: 'Localização', query: '.ooa-1jb4k0u', type: 'text' },
+        { title: 'Tipo de Combustível', query: '[data-parameter="fuel_type"]', type: 'text' },
+      ],
+    };
+  }
+
+  if (url.includes('standvirtual.com') && url.includes('/pecas')) {
+    return {
+      header: 'Standvirtual - Pequisa de Peças',
+      listElementsQuery: '.ooa-6rwico',
+      elementParser: [
+        { title: 'Título', query: '[ad-title]', type: 'text' },
+        { title: 'Link', query: '[ad-title] > a ', type: 'link' },
+        { title: 'Imagem', query: '.e1772pwj2', type: 'image' },
+        { title: 'Preço', query: '.', type: 'text' },
+        { title: 'Tipo de Veículo', query: '.', type: 'text' },
+        { title: 'Localização', query: '.', type: 'text' },
+      ],
+    };
+  }
+  if (url.includes('standvirtual.com') && url.includes('/barcos')) {
+    return {
+      header: 'Standvirtual - Pequisa de Barcos',
+      listElementsQuery: '.ooa-10gfd0w',
+      elementParser: [
+        { title: 'Título', query: '.e1oqyyyi9 ', type: 'text' },
+        { title: 'Link', query: '.e1oqyyyi9 > a ', type: 'link' },
+        { title: 'Imagem', query: '.e17vhtca4', type: 'image' },
+        { title: 'Preço', query: '.', type: 'text' },
+        { title: 'Kms', query: '[data-parameter="mileage"]', type: 'text' },
+        { title: 'Data', query: '[data-parameter="first_registration_year"]', type: 'text' },
+        { title: 'Localização', query: '.ooa-1jb4k0u', type: 'text' },
+        { title: 'Tipo de Combustível', query: '[data-parameter="fuel_type"]', type: 'text' },
+      ],
+    };
+  }
+
+  if (url.includes('autotrader.com/') && url.includes('/cars-for-sale')) {
+    return {
+      header: 'Venda de Carros',
+      listElementsQuery: '[data-cmp="itemCard"]',
+      elementParser: [
+        { title: 'Título', query: '[data-cmp="link"]', type: 'text' },
+        { title: 'Link', query: '[data-cmp="link"] > a', type: 'link' },
+        { title: 'Imagem', query: '[data-cmp="positionedOverlayBase"]', type: 'image' },
+        { title: 'Preço', query: '[data-cmp="firstPrice"]', type: 'text' },
+        { title: 'Miles', query: '[data-cmp="ownerDistance"]', type: 'text' },
+        { title: 'Phone Number', query: '[data-cmp="phoneNumber"]', type: 'text' },
+      ],
+    };
+  }
+
+  if (url.includes('deliveroo') && url.includes('/restaurants/')) {
+    return {
+      header: 'Deliveroo search results',
+      listElementsQuery: 'a[class*="HomeFeedUICard-"]',
+      elementParser: [
+        { title: 'Restaurant', query: 'p', type: 'text' },
+        { title: 'Description', type: 'get-attribute', attribute: 'aria-label' },
+        { title: 'Rating', query: 'li:nth-child(2) > span:nth-child(3) > span', type: 'text' },
+        { title: 'Delivery time', query: '[class*="Bubble-"]', type: 'text' },
+        { title: 'Promotions', query: '[class*="BadgesOverlay-"]', type: 'text' },
         { title: 'Restaurant link', type: 'clean-url' },
       ],
     };

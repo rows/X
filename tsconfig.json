@@ -12,7 +12,8 @@
     /* Bundler mode */
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
+    "esModuleInterop": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
@@ -24,4 +25,7 @@
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": [
+    "src/**/*.test.ts"
+  ]
 }

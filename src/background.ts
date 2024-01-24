@@ -157,11 +157,7 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     };
   }
 
-  if (
-    (url.includes('idealista.pt') && (url.includes('/comprar-') || url.includes('/arrendar-'))) ||
-    (url.includes('idealista.com') && (url.includes('/venta-') || url.includes('/alquiler-'))) ||
-    (url.includes('idealista.it') && (url.includes('/vendita-') || url.includes('/affitto-')))
-  ) {
+  if (url.includes('idealista.')) {
     return {
       header: 'Idealista search results',
       listElementsQuery: '.item',

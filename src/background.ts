@@ -8,7 +8,7 @@ import autotraderOptions from './scrappers/autotrader.yml';
 import g2ReviewsOptions from './scrappers/g2-reviews.yml';
 import g2SearchOptions from './scrappers/g2-search.yml';
 
-function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
+export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
   // TikTok - Accounts - Search Results
   if (url.includes('tiktok.com/search/user')) {
     return {

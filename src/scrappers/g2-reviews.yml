@@ -1,0 +1,21 @@
+header: 'G2 product reviews'
+listElementsQuery: '[id*="survey-response"]'
+elementParser:
+  - title: "Review date"
+    query: '.x-current-review-date > time'
+    type: "text"
+  - title: "Author"
+    query: '[itemprop="author"]'
+    type: "text"
+  - title: "Title"
+    query: 'div[itemprop="name"]'
+    type: "text"
+  - title: "What do you like?"
+    query: 'div[itemprop="reviewBody"] > div:nth-child(1) > div:nth-child(2)'
+    type: "text"
+  - title: "What do you dislike?"
+    query: 'div[itemprop="reviewBody"] > div:nth-child(2) > div:nth-child(2)'
+    type: "text"
+  - title: "What are the problems that we solve?"
+    query: 'div[itemprop="reviewBody"] > div:nth-child(3) > div:nth-child(2)'
+    type: "text"

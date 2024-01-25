@@ -1,52 +1,15 @@
-/// <reference types="@modyfi/vite-plugin-yaml/modules" />
 import { getCurrentTab, runScrapper, ScrapperOptions } from './utils/chrome';
+import scrapperOptions from './scrappers';
 
-import youtubeOptions from './scrappers/youtube.yml';
-import kuantoKustaOptions from './scrappers/kuanto-kusta.yml';
-import kuantoKustaProductOptions from './scrappers/kuanto-kusta-product.yml';
-import autotraderOptions from './scrappers/autotrader.yml';
-import g2ReviewsOptions from './scrappers/g2-reviews.yml';
-import g2SearchOptions from './scrappers/g2-search.yml';
+function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
+  let options;
 
-export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
-  // TikTok - Accounts - Search Results
   if (url.includes('tiktok.com/search/user')) {
-    return {
-      header: 'TikTok Search Results',
-      listElementsQuery: '[class*="DivPanelContainer"] > [class*="-DivLink"]',
-      elementParser: [
-        { title: 'Avatar', query: '[class*="-ImgAvatar"]', type: 'image' },
-        { title: 'Name', query: '[class*="-PTitle"]', type: 'text' },
-        {
-          title: 'Followers count',
-          query: '[class*="-DivSubTitleWrapper"] > span',
-          type: 'text',
-        },
-        { title: 'Description', query: '[class*="-PDesc"]', type: 'text' },
-      ],
-    };
-  }
-
-  // TikTok - Top - Search results or TikTok - Videos - Search Results
-  if (url.includes('tiktok.com/search') || url.includes('tiktok.com/search/video')) {
-    return {
-      header: 'TikTok Search Results',
-      listElementsQuery: '[class*="-DivItemContainerForSearch"]',
-      elementParser: [
-        { title: 'Url', query: '[class*="-DivWrapper"] > a', type: 'link' },
-        { title: 'Description', query: '[class*="-SpanText"]', type: 'text' },
-        { title: 'Author', query: '[class*="-PUniqueId"]', type: 'text' },
-        {
-          title: 'Views count',
-          query: '[class*="-StrongVideoCount"]',
-          type: 'text',
-        },
-      ],
-    };
-  }
-
-  if (url.includes('bpinet.bancobpi.pt/BPINet_Contas/Movimentos.aspx')) {
-    return {
+    options = scrapperOptions.tiktokAccounts;
+  } else if (url.includes('tiktok.com/search/video')) {
+    options = scrapperOptions.tiktokSearch;
+  } else if (url.includes('bpinet.bancobpi.pt/BPINet_Contas/Movimentos.aspx')) {
+    options = {
       header: 'BPI Bank Account Transactions',
       listElementsQuery: '.TableRecords > tbody > tr',
       elementParser: [
@@ -73,18 +36,14 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         },
       ],
     };
-  }
-
-  if (url.includes('g2.com/')) {
+  } else if (url.includes('g2.com/')) {
     if (url.includes('/search')) {
-      return g2SearchOptions;
+      options = scrapperOptions.g2SearchOptions;
     } else if (url.includes('/reviews')) {
-      return g2ReviewsOptions;
+      options = scrapperOptions.g2ReviewsOptions;
     }
-  }
-
-  if (url.includes('ycombinator.com/companies')) {
-    return {
+  } else if (url.includes('ycombinator.com/companies')) {
+    options = {
       header: 'YCombinator results',
       listElementsQuery: '[class*="_results_"] > a[class*="_company_"]',
       elementParser: [
@@ -98,10 +57,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         { title: 'Location', query: '[class*="_coLocation_"]', type: 'text' },
       ],
     };
-  }
-
-  if (url.includes('linkedin.com') && url.includes('search')) {
-    return {
+  } else if (url.includes('linkedin.com') && url.includes('search')) {
+    options = {
       header: 'Linkedin search results',
       listElementsQuery: '[data-chameleon-result-urn*="urn:li:member:"]',
       elementParser: [
@@ -128,10 +85,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         },
       ],
     };
-  }
-
-  if (url.includes('idealista.')) {
-    return {
+  } else if (url.includes('idealista.')) {
+    options = {
       header: 'Idealista search results',
       listElementsQuery: '.item',
       elementParser: [
@@ -151,10 +106,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         { title: 'Link', query: '.item-link', type: 'link' },
       ],
     };
-  }
-
-  if (url.includes('deliveroo') && url.includes('/restaurants/')) {
-    return {
+  } else if (url.includes('deliveroo') && url.includes('/restaurants/')) {
+    options = {
       header: 'Deliveroo search results',
       listElementsQuery: 'a[class*="HomeFeedUICard-"]',
       elementParser: [
@@ -178,14 +131,10 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         { title: 'Restaurant link', type: 'clean-url' },
       ],
     };
-  }
-
-  if (url.includes('youtube') && url.includes('/results')) {
-    return youtubeOptions;
-  }
-
-  if (url.includes('amazon') && url.includes('/s?k')) {
-    return {
+  } else if (url.includes('youtube') && url.includes('/results')) {
+    options = scrapperOptions.youtubeOptions;
+  } else if (url.includes('amazon') && url.includes('/s?k')) {
+    options = {
       header: 'Amazon search results',
       listElementsQuery: '[class*="sg-"][data-cel-widget*="search_result_"]',
       elementParser: [
@@ -209,42 +158,13 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         },
       ],
     };
-  }
-
-  if (url.includes('producthunt.com')) {
-    return {
-      header: 'ProductHunt results',
-      listElementsQuery:
-        '[class*="styles_item_"][data-test*="post-item-"],[class*="styles_item_"][data-test*="ad-slot"],[class*="styles_item_"][data-test*="product-"]',
-      elementParser: [
-        { title: 'Product image', query: 'img,video', type: 'image' },
-        {
-          title: 'Product name',
-          query:
-            '[data-test*="post-name"], a[href*="/products"] div:nth-child(1), [class*="titleTaglineItem"]',
-          type: 'text',
-        },
-        {
-          title: 'Description',
-          query:
-            '[class*="styles_tagline"], a[href*="/products"] div:nth-child(2), [class*="_extraInfo"], [class*="styles_adMeta"]',
-          type: 'text',
-        },
-        { title: 'Up votes', query: '[data-test="vote-button"]', type: 'text' },
-        {
-          title: 'Product hunt link',
-          query: 'a[data-test*="post-name"], a[href*="/products"]',
-          type: 'link',
-        },
-      ],
-    };
-  }
-
-  if (
+  } else if (url.includes('producthunt.com')) {
+    options = scrapperOptions.productHuntOptions;
+  } else if (
     url.includes('https://my.pitchbook.com/search-results') &&
     (url.includes('deals') || url.includes('companies') || url.includes('investors'))
   ) {
-    return {
+    options = {
       parseTables: {
         header: title,
         tables: [
@@ -260,10 +180,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         mergeTablesBy: 'column',
       },
     };
-  }
-
-  if (url.includes('finance.yahoo.com/quote/') && url.includes('financials')) {
-    return {
+  } else if (url.includes('finance.yahoo.com/quote/') && url.includes('financials')) {
+    options = {
       parseTables: {
         header: title,
         tables: [
@@ -273,10 +191,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         mergeTablesBy: 'row',
       },
     };
-  }
-
-  if (url.includes('www.netflix.com/browse')) {
-    return {
+  } else if (url.includes('www.netflix.com/browse')) {
+    options = {
       header: 'Netflix browse results',
       listElementsQuery: '.title-card',
       elementParser: [
@@ -285,10 +201,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         { title: 'Link', query: 'a', type: 'clean-url' },
       ],
     };
-  }
-
-  if (url.includes('yellowpages.com/search')) {
-    return {
+  } else if (url.includes('yellowpages.com/search')) {
+    options = {
       header: title,
       listElementsQuery: '.result',
       elementParser: [
@@ -300,10 +214,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         { title: 'Website', query: '.track-visit-website', type: 'link' },
       ],
     };
-  }
-
-  if (url.includes('yelp.com/search')) {
-    return {
+  } else if (url.includes('yelp.com/search')) {
+    options = {
       header: title,
       listElementsQuery: '[data-testid="serp-ia-card"]',
       elementParser: [
@@ -326,10 +238,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         },
       ],
     };
-  }
-
-  if (url.includes('zillow.com') && (url.includes('/for_') || url.includes('?search'))) {
-    return {
+  } else if (url.includes('zillow.com') && (url.includes('/for_') || url.includes('?search'))) {
+    options = {
       header: title,
       listElementsQuery: '[data-test="property-card"]',
       elementParser: [
@@ -366,10 +276,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         },
       ],
     };
-  }
-
-  if (url.includes('ebay.com/sch/')) {
-    return {
+  } else if (url.includes('ebay.com/sch/')) {
+    options = {
       header: title,
       listElementsQuery: 'ul > [id*="item"]',
       elementParser: [
@@ -390,40 +298,26 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
         },
       ],
     };
-  }
-
-  if (url.includes('google.com/maps/search')) {
-    return {
-      header: title,
-      listElementsQuery: '[role="feed"] [jsaction*="mouseover"]',
-      elementParser: [
-        { title: 'Image', query: 'img', type: 'image' },
-        {
-          title: 'Name',
-          query: 'a',
-          type: 'get-attribute',
-          attribute: 'aria-label',
-        },
-        {
-          title: 'Rating',
-          query: 'span[role="img"]',
-          type: 'get-attribute',
-          attribute: 'aria-label',
-        },
-        { title: 'Link', query: 'a', type: 'clean-url' },
-      ],
-    };
-  }
-
-  if (url.includes('kuantokusta.')) {
+  } else if (url.includes('google.com/maps/search')) {
+    options = scrapperOptions.googleMapsSearchOptions;
+  } else if (url.includes('kuantokusta.')) {
     if (url.includes('/p/')) {
-      return kuantoKustaProductOptions;
+      options = scrapperOptions.kuantoKustaProductOptions;
     }
-    return kuantoKustaOptions;
+    options = scrapperOptions.kuantoKustaOptions;
+  } else if (url.includes('autotrader.com')) {
+    options = scrapperOptions.autotraderOptions;
   }
 
-  if (url.includes('autotrader.com')) {
-    return autotraderOptions;
+  if (options) {
+    if (!options.header) {
+      return {
+        header: title,
+        ...options,
+      };
+    }
+
+    return options;
   }
 
   return null;

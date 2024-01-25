@@ -1,34 +1,34 @@
-header: 'Youtube search results'
+header: Youtube search results
 listElementsQuery: 'ytd-video-renderer'
 elementParser:
-  - title: "Video thumbnail"
+  - title: Video thumbnail
     query: "img"
-    type: "image"
+    type: image
 
-  - title: "Video title"
+  - title: Video title
     query: "#video-title"
-    type: "text"
+    type: text
 
-  - title: "Video views"
+  - title: Video views
     query: "#metadata-line > span"
-    type: "text"
+    type: text
 
-  - title: "Video description"
+  - title: Video description
     query: ".metadata-snippet-text"
-    type: "text"
+    type: text
 
-  - title: "Video duration"
+  - title: Video duration
     query: "#time-status"
-    type: "text"
+    type: text
 
-  - title: "Video URL"
+  - title: Video URL
     query: "#video-title"
-    type: "link"
+    type: link
 
-  - title: "Channel"
+  - title: Channel
     query: ".ytd-channel-name a"
-    type: "text"
+    type: text
 
-  - title: "Channel URL"
+  - title: Channel URL
     query: ".ytd-channel-name a"
-    type: "link"
+    type: link

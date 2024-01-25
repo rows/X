@@ -1,0 +1,18 @@
+header: TikTok Search Results
+listElementsQuery: '[class*="DivPanelContainer"] > [class*="-DivLink"]'
+elementParser:
+  - title: Avatar
+    query: '[class*="-ImgAvatar"]'
+    type: image
+
+  - title: Name
+    query: '[class*="-PTitle"]'
+    type: text
+
+  - title: Followers count
+    query: '[class*="-DivSubTitleWrapper"] > span'
+    type: text
+
+  - title: Description
+    query: '[class*="-PDesc"]'
+    type: text

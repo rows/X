@@ -5,15 +5,19 @@ elementParser:
     query: '[class*="product-listing__img"] > img'
     type: 'get-attribute'
     attribute: 'data-deferred-image-src'
+
   - title: 'Product name'
     query: '.product-listing__product-name > a > div'
     type: 'text'
+
   - title: 'Total reviews'
     query: '.px-4th'
     type: 'text'
+
   - title: 'Rating'
     query: '.link--header-color'
     type: 'text'
+
   - title: 'Categories'
     query: '.product-listing__search-footer > .cell'
     type: 'text'

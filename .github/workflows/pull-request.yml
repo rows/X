@@ -6,7 +6,7 @@ on:
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-  CHROME_VERSION: 120.0.6099.109
+  CHROME_VERSION: 121.0.6167.85
 
 jobs:
   audit:
@@ -59,12 +59,8 @@ jobs:
           node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: ./.github/actions/install-chrome
-        with:
-          CHROME_VERSION: ${{ env.CHROME_VERSION }}
-
       - name: Run E2E tests
-        run: npm run test:e2e
+        run: node node_modules/puppeteer/install.mjs && npm run test:e2e
 
   build:
     name: Build

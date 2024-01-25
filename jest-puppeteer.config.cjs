@@ -1,6 +1,3 @@
-/** @type {import('jest-environment-puppeteer').JestPuppeteerConfig} */
-const puppeteer = require("puppeteer");
-
 module.exports = {
   launch: {
     dumpio: true,

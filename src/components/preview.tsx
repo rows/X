@@ -41,6 +41,7 @@ const Preview: FunctionComponent<Props> = ({ results = [] }) => {
               </div>
               <div className="table-actions">
                 <Button
+                  className="copy-btn"
                   type="secondary"
                   onClick={() => {
                     navigator.clipboard

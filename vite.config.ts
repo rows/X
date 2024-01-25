@@ -4,12 +4,17 @@ import { crx } from '@crxjs/vite-plugin';
 import viteYaml from '@modyfi/vite-plugin-yaml';
 import manifest from './manifest';
 
-export default defineConfig({
+const e2eTestManifest = {
+  ...manifest,
+  host_permissions: ['<all_urls>'],
+};
+
+export default defineConfig(({ mode }) => ({
   plugins: [
     preact(),
     viteYaml(),
     crx({
-      manifest,
+      manifest: mode === 'e2e' ? e2eTestManifest : manifest,
     }),
   ],
-});
+}));

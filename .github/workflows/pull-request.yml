@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
 
+# Environment variables available to all jobs and steps in this workflow
+env:
+  CHROME_VERSION: 120.0.6099.109
+
 jobs:
   audit:
     name: Audit dependencies
@@ -41,7 +45,7 @@ jobs:
 
   test:
     name: E2E Tests
-    runs-on: rows-fe-1core
+    runs-on: rows-fe-default
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -54,6 +58,10 @@ jobs:
         with:
           node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: ./.github/actions/install-chrome
+        with:
+          CHROME_VERSION: ${{ env.CHROME_VERSION }}
 
       - name: Run E2E tests
         run: npm run test:e2e

@@ -1,0 +1,22 @@
+header: 'Craigslist search results'
+listElementsQuery: '.result-node-wide, .result-node'
+elementParser:
+  - title: Image
+    query: img
+    type: image
+
+  - title: Product name
+    query: .posting-title
+    type: text
+
+  - title: Price
+    query: .priceinfo
+    type: text
+
+  - title: Location
+    query: .supertitle
+    type: text
+
+  - title: Craiglist URL
+    query: '.cl-app-anchor'
+    type: 'link'

@@ -1,0 +1,25 @@
+header: Deliveroo search results
+listElementsQuery: 'a[class*="HomeFeedUICard-"]'
+elementParser:
+  - title: Restaurant
+    query: p
+    type: text
+
+  - title: Description
+    type: get-attribute
+    attribute: aria-label
+
+  - title: Rating
+    query: 'li:nth-child(2) > span:nth-child(3) > span'
+    type: text
+
+  - title: Delivery time
+    query: '[class*="Bubble-"]'
+    type: text
+
+  - title: Promotions
+    query: '[class*="BadgesOverlay-"]'
+    type: text
+
+  - title: Restaurant link
+    type: clean-url

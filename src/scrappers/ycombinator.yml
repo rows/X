@@ -1,0 +1,18 @@
+header: YCombinator results
+listElementsQuery: '[class*="_results_"] > a[class*="_company_"]'
+elementParser:
+  - title: Logo
+    query: img
+    type: image
+
+  - title: Description
+    query: '[class*="_coDescription_"]'
+    type: text
+
+  - title: Company name
+    query: '[class*="_coName_"]'
+    type: text
+
+  - title: Location
+    query: '[class*="_coLocation_"]'
+    type: text

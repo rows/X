@@ -1,0 +1,9 @@
+parseTables:
+  tables:
+    - rows: '#search-results-data-table-left .data-table__row'
+      cols: .data-table__cell
+
+    - rows: '#search-results-data-table-right .data-table__row, #search-results-data-table-right .data-table__headers'
+      cols: .data-table__cell
+
+  mergeTablesBy: column

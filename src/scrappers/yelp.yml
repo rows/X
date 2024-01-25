@@ -1,0 +1,21 @@
+listElementsQuery: '[data-testid="serp-ia-card"]'
+elementParser:
+  - title: Image
+    query: img
+    type: image
+
+  - title: Name
+    query: '[class*="businessName_"]'
+    type: text
+
+  - title: Rating
+    query: 'span[data-font-weight="semibold"]'
+    type: text
+
+  - title: Categories
+    query: '[class*="priceCategory"]'
+    type: text
+
+  - title: Yelp link
+    query: '[class*="businessName_"] a'
+    type: clean-url

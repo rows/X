@@ -1,0 +1,26 @@
+header: Idealista search results
+listElementsQuery: .item
+elementParser:
+  - title: Home
+    query: .item-link
+    type: text
+
+  - title: Price
+    query: .item-price
+    type: text
+
+  - title: Typology
+    query: '.item-detail-char > .item-detail:nth-child(1)'
+    type: text
+
+  - title: Area
+    query: '.item-detail-char > .item-detail:nth-child(2)'
+    type: text
+
+  - title: Description
+    query: .item-description
+    type: text
+
+  - title: Link
+    query: .item-link
+    type: link

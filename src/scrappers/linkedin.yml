@@ -1,0 +1,22 @@
+header: Linkedin search results
+listElementsQuery: '[data-chameleon-result-urn*="urn:li:member:"]'
+elementParser:
+  - title: Avatar
+    query: img
+    type: image
+
+  - title: Name
+    query: '.entity-result__title-text > .app-aware-link span[aria-hidden="true"]'
+    type: text
+
+  - title: Job
+    query: .entity-result__primary-subtitle
+    type: text
+
+  - title: Location
+    query: .entity-result__secondary-subtitle
+    type: text
+
+  - title: Profile url
+    query: .entity-result__title-text > .app-aware-link
+    type: clean-url

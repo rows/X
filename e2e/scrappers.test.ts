@@ -32,23 +32,27 @@ describe('RowsX - scrappers tests', () => {
   });
 
   it.each(tests)('Scrapping - %s', async (domain) => {
+    // 1) get info about the e2e test
     const specData = await fs.readFile(resolve(__dirname, `./${domain}/test.yml`));
     const spec = yaml.load(specData.toString()) as { url: string; result: string };
     const extensionUrl = `chrome-extension://${extensionId}/index.html`;
-    const appPage = await browser.newPage();
     const data = await fs.readFile(resolve(__dirname, `./${domain}/index.html`));
 
+    // 2) open website to scrap
+    const appPage = await browser.newPage();
+    const extensionPage = await browser.newPage();
+
+    // 3) mock the requests
     await appPage.setRequestInterception(true);
 
     appPage.on('request', async (request) => {
       request.respond({ status: 200, contentType: 'text/html', body: data.toString() });
     });
 
-    const extensionPage = await browser.newPage();
     await appPage.bringToFront();
     await appPage.goto(spec.url, { waitUntil: 'domcontentloaded' });
     await extensionPage.goto(extensionUrl, { waitUntil: 'domcontentloaded' });
-    await appPage.waitForTimeout(200);
+    await appPage.waitForTimeout(250);
     await extensionPage.bringToFront();
     const button = await extensionPage.waitForSelector('.copy-btn');
     await button.click();
@@ -57,8 +61,11 @@ describe('RowsX - scrappers tests', () => {
     const context = await browser.defaultBrowserContext();
     await context.overridePermissions(spec.url, ['clipboard-read']);
     const clipboard = await appPage.evaluate(() => navigator.clipboard.readText());
+
+    // close pages
     await appPage.close();
+
     const result = await fs.readFile(resolve(__dirname, `./${domain}/result.tsv`));
-    expect(clipboard).toBe(result.toString().trimEnd());
+    expect(clipboard.trimEnd()).toBe(result.toString().trimEnd());
   });
 });

@@ -24,6 +24,7 @@ import linkedin from './linkedin.yml';
 import idealista from './idealista.yml';
 import deliveroo from './deliveroo.yml';
 import craigslist from './craigslist.yml';
+import twitter from './twitter.yml';
 
 export default {
   amazon,
@@ -51,4 +52,5 @@ export default {
   idealista,
   deliveroo,
   craigslist,
+  twitter,
 };

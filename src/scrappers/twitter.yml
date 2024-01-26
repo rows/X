@@ -1,0 +1,17 @@
+listElementsQuery: '[data-testid="UserCell"]'
+elementParser:
+  - title: Avatar
+    query: img
+    type: image
+
+  - title: Name
+    query: 'div[role="button"] > div > div:nth-child(2) > div > div > div:nth-child(1) > div:nth-child(1)'
+    type: text
+
+  - title: Username
+    query: 'div[role="button"] > div > div:nth-child(2) > div > div > div:nth-child(1) > div:nth-child(2)'
+    type: text
+
+  - title: Bio
+    query: 'div[role="button"] > div > div:nth-child(2) > div:nth-child(2)'
+    type: text

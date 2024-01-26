@@ -41,11 +41,7 @@ describe('RowsX - scrappers tests', () => {
     await appPage.setRequestInterception(true);
 
     appPage.on('request', async (request) => {
-      if (request.url().endsWith('/')) {
-        request.respond({ status: 200, contentType: 'text/html', body: data });
-      } else {
-        request.abort();
-      }
+      request.respond({ status: 200, contentType: 'text/html', body: data.toString() });
     });
 
     const extensionPage = await browser.newPage();

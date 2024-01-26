@@ -46,7 +46,10 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     options = scrapperOptions.yellowPages;
   } else if (url.includes('yelp.') && url.includes('/search')) {
     options = scrapperOptions.yelp;
-  } else if (url.includes('zillow.com') && (url.includes('/for_') || url.includes('?search'))) {
+  } else if (
+    url.includes('zillow.com') &&
+    (url.includes('/homes') || url.includes('/for_') || url.includes('?search'))
+  ) {
     options = scrapperOptions.zillow;
   } else if (url.includes('ebay.com/sch/')) {
     options = scrapperOptions.ebay;

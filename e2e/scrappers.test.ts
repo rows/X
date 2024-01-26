@@ -4,7 +4,7 @@ import * as yaml from 'js-yaml';
 
 function listDirectories(path: string) {
   const directories = readdirSync(path, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
+    .filter((dir) => dir.isDirectory() && dir.name !== '__snapshots__')
     .map((dir) => dir.name);
 
   return directories;
@@ -65,7 +65,6 @@ describe('RowsX - scrappers tests', () => {
     // close pages
     await appPage.close();
 
-    const result = await fs.readFile(resolve(__dirname, `./${domain}/result.tsv`));
-    expect(clipboard.trimEnd()).toBe(result.toString().trimEnd());
+    expect(clipboard.trimEnd()).toMatchSnapshot();
   });
 });

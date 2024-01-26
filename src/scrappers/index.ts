@@ -6,7 +6,7 @@ import kuantoKustaProductOptions from './kuanto-kusta-product.yml';
 import autotraderOptions from './autotrader.yml';
 import g2ReviewsOptions from './g2-reviews.yml';
 import g2SearchOptions from './g2-search.yml';
-import productHuntOptions from './producthunt.yml';
+import productHuntOptions from './product-hunt.yml';
 import googleMapsSearchOptions from './google-maps-search.yml';
 import tiktokAccounts from './tik-tok-accounts.yml';
 import tiktokSearch from './tik-tok-search.yml';

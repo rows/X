@@ -1,0 +1,18 @@
+header: TikTok Search Results
+listElementsQuery: '[class*="-DivItemContainerForSearch"]'
+elementParser:
+  - title: Description
+    query: '[class*="-SpanText"]'
+    type: text
+
+  - title: Author
+    query: '[class*="-PUniqueId"]'
+    type: text
+
+  - title: Views count
+    query: '[class*="-StrongVideoCount"]'
+    type: text
+
+  - title: Video URL
+    query: '[class*="-DivWrapper"] > a'
+    type: link

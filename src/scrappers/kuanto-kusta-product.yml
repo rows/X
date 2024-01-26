@@ -1,14 +1,17 @@
-header: 'Kuanto Kusta search results'
+header: Kuanto Kusta search results
 listElementsQuery: '[data-test-id="offer-card"]'
 elementParser:
-  - title: "Name"
+  - title: Name
     query: '[data-test-id="offer-product-name"]'
-    type: "text"
-  - title: "Price"
+    type: text
+
+  - title: Price
     query: '[data-test-id="offer-price"]'
-    type: "text"
-  - title: "Shipping costs"
+    type: text
+
+  - title: Shipping costs
     query: '[data-test-id="offer-shipping"]'
-    type: "text"
-  - title: "Kuanto kusta link"
-    type: "link"
+    type: text
+
+  - title: Kuanto kusta link
+    type: link

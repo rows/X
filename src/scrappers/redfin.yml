@@ -1,0 +1,30 @@
+header: Redfin search results
+listElementsQuery: '[id*="MapHomeCard_"]'
+elementParser:
+  - title: Image
+    query: img
+    type: image
+
+  - title: Address
+    query: '[data-rf-test-id="abp-homeinfo-homeaddress"]'
+    type: text
+
+  - title: Price
+    query: '[data-rf-test-name="homecard-price"]'
+    type: text
+
+  - title: Bedrooms
+    query: '.HomeStatsV2 > .stats:nth-child(1)'
+    type: text
+
+  - title: Bathrooms
+    query: '.HomeStatsV2 > .stats:nth-child(2)'
+    type: text
+
+  - title: Area
+    query: '.HomeStatsV2 > .stats:nth-child(3)'
+    type: text
+
+  - title: Refin link
+    query: a
+    type: link

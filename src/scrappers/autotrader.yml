@@ -4,18 +4,23 @@ elementParser:
   - title: "Car image"
     query: 'img[data-cmp="inventoryImage"]'
     type: "image"
+
   - title: "Description"
     query: '[data-cmp="link"]'
     type: "text"
+
   - title: "Price"
     query: '[data-cmp="firstPrice"]'
     type: "text"
+
   - title: "Number of miles"
     query: '[data-cmp="ownerDistance"]'
     type: "text"
+
   - title: "Contact"
     query: '[data-cmp="phoneNumber"]'
     type: "text"
+    
   - title: "Autotrader URL"
     query: '[data-cmp="link"]'
     type: "clean-url"

@@ -1,0 +1,25 @@
+listElementsQuery: .result
+elementParser:
+  - title: Logo
+    query: img
+    type: image
+
+  - title: Name
+    query: .business-name
+    type: text
+
+  - title: Phone number
+    query: .phone
+    type: text
+
+  - title: Address
+    query: .adr
+    type: text
+
+  - title: Categories
+    query: .categories
+    type: text
+
+  - title: Website
+    query: .track-visit-website
+    type: link

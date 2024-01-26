@@ -1,9 +1,6 @@
 import { readdirSync, promises as fs } from 'fs';
 import { resolve } from 'path';
 
-const extensionId = 'phpjngkjjocinjepokdimcomfmgkogbe';
-const extensionUrl = `chrome-extension://${extensionId}/index.html`;
-
 function listDirectories(path: string) {
   const directories = readdirSync(path, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
@@ -12,10 +9,29 @@ function listDirectories(path: string) {
   return directories;
 }
 
+async function getExtensionId() {
+  const workerTarget = await browser.waitForTarget((target) => target.type() === 'service_worker');
+
+  const urlRegex = /chrome-extension:\/\/(?<id>[a-z]+)/;
+  const match = urlRegex.exec(workerTarget.url());
+
+  if (!match || !match.groups) {
+    throw new Error('Extension URL does not match expected format');
+  }
+
+  return match.groups.id;
+}
+
 describe('RowsX - scrappers tests', () => {
   const tests = listDirectories(__dirname);
+  let extensionId = '';
+
+  beforeAll(async () => {
+    extensionId = await getExtensionId();
+  });
 
   it.each(tests)('Scrapping - %s', async (domain) => {
+    const extensionUrl = `chrome-extension://${extensionId}/index.html`;
     const appPage = await browser.newPage();
     const data = await fs.readFile(resolve(__dirname, `./${domain}/index.html`));
 

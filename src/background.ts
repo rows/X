@@ -66,6 +66,8 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     options = scrapperOptions.redfin;
   } else if (url.includes('craigslist.org')) {
     options = scrapperOptions.craigslist;
+  } else if (url.includes('x.com') || url.includes('twitter.com')) {
+    options = scrapperOptions.twitter;
   }
 
   if (options) {

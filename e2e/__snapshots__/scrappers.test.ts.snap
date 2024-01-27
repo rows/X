@@ -206,6 +206,35 @@ exports[`RowsX - scrappers tests Scrapping - linkedin-connections 1`] = `
 =IMAGE("https://media.licdn.com/dms/image/D4D03AQGDT_Pm4pAvRQ/profile-displayphoto-shrink_100_100/0/1693872358500?e=1711584000&v=beta&t=zRPf_SOChXPDhNBAmlQ8ko2Zor__G8vk5LeTHM95n1k")	Vitor Gomes	Senior Software Engineer @ Mosaic		https://www.linkedin.com/in/vitor-gomes-8b636b109/"
 `;
 
+exports[`RowsX - scrappers tests Scrapping - linkedin-jobs 1`] = `
+"Position	Company	Location	URL
+Senior 3D Frontend Engineer (React/WebGL)	Promaton	European Economic Area (Remote)	https://www.linkedin.com/jobs/view/3806260395/
+Senior Frontend Engineer	Consensys	Portugal (Remote)	https://www.linkedin.com/jobs/view/3776984459/
+Senior Frontend Software Engineer | Partner Content	Gympass	Lisbon Metropolitan Area (Remote)	https://www.linkedin.com/jobs/view/3797037523/
+Senior Frontend Developer	Clevertech	Portugal (Remote)	https://www.linkedin.com/jobs/view/3811625394/
+Senior Frontend Engineer, Europe	Recruiting from Scratch	Porto, Porto, Portugal	https://www.linkedin.com/jobs/view/3744387593/
+Senior Full Stack Developer	Okra Solar	Porto, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3738144176/
+Senior Frontend Engineer	Gradle Inc.	European Union (Remote)	https://www.linkedin.com/jobs/view/3495759529/
+Senior Software Engineer - Frontend	Datadog	Lisboa, Lisbon, Portugal	https://www.linkedin.com/jobs/view/3620272414/
+Senior Frontend Developer	Smart Consulting	Portugal (Remote)	https://www.linkedin.com/jobs/view/3809187346/
+Senior Frontend Developer - React Native	Celfocus	Porto, Porto, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3754401475/
+Senior Frontend Software Engineer	Emma – The Sleep Company	Lisboa, Lisbon, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3575803235/
+Senior Frontend Engineer React (m/f/d)	SoSafe	Lisboa, Lisbon, Portugal (On-site)	https://www.linkedin.com/jobs/view/3773322852/
+Front End Developer	RB PHARMA	Lisbon, Lisbon, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3812349859/
+Senior Software Engineer, Typescript - Product Growth	Dashlane	Lisboa, Lisbon, Portugal	https://www.linkedin.com/jobs/view/3772718299/
+Senior Fullstack Engineer	Twistag	Lisbon Metropolitan Area (Hybrid)	https://www.linkedin.com/jobs/view/3812895052/
+Senior Full Stack Software Engineer (m/f/d)	Kuehne+Nagel	Porto, Porto, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3805603238/
+Senior Frontend Developer	Blip.pt	Porto, Porto, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3798233442/
+Creative Tech | Frontend Developer (Angular)	Devoteam	Lisboa, Lisbon, Portugal (Remote)	https://www.linkedin.com/jobs/view/3808294340/
+Senior Frontend Developer - React, Typescript	Orbis	Lisbon, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3810329987/
+Senior Software Developer	Intermedia Cloud Communications	Aveiro, Portugal (Remote)	https://www.linkedin.com/jobs/view/3804539773/
+Senior Frontend Developer	Sky Portugal	Aveiro, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3802793799/
+Senior Fullstack Engineer	Zühlke Group	Porto, Porto, Portugal (Remote)	https://www.linkedin.com/jobs/view/3766955671/
+Senior Software Engineer - Full Stack	Datadog	Lisboa, Lisbon, Portugal	https://www.linkedin.com/jobs/view/2980044353/
+UX/UI & Frontend Developer	Siemens Energy	Porto Salvo, Lisbon, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3804310496/
+Senior Frontend Developer	Spinks	Lisbon, Portugal (Hybrid)	https://www.linkedin.com/jobs/view/3812717725/"
+`;
+
 exports[`RowsX - scrappers tests Scrapping - linkedin-search-people 1`] = `
 "Avatar	Name	Job	Location	Profile url
 =IMAGE("https://media.licdn.com/dms/image/C4E03AQH07GJ8dLm07A/profile-displayphoto-shrink_100_100/0/1582636213281?e=1711584000&v=beta&t=crNJgxo5FVDBzQR0Pberds2L2JEFG62Z7KVIxJhOTO0")	Nuno Veloso	Head of Engineering at FARFETCH	Porto Metropolitan Area	https://www.linkedin.com/in/nveloso

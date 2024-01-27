@@ -21,6 +21,7 @@ import redfin from './redfin.yml';
 import bpi from './bpi.yml';
 import ycombinator from './ycombinator.yml';
 import linkedin from './linkedin.yml';
+import linkedinJobs from './linkedin-jobs.yml';
 import idealista from './idealista.yml';
 import deliveroo from './deliveroo.yml';
 import craigslist from './craigslist.yml';
@@ -49,6 +50,7 @@ export default {
   bpi,
   ycombinator,
   linkedin,
+  linkedinJobs,
   idealista,
   deliveroo,
   craigslist,

@@ -46,7 +46,11 @@ describe('RowsX - scrappers tests', () => {
     await appPage.setRequestInterception(true);
 
     appPage.on('request', async (request) => {
-      request.respond({ status: 200, contentType: 'text/html', body: data.toString() });
+      if (request.resourceType() === 'document') {
+        request.respond({ status: 200, contentType: 'text/html', body: data.toString() });
+      } else {
+        request.abort();
+      }
     });
 
     await appPage.bringToFront();

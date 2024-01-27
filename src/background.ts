@@ -18,8 +18,12 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     }
   } else if (url.includes('ycombinator.com/companies')) {
     options = scrapperOptions.ycombinator;
-  } else if (url.includes('linkedin.com') && url.includes('search')) {
-    options = scrapperOptions.linkedin;
+  } else if (url.includes('linkedin.com')) {
+    if (url.includes('search/results') || url.includes('mynetwork')) {
+      options = scrapperOptions.linkedin;
+    } else if (url.includes('jobs/')) {
+      options = scrapperOptions.linkedinJobs;
+    }
   } else if (url.includes('idealista.')) {
     options = scrapperOptions.idealista;
   } else if (url.includes('deliveroo') && url.includes('/restaurants/')) {

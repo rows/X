@@ -1,16 +1,16 @@
 header: Linkedin search results
-listElementsQuery: '[data-chameleon-result-urn*="urn:li:member:"]'
+listElementsQuery: '[data-chameleon-result-urn*="urn:li:member:"], .mn-connection-card'
 elementParser:
   - title: Avatar
     query: img
     type: image
 
   - title: Name
-    query: '.entity-result__title-text > .app-aware-link span[aria-hidden="true"]'
+    query: '.entity-result__title-text > .app-aware-link span[aria-hidden="true"], .mn-connection-card__name'
     type: text
 
   - title: Job
-    query: .entity-result__primary-subtitle
+    query: .entity-result__primary-subtitle, .mn-connection-card__occupation
     type: text
 
   - title: Location
@@ -18,5 +18,5 @@ elementParser:
     type: text
 
   - title: Profile url
-    query: .entity-result__title-text > .app-aware-link
+    query: .entity-result__title-text > .app-aware-link, .mn-connection-card__link
     type: clean-url

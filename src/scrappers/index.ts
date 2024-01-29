@@ -29,6 +29,7 @@ import twitter from './twitter.yml';
 import imovirtual from './imovirtual.yml';
 import trulia from './trulia.yml';
 import immobiliare from './immobiliare.yml';
+import exhibitorsCes from './exhibitors-ces.yml';
 
 export default {
   amazon,
@@ -61,4 +62,5 @@ export default {
   imovirtual,
   trulia,
   immobiliare,
+  exhibitorsCes,
 };

@@ -78,6 +78,8 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     options = scrapperOptions.trulia;
   } else if (url.includes('immobiliare.')) {
     options = scrapperOptions.immobiliare;
+  } else if (url.includes('exhibitors.ces.tech')) {
+    options = scrapperOptions.exhibitorsCes;
   }
 
   if (options) {

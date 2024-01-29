@@ -72,6 +72,14 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     options = scrapperOptions.craigslist;
   } else if (url.includes('x.com') || url.includes('twitter.com')) {
     options = scrapperOptions.twitter;
+  } else if (url.includes('imovirtual.')) {
+    options = scrapperOptions.imovirtual;
+  } else if (url.includes('trulia.')) {
+    options = scrapperOptions.trulia;
+  } else if (url.includes('immobiliare.')) {
+    options = scrapperOptions.immobiliare;
+  } else if (url.includes('exhibitors.ces.tech')) {
+    options = scrapperOptions.exhibitorsCes;
   }
 
   if (options) {

@@ -26,6 +26,10 @@ import idealista from './idealista.yml';
 import deliveroo from './deliveroo.yml';
 import craigslist from './craigslist.yml';
 import twitter from './twitter.yml';
+import imovirtual from './imovirtual.yml';
+import trulia from './trulia.yml';
+import immobiliare from './immobiliare.yml';
+import exhibitorsCes from './exhibitors-ces.yml';
 
 export default {
   amazon,
@@ -55,4 +59,8 @@ export default {
   deliveroo,
   craigslist,
   twitter,
+  imovirtual,
+  trulia,
+  immobiliare,
+  exhibitorsCes,
 };

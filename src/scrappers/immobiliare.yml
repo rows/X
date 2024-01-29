@@ -1,0 +1,25 @@
+listElementsQuery: .in-reListCard
+elementParser:
+  - title: Home image
+    query: img
+    type: image
+
+  - title: Price
+    query: .in-reListCardPrice
+    type: text
+
+  - title: Name
+    query: .in-reListCard__title
+    type: text
+
+  - title: Area
+    query: '[aria-label="superficie"]'
+    type: text
+
+  - title: Description
+    query: .in-reListCardDescription
+    type: text
+
+  - title: Immobiliare URL
+    query: a
+    type: link

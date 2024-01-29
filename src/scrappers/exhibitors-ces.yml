@@ -1,0 +1,22 @@
+header: Exhibitors CES 2024
+listElementsQuery: .card
+elementParser:
+  - title: Logo
+    query: img
+    type: image
+
+  - title: Name
+    query: .card-Title
+    type: text
+
+  - title: exhibitors URL
+    query: a
+    type: link
+
+  - title: Description
+    query: .card-Desc
+    type: text
+
+  - title: Booth
+    query: .card-Subtitle
+    type: text

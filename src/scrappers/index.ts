@@ -28,6 +28,7 @@ import craigslist from './craigslist.yml';
 import twitter from './twitter.yml';
 import imovirtual from './imovirtual.yml';
 import trulia from './trulia.yml';
+import immobiliare from './immobiliare.yml';
 
 export default {
   amazon,
@@ -59,4 +60,5 @@ export default {
   twitter,
   imovirtual,
   trulia,
+  immobiliare,
 };

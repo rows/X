@@ -76,6 +76,8 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     options = scrapperOptions.imovirtual;
   } else if (url.includes('trulia.')) {
     options = scrapperOptions.trulia;
+  } else if (url.includes('immobiliare.')) {
+    options = scrapperOptions.immobiliare;
   }
 
   if (options) {

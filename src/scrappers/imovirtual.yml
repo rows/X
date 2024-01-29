@@ -1,0 +1,21 @@
+listElementsQuery: .offer-item
+elementParser:
+  - title: Home
+    query: .offer-item-title
+    type: text
+
+  - title: Typology
+    query: .offer-item-rooms
+    type: text
+
+  - title: Area
+    query: .offer-item-area
+    type: text
+
+  - title: Price
+    query: .offer-item-price
+    type: text
+
+  - title: URL
+    query: a
+    type: link

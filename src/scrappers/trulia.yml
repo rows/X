@@ -1,0 +1,25 @@
+listElementsQuery: '[data-testid="home-card-sale"]'
+elementParser:
+  - title: Address
+    query: '[data-testid="property-address"]'
+    type: text
+
+  - title: Bedrooms
+    query: '[data-testid="property-beds"]'
+    type: text
+
+  - title: Bathrooms
+    query: '[data-testid="property-baths"]'
+    type: text
+
+  - title: Price
+    query: '[data-testid="property-price"]'
+    type: text
+
+  - title: Area
+    query: '[data-testid="property-floorSpace"]'
+    type: text
+
+  - title: Tulia link
+    query: '[data-testid="property-card-link"]'
+    type: link

@@ -1,4 +1,4 @@
-header: Redfin search results
+url: https://www.redfin.com/*
 listElementsQuery: '[id*="MapHomeCard_"]'
 elementParser:
   - title: Image

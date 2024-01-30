@@ -1,3 +1,4 @@
+url: https://www.imovirtual.com/*
 listElementsQuery: .offer-item
 elementParser:
   - title: Home

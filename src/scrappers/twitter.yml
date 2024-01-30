@@ -1,3 +1,6 @@
+url:
+  - https://twitter.com/*
+  - https://x.com/*
 listElementsQuery: '[data-testid="UserCell"]'
 elementParser:
   - title: Avatar

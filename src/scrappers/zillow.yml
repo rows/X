@@ -1,3 +1,7 @@
+url:
+  - https://www.zillow.com/homes/*
+  - https://www.zillow.com/*?search*
+  - https://www.zillow.com/*/*/?search*
 listElementsQuery: '[data-test="property-card"]'
 elementParser:
   - title: Image

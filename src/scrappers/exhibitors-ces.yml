@@ -1,3 +1,4 @@
+url: https://exhibitors.ces.tech/*
 header: Exhibitors CES 2024
 listElementsQuery: .card
 elementParser:

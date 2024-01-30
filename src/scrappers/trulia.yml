@@ -1,3 +1,4 @@
+url: https://www.trulia.com/*
 listElementsQuery: '[data-testid="home-card-sale"]'
 elementParser:
   - title: Address

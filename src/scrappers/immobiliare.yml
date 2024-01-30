@@ -1,3 +1,4 @@
+url: https://www.immobiliare.it/*
 listElementsQuery: .in-reListCard
 elementParser:
   - title: Home image

@@ -11,7 +11,9 @@ function listDirectories(path: string) {
 }
 
 async function getExtensionId() {
-  const workerTarget = await browser.waitForTarget((target) => target.type() === 'service_worker');
+  const workerTarget = await browser.waitForTarget((target) => target.type() === 'service_worker', {
+    timeout: 3000,
+  });
 
   const urlRegex = /chrome-extension:\/\/(?<id>[a-z]+)/;
   const match = urlRegex.exec(workerTarget.url());
@@ -56,7 +58,7 @@ describe('RowsX - scrappers tests', () => {
     await appPage.bringToFront();
     await appPage.goto(spec.url, { waitUntil: 'domcontentloaded' });
     await extensionPage.goto(extensionUrl, { waitUntil: 'domcontentloaded' });
-    await appPage.waitForTimeout(200);
+    await appPage.waitForTimeout(500);
     await extensionPage.bringToFront();
     const button = await extensionPage.waitForSelector('.copy-btn');
     await button.click();

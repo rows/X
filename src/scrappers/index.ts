@@ -31,6 +31,7 @@ import trulia from './trulia.yml';
 import immobiliare from './immobiliare.yml';
 import exhibitorsCes from './exhibitors-ces.yml';
 import realtor from './realtor.yml';
+import openviewpartners from './openviewpartners.yml';
 
 export default [
   amazon,
@@ -65,4 +66,5 @@ export default [
   immobiliare,
   exhibitorsCes,
   realtor,
+  openviewpartners,
 ];

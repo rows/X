@@ -1,9 +1,6 @@
-listElementsQuery: '[class=*".Cardstyles__StyledCard-"]'
+url: https://www.realtor.com/realestateandhomes-search/*
+listElementsQuery: '[id*="placeholder_property_"]'
 elementParser:
-  - title: Home image
-    query: img
-    type: image
-
   - title: Property Type
     query: '[data-testid="card-description"]'
     type: text
@@ -11,14 +8,6 @@ elementParser:
   - title: Price
     query: '[data-testid="card-price"]'
     type: text
-
-  - title: Reduced price
-    query: '[data-testid="card-reduced-amount"]'
-    type: text
-
-  - title: Realtor URL
-    query: a
-    type: link
 
   - title: Address
     query: '[data-testid="card-address-1"]'
@@ -28,14 +17,18 @@ elementParser:
     query: '[data-testid="card-address-2"]'
     type: text
 
-  - title: Bed
+  - title: Bedrooms
     query: '[data-testid="property-meta-beds"]'
     type: text
 
-  - title: Bath
+  - title: Bathrooms
     query: '[data-testid="property-meta-baths"]'
     type: text
 
-  - title: sqft
-    query: '[data-testid="property-meta-sqft"]'
+  - title: Area (sqft)
+    query: '[data-testid="property-meta-sqft"] > span > .meta-value'
     type: text
+
+  - title: Realtor URL
+    query: a
+    type: clean-url

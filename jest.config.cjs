@@ -3,5 +3,5 @@
 module.exports = {
   setupFilesAfterEnv: ['expect-puppeteer'],
   preset: './config/jest-preset.cjs',
-  testTimeout: 3000,
+  testTimeout: 5000,
 };

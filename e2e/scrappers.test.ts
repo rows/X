@@ -11,7 +11,9 @@ function listDirectories(path: string) {
 }
 
 async function getExtensionId() {
-  const workerTarget = await browser.waitForTarget((target) => target.type() === 'service_worker');
+  const workerTarget = await browser.waitForTarget((target) => target.type() === 'service_worker', {
+    timeout: 3000,
+  });
 
   const urlRegex = /chrome-extension:\/\/(?<id>[a-z]+)/;
   const match = urlRegex.exec(workerTarget.url());

@@ -1,3 +1,4 @@
+url: https://www.idealista.*
 header: Idealista search results
 listElementsQuery: .item
 elementParser:

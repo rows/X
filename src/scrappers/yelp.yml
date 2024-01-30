@@ -1,3 +1,4 @@
+url: https://www.yelp.*/search
 listElementsQuery: '[data-testid="serp-ia-card"]'
 elementParser:
   - title: Image

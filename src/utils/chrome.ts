@@ -43,7 +43,7 @@ export async function runScrapper(options: ScrapperOptions | null) {
   } else if (options.parseTables) {
     computation = (await chrome.scripting.executeScript({
       target: { tabId: tab.id! },
-      args: [options.parseTables],
+      args: [options],
       func: scrapDivHTMLTables,
     })) as Array<{ result: ScrapperResults }>;
   } else {

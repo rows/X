@@ -1,3 +1,4 @@
+url: https://www.producthunt.com/*
 header: ProductHunt results
 listElementsQuery: '[class*="styles_item_"][data-test*="post-item-"],[class*="styles_item_"][data-test*="ad-slot"],[class*="styles_item_"][data-test*="product-"]'
 elementParser:

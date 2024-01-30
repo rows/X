@@ -1,3 +1,4 @@
+url: https://www.google.com/maps/search/*
 listElementsQuery: '[role="feed"] [jsaction*="mouseover"]'
 elementParser:
   - title: Image

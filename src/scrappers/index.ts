@@ -9,7 +9,7 @@ import g2SearchOptions from './g2-search.yml';
 import productHuntOptions from './product-hunt.yml';
 import googleMapsSearchOptions from './google-maps-search.yml';
 import tiktokAccounts from './tik-tok-accounts.yml';
-import tiktokSearch from './tik-tok-search.yml';
+import tiktokVideos from './tik-tok-video.yml';
 import netflix from './netflix.yml';
 import ebay from './ebay.yml';
 import zillow from './zillow.yml';
@@ -30,8 +30,11 @@ import imovirtual from './imovirtual.yml';
 import trulia from './trulia.yml';
 import immobiliare from './immobiliare.yml';
 import exhibitorsCes from './exhibitors-ces.yml';
+import realtor from './realtor.yml';
+import openviewpartners from './openviewpartners.yml';
+import rightmove from './rightmove.yml';
 
-export default {
+export default [
   amazon,
   youtubeOptions,
   kuantoKustaOptions,
@@ -42,7 +45,7 @@ export default {
   productHuntOptions,
   googleMapsSearchOptions,
   tiktokAccounts,
-  tiktokSearch,
+  tiktokVideos,
   netflix,
   ebay,
   zillow,
@@ -63,4 +66,7 @@ export default {
   trulia,
   immobiliare,
   exhibitorsCes,
-};
+  realtor,
+  openviewpartners,
+  rightmove,
+];

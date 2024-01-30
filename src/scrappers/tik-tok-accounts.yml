@@ -1,3 +1,4 @@
+url: https://www.tiktok.com/search/user
 header: TikTok Search Results
 listElementsQuery: '[class*="DivPanelContainer"] > [class*="-DivLink"]'
 elementParser:

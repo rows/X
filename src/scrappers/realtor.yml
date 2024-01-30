@@ -1,0 +1,34 @@
+url: https://www.realtor.com/realestateandhomes-search/*
+listElementsQuery: '[id*="placeholder_property_"]'
+elementParser:
+  - title: Property Type
+    query: '[data-testid="card-description"]'
+    type: text
+
+  - title: Price
+    query: '[data-testid="card-price"]'
+    type: text
+
+  - title: Address
+    query: '[data-testid="card-address-1"]'
+    type: text
+
+  - title: Location
+    query: '[data-testid="card-address-2"]'
+    type: text
+
+  - title: Bedrooms
+    query: '[data-testid="property-meta-beds"]'
+    type: text
+
+  - title: Bathrooms
+    query: '[data-testid="property-meta-baths"]'
+    type: text
+
+  - title: Area (sqft)
+    query: '[data-testid="property-meta-sqft"] > span > .meta-value'
+    type: text
+
+  - title: Realtor URL
+    query: a
+    type: clean-url

@@ -1,3 +1,4 @@
+url: https://www.ebay.com/sch/*
 listElementsQuery: 'ul > [id*="item"]'
 elementParser:
   - title: Image

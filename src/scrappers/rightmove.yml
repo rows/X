@@ -1,0 +1,37 @@
+url: https://www.rightmove.co.uk/*
+listElementsQuery: '[data-test*="propertyCard-"]'
+elementParser:
+  - title: Address
+    query: '[itemprop="address"]'
+    type: text
+
+  - title: Description
+    query: '[itemprop="description"]'
+    type: text
+
+  - title: Property Type
+    query: .text
+    type: text
+
+  - title: Price
+    query: .propertyCard-priceValue
+    type: text
+
+  - title: Bedrooms
+    query: .property-information .text:nth-child(3)
+    type: text
+
+  - title: Bathrooms
+    query: .property-information .text:nth-child(5)
+    type: text
+
+
+  - title: Rightmove URL
+    query: .propertyCard-link
+    type: clean-url
+
+
+
+
+
+

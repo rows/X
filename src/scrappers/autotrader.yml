@@ -1,3 +1,4 @@
+url: https://www.autotrader.com/*
 header: 'Autotrader search results'
 listElementsQuery: '[data-cmp="inventoryListing"]'
 elementParser:
@@ -20,7 +21,7 @@ elementParser:
   - title: "Contact"
     query: '[data-cmp="phoneNumber"]'
     type: "text"
-    
+
   - title: "Autotrader URL"
     query: '[data-cmp="link"]'
     type: "clean-url"

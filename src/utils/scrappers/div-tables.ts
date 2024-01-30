@@ -1,7 +1,7 @@
 import { DOM_Element } from './types';
+import { ScrapperOptions } from '../chrome';
 
 export type ScrapDivTablesOptions = {
-  header: string;
   tables: Array<{
     rows: string;
     cols: string;
@@ -9,7 +9,7 @@ export type ScrapDivTablesOptions = {
   mergeTablesBy: 'row' | 'column';
 };
 
-export async function scrapDivHTMLTables(options: ScrapDivTablesOptions) {
+export async function scrapDivHTMLTables(options: ScrapperOptions) {
   function getText(element: DOM_Element, query: string) {
     let elems: DOM_Element | Iterable<DOM_Element> = element;
 
@@ -24,17 +24,17 @@ export async function scrapDivHTMLTables(options: ScrapDivTablesOptions) {
 
   let table = [];
 
-  const tables = options.tables.map((tableInfo) => {
+  const tables = options.parseTables!.tables.map((tableInfo) => {
     return Array.from<DOM_Element>(
       document.querySelectorAll(tableInfo.rows) as Iterable<DOM_Element>
     ).map((rowElement) => getText(rowElement, tableInfo.cols));
   });
 
-  if (options.mergeTablesBy === 'column') {
+  if (options.parseTables!.mergeTablesBy === 'column') {
     for (let i = 0; i <= tables[0].length; ++i) {
       table.push(tables.map((table) => table[i]).flat(Infinity));
     }
-  } else if (options.mergeTablesBy === 'row') {
+  } else if (options.parseTables!.mergeTablesBy === 'row') {
     table = [...tables.flat(1)];
   } else {
     table = tables;

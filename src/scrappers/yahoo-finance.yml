@@ -1,3 +1,4 @@
+url: https://finance.yahoo.com/quote/*/financials
 parseTables:
   tables:
     - rows: '[class*="(tbhg)"]>[class*="(tbr)"]'

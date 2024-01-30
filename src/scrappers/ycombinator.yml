@@ -1,3 +1,4 @@
+url: https://www.ycombinator.com/companies
 header: YCombinator results
 listElementsQuery: '[class*="_results_"] > a[class*="_company_"]'
 elementParser:

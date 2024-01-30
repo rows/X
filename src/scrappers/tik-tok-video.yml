@@ -1,3 +1,4 @@
+url: https://www.tiktok.com/search/video
 header: TikTok Search Results
 listElementsQuery: '[class*="-DivItemContainerForSearch"]'
 elementParser:

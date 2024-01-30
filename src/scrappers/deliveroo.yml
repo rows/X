@@ -1,3 +1,4 @@
+url: https://deliveroo.co.uk/restaurants/*
 header: Deliveroo search results
 listElementsQuery: 'a[class*="HomeFeedUICard-"]'
 elementParser:

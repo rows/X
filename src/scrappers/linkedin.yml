@@ -1,3 +1,6 @@
+url:
+  - https://www.linkedin.com/search/results
+  - https://www.linkedin.com/mynetwork/invite-connect/connections/
 header: Linkedin search results
 listElementsQuery: '[data-chameleon-result-urn*="urn:li:member:"], .mn-connection-card'
 elementParser:

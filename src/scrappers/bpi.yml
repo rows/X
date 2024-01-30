@@ -1,3 +1,4 @@
+url: https://bpinet.bancobpi.pt/BPINet_Contas/Movimentos.aspx
 header: BPI Bank Account Transactions
 listElementsQuery: .TableRecords > tbody > tr
 elementParser:

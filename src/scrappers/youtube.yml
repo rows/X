@@ -1,4 +1,6 @@
-header: Youtube search results
+url:
+  - https://www.youtube.com/feed/history
+  - https://www.youtube.com/results
 listElementsQuery: 'ytd-video-renderer'
 elementParser:
   - title: Video thumbnail

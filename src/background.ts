@@ -1,69 +1,46 @@
 import { getCurrentTab, runScrapper, ScrapperOptions } from './utils/chrome';
 import scrapperOptions from './scrappers';
 
+function urlMatchesPatternUrl(url: string, patternURL: string) {
+  if (!patternURL) {
+    return false;
+  }
+  // @ts-ignore
+  const pattern = new URLPattern(patternURL);
+
+  return pattern.test(url);
+}
+
 function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
   let options;
 
-  if (url.includes('tiktok.com/search/user')) {
-    options = scrapperOptions.tiktokAccounts;
-  } else if (url.includes('tiktok.com/search/video')) {
-    options = scrapperOptions.tiktokSearch;
-  } else if (url.includes('bpinet.bancobpi.pt/BPINet_Contas/Movimentos.aspx')) {
-    options = scrapperOptions.bpi;
-  } else if (url.includes('g2.com/')) {
-    if (url.includes('/search')) {
-      options = scrapperOptions.g2SearchOptions;
-    } else if (url.includes('/reviews')) {
-      options = scrapperOptions.g2ReviewsOptions;
+  for (let i = 0; i < scrapperOptions.length; i++) {
+    const patternUrl = scrapperOptions[i].url;
+
+    if (typeof patternUrl === 'string' && urlMatchesPatternUrl(url, patternUrl)) {
+      options = scrapperOptions[i];
+      break;
+    } else if (
+      Array.isArray(patternUrl) &&
+      patternUrl.some((scrapperURL: string) => urlMatchesPatternUrl(url, scrapperURL))
+    ) {
+      options = scrapperOptions[i];
+      break;
+    } else {
+      options = null;
     }
-  } else if (url.includes('ycombinator.com/companies')) {
-    options = scrapperOptions.ycombinator;
-  } else if (url.includes('linkedin.com')) {
-    if (url.includes('search/results') || url.includes('mynetwork')) {
-      options = scrapperOptions.linkedin;
-    } else if (url.includes('jobs/')) {
-      options = scrapperOptions.linkedinJobs;
-    }
-  } else if (url.includes('idealista.')) {
-    options = scrapperOptions.idealista;
-  } else if (url.includes('deliveroo') && url.includes('/restaurants/')) {
-    options = scrapperOptions.deliveroo;
-  } else if (
-    url.includes('youtube') &&
-    (url.includes('/results') || url.includes('feed/history'))
-  ) {
-    options = scrapperOptions.youtubeOptions;
-  } else if (url.includes('amazon') && url.includes('/s?k')) {
-    options = scrapperOptions.amazon;
-  } else if (url.includes('producthunt.com')) {
-    options = scrapperOptions.productHuntOptions;
-  } else if (
-    url.includes('https://my.pitchbook.com/search-results') &&
-    (url.includes('deals') || url.includes('companies') || url.includes('investors'))
-  ) {
-    options = scrapperOptions.pitchbook;
-  } else if (url.includes('finance.yahoo.com/quote/') && url.includes('financials')) {
-    options = scrapperOptions.yahooFinance;
-  } else if (url.includes('www.netflix.com/browse')) {
-    options = scrapperOptions.netflix;
-  } else if (url.includes('yellowpages.com/search')) {
-    options = scrapperOptions.yellowPages;
-  } else if (url.includes('yelp.') && url.includes('/search')) {
-    options = scrapperOptions.yelp;
-  } else if (
+  }
+
+  /*
+
+
+   else if (
     url.includes('zillow.com') &&
     (url.includes('/homes') || url.includes('/for_') || url.includes('?search'))
   ) {
     options = scrapperOptions.zillow;
-  } else if (url.includes('ebay.com/sch/')) {
-    options = scrapperOptions.ebay;
-  } else if (url.includes('google.com/maps/search')) {
-    options = scrapperOptions.googleMapsSearchOptions;
-  } else if (url.includes('kuantokusta.')) {
-    if (url.includes('/p/')) {
-      options = scrapperOptions.kuantoKustaProductOptions;
-    }
-    options = scrapperOptions.kuantoKustaOptions;
+
+  }
   } else if (url.includes('autotrader.com')) {
     options = scrapperOptions.autotraderOptions;
   } else if (url.includes('redfin.com')) {
@@ -80,7 +57,7 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
     options = scrapperOptions.immobiliare;
   } else if (url.includes('exhibitors.ces.tech')) {
     options = scrapperOptions.exhibitorsCes;
-  }
+  }*/
 
   if (options) {
     if (!options.header) {

@@ -1,3 +1,4 @@
+url: https://*.craigslist.org/search/*
 header: 'Craigslist search results'
 listElementsQuery: '.result-node-wide, .result-node'
 elementParser:

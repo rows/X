@@ -1,3 +1,7 @@
+url:
+  - https://my.pitchbook.com/search-results/*/deals
+  - https://my.pitchbook.com/search-results/*/companies
+  - https://my.pitchbook.com/search-results/*/investors
 parseTables:
   tables:
     - rows: '#search-results-data-table-left .data-table__row'

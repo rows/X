@@ -1,3 +1,4 @@
+url: https://www.g2.com/search
 header: 'G2 search results'
 listElementsQuery: '[class*="paper mb-1"]'
 elementParser:

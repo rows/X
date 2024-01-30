@@ -1,3 +1,4 @@
+url: https://www.netflix.com/browse/*
 header: Netflix browse results
 listElementsQuery: .title-card
 elementParser:

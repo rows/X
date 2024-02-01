@@ -1,22 +1,27 @@
 url: https://www.booking.com/searchresults*
-listElementsQuery: .TableRecords > tbody > tr
+header: Booking.com search results
+listElementsQuery: '[data-testid="property-card"]'
 elementParser:
-  - title: Date Movement
-    query: 'td:nth-child(1) > span'
+  - title: Title
+    query: '[data-testid="title"]'
     type: text
 
-  - title: Date Movement
-    query: 'td:nth-child(2) > div > span'
+  - title: Review score
+    query: '[data-testid="review-score"] div:nth-child(1)'
     type: text
 
-  - title: Description
-    query: 'td:nth-child(3) > div > div:nth-child(2) > div > div:nth-child(2) > a'
+  - title: Distance
+    query: '[data-testid="distance"]'
     type: text
 
-  - title: Value
-    query: 'td:nth-child(4) > div > span'
+  - title: Price w/ discounts
+    query: '[data-testid="price-and-discounted-price"]'
     type: text
 
-  - title: Balance
-    query: 'td:nth-child(5) > div > span'
+  - title: Offers
+    query: '[data-testid="gallery-ribbon"]'
     type: text
+
+  - title: Booking URL
+    query: a
+    type: clean-url

@@ -1,0 +1,47 @@
+url:
+  - https://www.oddsportal.com/*basketball*
+  - https://www.oddsportal.com/*baseball*
+  - https://www.oddsportal.com/*tennis*
+  - https://www.oddsportal.com/*american-football*
+  - https://www.oddsportal.com/*esports*
+  - https://www.oddsportal.com/*aussie-rules*
+  - https://www.oddsportal.com/*badminton*
+  - https://www.oddsportal.com/*cricket*
+  - https://www.oddsportal.com/*darts*
+  - https://www.oddsportal.com/*mma*
+  - https://www.oddsportal.com/*snooker*
+  - https://www.oddsportal.com/*volleyball*
+header: Results
+listElementsQuery: '[class*="eventRow"]'
+elementParser:
+  - title: Date
+    query: '[data-testid="date-header"]'
+    type: text
+
+  - title: Time
+    query: '[data-testid="game-row"] [data-testid="time-item"]'
+    type: text
+
+  - title: Team 1
+    query: '[data-testid="event-participants"] a.items-start .participant-name'
+    type: text
+
+  - title: Result 1
+    query: '[data-testid="event-participants"] a.items-start .flex'
+    type: text
+
+  - title: Team 2
+    query: '[data-testid="event-participants"] a.items-center .participant-name'
+    type: text
+
+  - title: Result 2
+    query: '[data-testid="event-participants"] a.items-center .flex'
+    type: text
+
+  - title: Odd 1
+    query: 'div.border-black-main:nth-child(2)'
+    type: text
+
+  - title: Odd 2
+    query: 'div.border-black-main:nth-child(3)'
+    type: text

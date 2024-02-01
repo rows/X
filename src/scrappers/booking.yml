@@ -1,0 +1,27 @@
+url: https://www.booking.com/searchresults*
+header: Booking.com search results
+listElementsQuery: '[data-testid="property-card"]'
+elementParser:
+  - title: Title
+    query: '[data-testid="title"]'
+    type: text
+
+  - title: Review score
+    query: '[data-testid="review-score"] div:nth-child(1)'
+    type: text
+
+  - title: Distance
+    query: '[data-testid="distance"]'
+    type: text
+
+  - title: Price w/ discounts
+    query: '[data-testid="price-and-discounted-price"]'
+    type: text
+
+  - title: Offers
+    query: '[data-testid="gallery-ribbon"]'
+    type: text
+
+  - title: Booking URL
+    query: a
+    type: clean-url

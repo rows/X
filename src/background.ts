@@ -1,4 +1,4 @@
-import { getCurrentTab, runScrapper, ScrapperOptions } from './utils/chrome';
+import { getCurrentTab, getDomainName, runScrapper, ScrapperOptions } from './utils/chrome';
 import scrapperOptions from './scrappers';
 
 function urlMatchesPatternUrl(url: string, patternURL: string) {
@@ -14,19 +14,20 @@ function urlMatchesPatternUrl(url: string, patternURL: string) {
 function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
   let options;
 
-  for (let i = 0; i < scrapperOptions.length; i++) {
-    const patternUrl = scrapperOptions[i].url;
+  const domain = getDomainName(url);
 
-    if (typeof patternUrl === 'string' && urlMatchesPatternUrl(url, patternUrl)) {
-      options = scrapperOptions[i];
-      break;
-    } else if (
-      Array.isArray(patternUrl) &&
-      patternUrl.some((scrapperURL: string) => urlMatchesPatternUrl(url, scrapperURL))
-    ) {
-      options = scrapperOptions[i];
-      break;
-    }
+  if (domain && scrapperOptions.has(domain)) {
+    const scrappers = scrapperOptions.get(domain)!;
+
+    const scrapper = scrappers.find((scrapper) => {
+      if (Array.isArray(scrapper.url)) {
+        return scrapper.url.some((scrapperURL: string) => urlMatchesPatternUrl(url, scrapperURL));
+      } else {
+        return urlMatchesPatternUrl(url, scrapper.url);
+      }
+    });
+
+    options = scrapper;
   }
 
   if (options) {

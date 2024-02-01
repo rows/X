@@ -2,6 +2,23 @@ import { customScrapper } from './scrappers/custom';
 import { scrapHTMLTables } from './scrappers/html-tables';
 import { scrapDivHTMLTables, ScrapDivTablesOptions } from './scrappers/div-tables';
 
+export function getDomainName(url: string) {
+  const urlParsed = new URL(url);
+
+  // Split the hostname into parts
+  const hostnameParts = urlParsed.hostname.split('.');
+
+  // Determine the number of parts in the TLD
+  const tldCount = urlParsed.hostname.endsWith(hostnameParts[hostnameParts.length - 1]) ? 1 : 2;
+
+  // Remove the last n parts (TLD)
+  for (let i = 0; i < tldCount; i++) {
+    hostnameParts.pop();
+  }
+
+  return hostnameParts.at(-1)!;
+}
+
 export async function getCurrentTab() {
   const [tab] = await chrome.tabs.query({
     active: true,

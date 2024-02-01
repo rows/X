@@ -1,0 +1,34 @@
+url: https://www.apartments.com/*
+listElementsQuery: '.placard:not(.reinforcement)'
+elementParser:
+  - title: Name
+    query: .property-title
+    type: text
+
+  - title: Address
+    query: .property-address
+    type: text
+
+  - title: Price
+    query: .property-pricing, .property-rents, .price-range
+    type: text
+
+  - title: Beds
+    query: .property-beds, .bed-range
+    type: text
+
+  - title: Specials
+    query: .property-specials
+    type: text
+
+  - title: Details
+    query: .property-amenities
+    type: text
+
+  - title: Phone Number
+    query: .phone-link
+    type: text
+
+  - title: Apartments URL
+    query: .property-link
+    type: clean-url

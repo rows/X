@@ -58,7 +58,7 @@ describe('RowsX - scrappers tests', () => {
     await appPage.bringToFront();
     await appPage.goto(spec.url, { waitUntil: 'domcontentloaded' });
     await extensionPage.goto(extensionUrl, { waitUntil: 'domcontentloaded' });
-    await appPage.waitForTimeout(500);
+    await appPage.waitForTimeout(200);
     await extensionPage.bringToFront();
     const button = await extensionPage.waitForSelector('.copy-btn');
     await button.click();

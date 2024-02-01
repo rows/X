@@ -27,8 +27,6 @@ function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | 
       }
     });
 
-    console.log(scrapper, url);
-
     options = scrapper;
   }
 

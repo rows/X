@@ -1,0 +1,22 @@
+url: https://www.autotrader.co.uk/car-search*
+listElementsQuery: '[data-testid="advertCard"]'
+elementParser:
+  - title: Car brand
+    query: '[data-testid="search-listing-title"]'
+    type: text
+
+  - title: Details
+    query: '[data-testid="search-listing-subtitle"]'
+    type: text
+
+  - title: Specifications
+    query: '[data-testid="search-listing-specs"]'
+    type: text
+
+  - title: Price
+    query: 'p span'
+    type: text
+
+  - title: Autotrader-UK URL
+    query: a
+    type: link

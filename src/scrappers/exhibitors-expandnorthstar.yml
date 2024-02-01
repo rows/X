@@ -1,0 +1,26 @@
+url: https://exhibitors.expandnorthstar.com/*
+listElementsQuery: .list-group-item
+elementParser:
+  - title: Logo
+    query: img
+    type: image
+
+  - title: Name
+    query: .heading
+    type: text
+
+  - title: Description
+    query: .list-group-item-text
+    type: text
+
+  - title: Booth
+    query: .web p:nth-child(1)
+    type: text
+
+  - title: Categories
+    query: .sector_block
+    type: text
+
+  - title: URL
+    query: a
+    type: link

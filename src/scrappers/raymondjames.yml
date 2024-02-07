@@ -1,0 +1,38 @@
+url: https://www.raymondjames.com/find-an-advisor
+listElementsQuery: .faa-result
+elementParser:
+  - title: Photo
+    query: img
+    type: image
+
+  - title: Name
+    query: .advisor-name .media-heading
+    type: text
+
+  - title: Position
+    query: .advisor-name h3:nth-child(2)
+    type: text
+
+  - title: Advisor phone number
+    query: .advisor-phone
+    type: text
+
+  - title: Company
+    query: .location-name
+    type: text
+
+  - title: Office Address
+    query: .location-address
+    type: text
+
+  - title: Office Phone Number
+    query: .location-phone
+    type: text
+
+  - title: Get directions link
+    query: .result-links > a:nth-child(1)
+    type: link
+
+  - title: Contact branch link
+    query: .result-links > a:nth-child(2)
+    type: link

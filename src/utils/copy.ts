@@ -9,6 +9,7 @@ export function hasImage(cell: string) {
       cell.toLowerCase().includes('/images/') ||
       cell.toLowerCase().includes('thumbnail') ||
       cell.includes('googleusercontent.com/p/') ||
+      cell.includes('photo') ||
       cell.includes('.jpg') ||
       cell.includes('.jpeg') ||
       cell.includes('.png') ||

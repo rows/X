@@ -1,0 +1,36 @@
+url:
+  - https://www.standvirtual.com/autocaravanas*
+  - https://www.standvirtual.com/comerciais*
+  - https://www.standvirtual.com/motos*
+  - https://www.standvirtual.com/carros*
+  - https://www.standvirtual.com/pesados*
+listElementsQuery: 'article[data-id]'
+elementParser:
+  - title: Brand
+    query: h1
+    type: text
+
+  - title: Specs
+    query: p
+    type: text
+
+  - title: Price
+    query: '[data-testid="financing-widget"]'
+    type: get-attribute
+    attribute: data-price
+
+  - title: Mileage
+    query: '[data-parameter="mileage"]'
+    type: text
+
+  - title: Fuel type
+    query: '[data-parameter="fuel_type"]'
+    type: text
+
+  - title: Gearbox
+    query: '[data-parameter="gearbox"]'
+    type: text
+
+  - title: First registration year
+    query: '[data-parameter="first_registration_year"]'
+    type: text

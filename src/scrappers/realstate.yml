@@ -1,0 +1,34 @@
+url: https://www.realestate.com.au/*
+listElementsQuery: '[data-testid="ResidentialCard"]'
+elementParser:
+  - title: Address
+    query: .residential-card__address-heading
+    type: text
+
+  - title: Property type
+    query: '.piped-content:nth-child(2) .piped-content__inner:nth-child(2)'
+    type: text
+
+  - title: Price
+    query: .residential-card__price
+    type: text
+
+  - title: Area
+    query: '[aria-label*="building size"]'
+    type: text
+
+  - title: Bedrooms
+    query: '[aria-label*="bedroom"]'
+    type: text
+
+  - title: Bathrooms
+    query: '[aria-label*="bathroom"]'
+    type: text
+
+  - title: Garages
+    query: '[aria-label*="parking"]'
+    type: text
+
+  - title: Property link
+    query: a
+    type: link

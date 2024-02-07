@@ -1,0 +1,16 @@
+url:
+  - https://www.instagram.com/*/following/
+  - https://www.instagram.com/*/followers/
+listElementsQuery: '[role="dialog"] > div > div:nth-child(2) > div > div > div:nth-child(3) > div > div > div, [role="dialog"] > div > div:nth-child(2) > div > div > div:nth-child(4) > div > div > div'
+elementParser:
+  - title: Follower handler
+    query: 'a[role="link"] span'
+    type: text
+
+  - title: Follower name
+    query: 'span[dir="auto"]:nth-child(2)'
+    type: text
+
+  - title: Profile link
+    query: 'a'
+    type: clean-url

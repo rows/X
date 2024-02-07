@@ -1,0 +1,18 @@
+url: https://www.bcf.com.au/*
+listElementsQuery: .product-tile
+elementParser:
+  - title: Product
+    query: img
+    type: image
+
+  - title: Name
+    query: .product-name
+    type: text
+
+  - title: Price
+    query: .product-sales-price
+    type: text
+
+  - title: Link
+    query: a
+    type: clean-url

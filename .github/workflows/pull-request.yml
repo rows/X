@@ -45,7 +45,7 @@ jobs:
 
   test:
     name: E2E Tests
-    runs-on: rows-fe-default
+    runs-on: ubuntu-4-core-runner
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -61,22 +61,3 @@ jobs:
 
       - name: Run E2E tests
         run: node node_modules/puppeteer/install.mjs && npm run test:e2e
-
-  build:
-    name: Build
-    runs-on: rows-fe-default
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - uses: ./.github/actions/setup-node
-
-      - uses: ./.github/actions/install-dependencies
-        with:
-          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Building extension
-        run: npm run build

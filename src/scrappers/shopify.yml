@@ -1,0 +1,22 @@
+url: https://apps.shopify.com/*
+listElementsQuery: '[data-controller="app-card"]'
+elementParser:
+  - title: Logo
+    query: img
+    type: image
+
+  - title: Application name
+    query: .tw-text-body-md
+    type: text
+
+  - title: Price plan
+    query: .tw-text-ellipsis
+    type: text
+
+  - title: Description
+    query: .tw-text-fg-tertiary
+    type: text
+
+  - title: App link
+    query: a
+    type: link

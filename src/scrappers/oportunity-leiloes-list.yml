@@ -1,0 +1,23 @@
+url: https://oportunityleiloes.auctionserver.net/
+header: 'Oportunity Leilões search result'
+listElementsQuery: .auclting
+elementParser:
+  - title: Banner
+    query: img
+    type: image
+
+  - title: Auction
+    query: h6
+    type: text
+
+  - title: Status
+    query: .aucdes span .row-link
+    type: text
+
+  - title: Time interval
+    query: '[id*="aucdate"]'
+    type: text
+
+  - title: Auction URL
+    query: h6 > a
+    type: link

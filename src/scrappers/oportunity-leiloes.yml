@@ -1,0 +1,19 @@
+url: https://oportunityleiloes.auctionserver.net/m/view-auctions/info/id/*
+listElementsQuery: .auc_items
+elementParser:
+  - title: Article
+    query: img
+    type: image
+
+  - title: Code
+    query: span
+    type: text
+
+  - title: Description
+    query: h4
+    type: text
+
+  - title: Auction URL
+    query: a
+    type: clean-url
+

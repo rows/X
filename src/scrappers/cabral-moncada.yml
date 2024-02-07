@@ -1,0 +1,31 @@
+url: https://www.cml.pt/leiloes/fa/online/*
+listElementsQuery: '.lotCard[id*="lot"]'
+header: 'Cml search results'
+elementParser:
+  - title: Photo
+    query: img
+    type: image
+
+  - title: Article no.
+    query: .lotNumber
+    type: text
+
+  - title: Name
+    query: .lotTitle
+    type: text
+
+  - title: Description
+    query: .lotDescription
+    type: text
+
+  - title: Initial price (€)
+    query: .lotBaseValue
+    type: float
+
+  - title: Current price (€)
+    query: '[mattooltip="Vendido"], .lotCurrentValue span:nth-child(2)'
+    type: float
+
+  - title: Link
+    query: a
+    type: link

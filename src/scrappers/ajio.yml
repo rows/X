@@ -1,0 +1,18 @@
+url: https://www.ajio.com/*
+listElementsQuery: .rilrtl-products-list__item
+elementParser:
+  - title: Description
+    query: .nameCls
+    type: text
+
+  - title: Brand
+    query: .brand
+    type: text
+
+  - title: Price
+    query: .price
+    type: text
+
+  - title: Product URL
+    query: a
+    type: link

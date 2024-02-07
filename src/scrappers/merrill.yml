@@ -1,0 +1,30 @@
+url: https://fa.ml.com/find-an-advisor/*
+listElementsQuery: .advisorpod
+elementParser:
+  - title: Photo
+    query: img
+    type: image
+
+  - title: Name
+    query: .primaryname
+    type: text
+
+  - title: Job
+    query: .advisor-title
+    type: text
+
+  - title: Company
+    query: .office-advisor-count
+    type: text
+
+  - title: Office Address
+    query: .office-location
+    type: text
+
+  - title: Phone Number
+    query: .office-phone
+    type: text
+
+  - title: Website
+    query: .office-website > a
+    type: link

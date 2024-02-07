@@ -1,0 +1,22 @@
+url: https://www.zoopla.co.uk/*
+listElementsQuery: '[id*="listing_"]'
+elementParser:
+  - title: Title
+    query: '[data-testid="listing-title"]'
+    type: text
+
+  - title: Address
+    query: address
+    type: text
+
+  - title: Description
+    query: 'p:nth-child(3)'
+    type: text
+
+  - title: Price
+    query: '[data-testid="listing-price"]'
+    type: text
+
+  - title: Link
+    query: a
+    type: clean-url

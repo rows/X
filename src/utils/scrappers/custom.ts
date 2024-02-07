@@ -58,6 +58,12 @@ export async function customScrapper(options: ScrapperOptions) {
     return elem?.getAttribute(attribute!)?.replaceAll('\n', ' ').trim() ?? '';
   }
 
+  function getFloat(element?: DOM_Element, query?: string) {
+    const text = getText(element, query);
+
+    return Number.parseFloat(text.replace(/[a-zA-Z_€$!#?&]|\s/g, '')).toString();
+  }
+
   function parse(element: DOM_Element, query?: string, type?: string, attribute?: string) {
     switch (type) {
       case 'text':
@@ -70,6 +76,8 @@ export async function customScrapper(options: ScrapperOptions) {
         return getLink(element, query);
       case 'get-attribute':
         return getAttribute(element, query, attribute);
+      case 'float':
+        return getFloat(element, query);
       default:
         return '';
     }

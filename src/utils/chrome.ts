@@ -49,8 +49,6 @@ type ScrapperResultItem = {
 export type ScrapperResults = Array<ScrapperResultItem>;
 
 export async function runScrapper(currentTab: chrome.tabs.Tab, options: ScrapperOptions | null) {
-  // const tab = await getCurrentTab();
-
   let computation: Array<{ result: ScrapperResults }>;
 
   if (!options) {

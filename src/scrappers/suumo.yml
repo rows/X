@@ -1,0 +1,32 @@
+url : https://suumo.jp/jj/*
+header: Suumo search results
+listElementsQuery: .property_unit-body
+elementParser:
+
+  - title: Name
+    query: .dottable-line dd
+    type: text
+
+  - title: Address
+    query: .dottable-line:nth-child(3) dd
+    type: text
+
+  - title: Price
+    query: .dottable-value
+    type: text
+
+  - title: Area
+    query: .dottable-fix dd
+    type: text
+
+  - title: Floor plan
+    query: td:nth-child(2) > dl > dd
+    type: text
+
+  - title: Property picks list
+    query: .property_unit-info-pct
+    type: text
+
+  - title: Property Link
+    query: a
+    type: link

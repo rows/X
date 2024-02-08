@@ -43,10 +43,9 @@ const Preview: FunctionComponent<Props> = ({ results = [] }) => {
                 <Button
                   className="copy-btn"
                   type="secondary"
-                  onClick={() => {
-                    navigator.clipboard
-                      .writeText(array2tsv(result.table))
-                      .then(() => setTimeout(() => window.close(), 200));
+                  onClick={async () => {
+                    await navigator.clipboard.writeText(array2tsv(result.table));
+                    setTimeout(() => window.close(), 200);
                   }}
                 >
                   <img alt="copy" src="/icons/copy.svg" />

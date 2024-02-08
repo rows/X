@@ -57,16 +57,28 @@ describe('RowsX - scrappers tests', () => {
 
     await appPage.bringToFront();
     await appPage.goto(spec.url, { waitUntil: 'domcontentloaded' });
+
+    const client = await appPage.target().createCDPSession();
+    await client.send('Browser.setPermission', {
+      origin: new URL(spec.url),
+      permission: {
+        name: 'clipboard-write',
+        allowWithoutSanitization: true,
+      },
+      setting: 'granted',
+    });
+
+    await appPage.evaluate(() => navigator.clipboard.writeText(''));
     await extensionPage.goto(extensionUrl, { waitUntil: 'domcontentloaded' });
-    await appPage.waitForTimeout(500);
+    await appPage.waitForTimeout(200);
     await extensionPage.bringToFront();
     const button = await extensionPage.waitForSelector('.copy-btn');
     await button.click();
+    await extensionPage.waitForTimeout(180);
     await appPage.bringToFront();
 
-    const context = await browser.defaultBrowserContext();
-    await context.overridePermissions(spec.url, ['clipboard-read']);
-    const clipboard = await appPage.evaluate(() => navigator.clipboard.readText());
+    const clipboard = await appPage.evaluate(async () => await navigator.clipboard.readText());
+
 
     // close pages
     await appPage.close();

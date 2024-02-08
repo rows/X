@@ -91,6 +91,10 @@ export async function customScrapper(options: ScrapperOptions) {
     );
   });
 
+  if (tableElements.length <= 0) {
+    return [];
+  }
+
   return [
     {
       title: options.header,

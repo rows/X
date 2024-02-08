@@ -1,0 +1,26 @@
+url: https://www.homes.com/*
+listElementsQuery: .placard-container
+elementParser:
+  - title: Address
+    query: address
+    type: text
+
+  - title: Price
+    query: .price-container, .detailed-info-container li:nth-child(1)
+    type: text
+
+  - title: Description
+    query: .property-description
+    type: text
+
+  - title: Agent name
+    query: .agent-name
+    type: text
+
+  - title: Agency name
+    query: .agency-name
+    type: text
+
+  - title: Property link
+    query: a
+    type: clean-url

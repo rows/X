@@ -4,10 +4,6 @@ on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
 
-# Environment variables available to all jobs and steps in this workflow
-env:
-  CHROME_VERSION: 121.0.6167.85
-
 jobs:
   audit:
     name: Audit dependencies
@@ -45,7 +41,7 @@ jobs:
 
   test:
     name: E2E Tests
-    runs-on: ubuntu-4-core-runner
+    runs-on: rows-fe-default
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

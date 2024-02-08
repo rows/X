@@ -48,7 +48,7 @@ async function scrap() {
   const tab = await getCurrentTab();
   const options = getScrapperOptionsByUrl(tab.url!, tab.title!);
 
-  return await runScrapper(options);
+  return await runScrapper(tab, options);
 }
 
 async function storeRowsXData(tsv: string, tabId: number) {

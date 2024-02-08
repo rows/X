@@ -48,25 +48,25 @@ type ScrapperResultItem = {
 
 export type ScrapperResults = Array<ScrapperResultItem>;
 
-export async function runScrapper(options: ScrapperOptions | null) {
-  const tab = await getCurrentTab();
+export async function runScrapper(currentTab: chrome.tabs.Tab, options: ScrapperOptions | null) {
+  // const tab = await getCurrentTab();
 
   let computation: Array<{ result: ScrapperResults }>;
 
   if (!options) {
     computation = await chrome.scripting.executeScript({
-      target: { tabId: tab.id! },
+      target: { tabId: currentTab.id! },
       func: scrapHTMLTables,
     });
   } else if (options.parseTables) {
     computation = (await chrome.scripting.executeScript({
-      target: { tabId: tab.id! },
+      target: { tabId: currentTab.id! },
       args: [options],
       func: scrapDivHTMLTables,
     })) as Array<{ result: ScrapperResults }>;
   } else {
     computation = (await chrome.scripting.executeScript({
-      target: { tabId: tab.id! },
+      target: { tabId: currentTab.id! },
       args: [options],
       func: customScrapper,
     })) as Array<{ result: ScrapperResults }>;

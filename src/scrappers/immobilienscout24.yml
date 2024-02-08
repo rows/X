@@ -1,0 +1,22 @@
+url: https://www.immobilienscout24.de/Suche/*
+listElementsQuery: '[data-item="result"]'
+elementParser:
+  - title: Title
+    query: h2
+    type: text
+
+  - title: Address
+    query: .result-list-entry__address
+    type: text
+
+  - title: Price
+    query: .result-list-entry__primary-criterion
+    type: text
+
+  - title: Area
+    query: .result-list-entry__primary-criterion:nth-child(2) dd
+    type: text
+
+  - title: Property link
+    query: a
+    type: link

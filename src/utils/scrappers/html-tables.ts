@@ -76,13 +76,13 @@ export async function scrapHTMLTables() {
       ) as DOM_Element;
 
       if (titleElement) {
-        title = titleElement?.innerText.replaceAll('\n', ' ').trim();
+        title = titleElement?.innerText?.replaceAll('\n', ' ')?.trim() ?? '';
       }
 
       scrapElement = scrapElement?.parentElement as DOM_Element;
     }
 
-    titles.push(title.replace('[edit]', ''));
+    titles.push(title);
 
     return Array.from(tableElement!.querySelectorAll(rowSelector)).map((tr) => {
       if (!tr) {
@@ -108,6 +108,7 @@ export async function scrapHTMLTables() {
     });
   });
 
+  // Maps the table to the correct structure and after that remove the empty tables
   return tables
     .map((table, index: number) => ({
       title: titles[index],

@@ -66,3 +66,17 @@ a:link {
   width: 22.5rem;
   max-height: 600px;
 }
+
+.skeleton {
+  border-radius: 4px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--lighter-grey);
+  }
+  100% {
+    background-color: #c7c7c7;
+  }
+}

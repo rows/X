@@ -1,0 +1,22 @@
+url: https://suchen.mobile.de/*
+listElementsQuery: 'span[data-testid*="result-listing-"]'
+elementParser:
+  - title: Car Name
+    query:  h2
+    type: text
+
+  - title: Attributes
+    query: '[data-testid="listing-details-attributes"]'
+    type: text
+
+  - title: Price
+    query: '[data-testid="price-label"]'
+    type: text
+
+  - title: Price Vat
+    query: '[data-testid="price-vat"]'
+    type: text
+
+  - title: Mobile URL
+    query: a
+    type: link

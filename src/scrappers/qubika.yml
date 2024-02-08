@@ -1,0 +1,18 @@
+url: https://qubika.com/blog/*
+listElementsQuery: .event-list li
+elementParser:
+  - title: Event name
+    query: .event
+    type: text
+
+  - title: Address
+    query: .city
+    type: text
+
+  - title: Date
+    query: .date
+    type: text
+
+  - title: Link
+    query: a
+    type: link

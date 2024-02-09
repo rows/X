@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/rows/X/compare/v1.2.0...v1.3.0) (2024-02-09)
+
+
+### Features
+
+* fix release step in order to generate the correct version on chrome-extension deliverable ([44e2a85](https://github.com/rows/X/commit/44e2a85045f6fd2717f9d3e784be2d656bb7a71f))
+
 # [1.2.0](https://github.com/rows/X/compare/v1.1.0...v1.2.0) (2024-02-09)
 
 

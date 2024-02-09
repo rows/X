@@ -77,11 +77,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
+  deploy-release:
+    name: Create Release
+    needs: [ create-release ]
+    runs-on: rows-fe-default
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
-        run: git checkout HEAD^
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-node
 
       - name: Install dependencies - after checkout code
         shell: bash

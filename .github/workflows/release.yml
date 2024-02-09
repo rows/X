@@ -96,7 +96,10 @@ jobs:
         with:
           semantic_version: 19
           extra_plugins: |
+            @semantic-release/commit-analyzer
+            @semantic-release/release-notes-generator
             @semantic-release/changelog
+            @semantic-release/npm
             @semantic-release/git
           working_directory: .
           branch: main

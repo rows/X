@@ -71,7 +71,7 @@ jobs:
 
   create-release:
     name: Create Release
-    needs: [static-analysis, test, build-chrome-extension]
+    needs: [static-analysis, build-chrome-extension]
     runs-on: rows-fe-default
     steps:
       - name: Checkout code

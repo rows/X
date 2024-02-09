@@ -99,5 +99,6 @@ jobs:
             @semantic-release/changelog
             @semantic-release/git
           working_directory: ./src
+          branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

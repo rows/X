@@ -68,3 +68,36 @@ jobs:
         with:
           name: chrome-extension-${{ github.sha }}
           path: chrome-extension-${{ github.sha }}.zip
+
+  create-release:
+    name: Create Release
+    needs: [static-analysis, test, build-chrome-extension]
+    runs-on: rows-fe-default
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # Default GITHUB_TOKEN has no permissions to push to locked branches, so we don't
+          # persist credentials and use the NODE_AUTH_TOKEN personal access token instead
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup-node
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Semantic release
+      - name: Semantic Release
+        id: semantic_release_step
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          semantic_version: 19
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+          working_directory: ./src
+        env:
+          GITHUB_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

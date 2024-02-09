@@ -56,4 +56,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run E2E tests
-        run: node node_modules/puppeteer/install.mjs && npm run test:e2e
+        run: node node_modules/puppeteer/install.js && npm run test:e2e

@@ -57,12 +57,6 @@ jobs:
         with:
           node-version: 20
 
-      - uses: ./.github/actions/install-dependencies
-        with:
-          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-
       # Semantic release
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3

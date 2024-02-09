@@ -40,38 +40,9 @@ jobs:
       - name: Type checking
         run: npm run check-types
 
-  build-chrome-extension:
-    name: Build Chrome extension artifact
-    runs-on: rows-fe-default
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - uses: ./.github/actions/setup-node
-
-      - uses: ./.github/actions/install-dependencies
-        with:
-          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build - production file
-        run: |
-          npm run build
-
-      - name: Create zip
-        run: |
-          cd dist
-          zip -r ../chrome-extension-${{ github.sha }}.zip *
-
-      - name: Archive chrome-extension artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: chrome-extension-${{ github.sha }}
-          path: chrome-extension-${{ github.sha }}.zip
-
   create-release:
     name: Create Release
-    needs: [static-analysis, build-chrome-extension]
+    needs: [static-analysis, audit]
     runs-on: rows-fe-default
     steps:
       - name: Checkout code
@@ -97,11 +68,23 @@ jobs:
           semantic_version: 19
           extra_plugins: |
             @semantic-release/commit-analyzer
-            @semantic-release/release-notes-generator
-            @semantic-release/changelog
             @semantic-release/npm
             @semantic-release/git
           working_directory: .
           branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+
+      - name: Build Chrome extension artifact
+        if: steps.semantic_release_step.outputs.new_release_published == 'true'
+        run: |
+          npm run build
+          cd dist
+          zip -r ../chrome-extension-${{ github.sha }}.zip *
+
+      - name: Archive chrome-extension artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: chrome-extension-${{ github.sha }}
+          path: chrome-extension-${{ github.sha }}.zip

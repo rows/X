@@ -79,6 +79,7 @@ jobs:
 
       - name: Build Chrome extension artifact
         run: |
+          git pull
           npm run build
           cd dist
           zip -r ../chrome-extension-${{ github.sha }}.zip *

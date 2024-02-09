@@ -77,9 +77,14 @@ jobs:
           NPM_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
 
+      - name: Checkout code - with new version
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
       - name: Build Chrome extension artifact
         run: |
-          git pull
           npm run build
           cd dist
           zip -r ../chrome-extension-${{ github.sha }}.zip *

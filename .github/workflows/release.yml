@@ -65,11 +65,11 @@ jobs:
 
       # Semantic release
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v3
         with:
+          semantic_version: 19
           extra_plugins: |
             @semantic-release/changelog
-            @semantic-release/npm
             @semantic-release/git
           branch: main
         env:

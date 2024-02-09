@@ -1,4 +1,7 @@
 {
+  "branches": [
+    "master"
+  ],
   "plugins": [
     "@semantic-release/changelog",
     [
@@ -15,9 +18,8 @@
       }
     ],
     "@semantic-release/release-notes-generator",
-    "@semantic-release/git",
+    "@semantic-release/npm",
+    "@semantic-release/git"
   ],
-  "branches": [
-    "main",
-  ]
+
 }

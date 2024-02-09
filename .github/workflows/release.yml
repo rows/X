@@ -84,9 +84,16 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+
+      - name: Install dependencies - after checkout code
+        shell: bash
+        run: npm ci --no-audit
+        env:
+          NODE_AUTH_TOKEN: ${{ inputs.node-auth-token }}
+          GITHUB_TOKEN: ${{ inputs.github-token }}
+
       - name: Build Chrome extension artifact
         run: |
-          npm ci
           npm run build
           cd dist
           zip -r ../chrome-extension-${{ github.sha }}.zip *

@@ -87,8 +87,8 @@ jobs:
         shell: bash
         run: npm ci --no-audit
         env:
-          NODE_AUTH_TOKEN: ${{ inputs.node-auth-token }}
-          GITHUB_TOKEN: ${{ inputs.github-token }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Build Chrome extension artifact
         run: |

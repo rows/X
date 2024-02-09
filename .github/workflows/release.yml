@@ -84,13 +84,9 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: ./.github/actions/install-dependencies
-        with:
-          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build Chrome extension artifact
         run: |
+          npm run ci
           npm run build
           cd dist
           zip -r ../chrome-extension-${{ github.sha }}.zip *

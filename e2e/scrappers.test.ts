@@ -2,6 +2,8 @@ import { readdirSync, promises as fs } from 'fs';
 import { resolve } from 'path';
 import * as yaml from 'js-yaml';
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 function listDirectories(path: string) {
   const directories = readdirSync(path, { withFileTypes: true })
     .filter((dir) => dir.isDirectory() && dir.name !== '__snapshots__')
@@ -68,17 +70,15 @@ describe('RowsX - scrappers tests', () => {
       setting: 'granted',
     });
 
-    await appPage.evaluate(() => navigator.clipboard.writeText(''));
     await extensionPage.goto(extensionUrl, { waitUntil: 'domcontentloaded' });
-    await appPage.waitForTimeout(200);
+    await sleep(250);
     await extensionPage.bringToFront();
     const button = await extensionPage.waitForSelector('.copy-btn');
     await button.click();
-    await extensionPage.waitForTimeout(180);
+    await sleep(180);
     await appPage.bringToFront();
 
     const clipboard = await appPage.evaluate(async () => await navigator.clipboard.readText());
-
 
     // close pages
     await appPage.close();

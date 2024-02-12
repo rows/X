@@ -1,10 +1,10 @@
 module.exports = {
   launch: {
     dumpio: false,
-    headless: 'new',
+    headless: true,
     args: [
       '--disable-extensions-except=./dist',
       '--load-extension=./dist',
     ],
-  },
+},
 };

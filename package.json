@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "test:e2e": "tsc && vite build --mode=e2e && jest",
+    "test:e2e": "tsc && vite build --mode=e2e && jest --maxWorkers=1",
     "preview": "vite preview",
     "lint": "eslint src -c ./.eslintrc.cjs --ext .jsx,.js,.ts,.tsx",
     "check-types": "tsc --noEmit",
@@ -40,7 +40,7 @@
     "jest-puppeteer": "^9.0.2",
     "js-yaml": "^4.1.0",
     "prettier": "2.4",
-    "puppeteer": "^20.3.0",
+    "puppeteer": "^22.0.0",
     "ts-jest": "^29.1.2",
     "typescript": "^4.5.0",
     "vite": "^5.0.11"

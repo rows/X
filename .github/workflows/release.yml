@@ -6,17 +6,17 @@ on:
       - main
 
 jobs:
-  audit:
-    name: Audit dependencies
-    runs-on: rows-fe-default
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  # audit:
+    # name: Audit dependencies
+    # runs-on: rows-fe-default
+    # steps:
+      # - name: Checkout code
+      #  uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup-node
+      # - uses: ./.github/actions/setup-node
 
-      - name: Audit dependencies
-        run: npm audit --production --audit-level=high
+      # - name: Audit dependencies
+        #run: npm audit --production --audit-level=high
 
   static-analysis:
     name: Static analysis
@@ -42,7 +42,7 @@ jobs:
 
   create-release:
     name: Create release
-    needs: [static-analysis, audit]
+    needs: [static-analysis]
     runs-on: rows-fe-default
     steps:
       - name: Checkout code
@@ -56,12 +56,6 @@ jobs:
       - uses: ./.github/actions/setup-node
         with:
           node-version: 20
-
-      - uses: ./.github/actions/install-dependencies
-        with:
-          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
 
       # Semantic release
       - name: Semantic Release

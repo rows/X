@@ -1,5 +1,6 @@
 {
   "name": "RowsX",
+  "description": "RowsX is your go-to tool for efficiently extracting tables and lists from web pages and move that data to Rows.",
   "manifest_version": 3,
   "background": {
     "service_worker": "src/background.ts",

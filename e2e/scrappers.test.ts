@@ -70,9 +70,8 @@ describe('RowsX - scrappers tests', () => {
       setting: 'granted',
     });
 
-    await appPage.evaluate(() => navigator.clipboard.writeText(''));
     await extensionPage.goto(extensionUrl, { waitUntil: 'domcontentloaded' });
-    await sleep(180);
+    await sleep(250);
     await extensionPage.bringToFront();
     const button = await extensionPage.waitForSelector('.copy-btn');
     await button.click();

@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/rows/X/compare/v1.3.13...v1.4.0) (2024-02-12)
+
+
+### Features
+
+* add description to the manifest.json ([#55](https://github.com/rows/X/issues/55)) ([a30febb](https://github.com/rows/X/commit/a30febb87d65e650471035a0093766cff3b7efe6))
+
 ## [1.3.13](https://github.com/rows/X/compare/v1.3.12...v1.3.13) (2024-02-09)
 
 ## [1.3.12](https://github.com/rows/X/compare/v1.3.11...v1.3.12) (2024-02-09)

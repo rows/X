@@ -1,3 +1,5 @@
+## [1.4.1](https://github.com/rows/X/compare/v1.4.0...v1.4.1) (2024-02-12)
+
 # [1.4.0](https://github.com/rows/X/compare/v1.3.13...v1.4.0) (2024-02-12)
 
 

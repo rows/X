@@ -1,0 +1,54 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    - main
+
+jobs:
+  test:
+    name: E2E Tests
+    runs-on: rows-fe-default
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-node
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run E2E tests
+        run: node node_modules/puppeteer/install.mjs && npm run test:e2e
+
+  deploy-release:
+    name: Build artifact
+    needs: [ test ]
+    runs-on: rows-fe-default
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: git pull
+
+      - uses: ./.github/actions/setup-node
+
+      - uses: ./.github/actions/install-dependencies
+        with:
+          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Chrome extension artifact
+        run: |
+          npm run build
+          cd dist
+          zip -r ../chrome-extension-${{ github.sha }}.zip *
+
+      - name: Archive chrome-extension artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: chrome-extension-${{ github.sha }}
+          path: chrome-extension-${{ github.sha }}.zip

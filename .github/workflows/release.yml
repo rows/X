@@ -70,32 +70,3 @@ jobs:
           # Use NODE_AUTH_TOKEN as GITHUB_TOKEN to allow pushing commits into locked "master" branch
           GITHUB_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-
-  deploy-release:
-    name: Build artifact
-    needs: [ create-release ]
-    runs-on: rows-fe-default
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - run: git pull
-
-      - uses: ./.github/actions/setup-node
-
-      - uses: ./.github/actions/install-dependencies
-        with:
-          node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build Chrome extension artifact
-        run: |
-          npm run build
-          cd dist
-          zip -r ../chrome-extension-${{ github.sha }}.zip *
-
-      - name: Archive chrome-extension artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: chrome-extension-${{ github.sha }}
-          path: chrome-extension-${{ github.sha }}.zip

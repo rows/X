@@ -19,10 +19,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run E2E tests
-        run: node node_modules/puppeteer/install.mjs # && npm run test:e2e
+        run: node node_modules/puppeteer/install.mjs && npm run test:e2e
 
-  build-artifact:
-    name: Build artifact
+  build-and-deploy-extension:
+    name: Build & deploy extension
     needs: test
     runs-on: rows-fe-default
     steps:

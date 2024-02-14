@@ -6,17 +6,17 @@ on:
       - main
 
 jobs:
-  # audit:
-    # name: Audit dependencies
-    # runs-on: rows-fe-default
-    # steps:
-      # - name: Checkout code
-      #  uses: actions/checkout@v4
+  audit:
+    name: Audit dependencies
+    runs-on: rows-fe-default
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      # - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/setup-node
 
-      # - name: Audit dependencies
-        #run: npm audit --production --audit-level=high
+      - name: Audit dependencies
+        run: npm audit --production --audit-level=high
 
   static-analysis:
     name: Static analysis

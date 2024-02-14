@@ -1,0 +1,36 @@
+url: https://tilbudsportalen.dk/*
+header: Tilbudsportalen search results
+listElementsQuery: .linkUdenUnderstreg
+elementParser:
+#Não consegui uma classe sem ser .panelTekst para as outras classes
+  - title: Title
+    query: .ingenTopMargin
+    type: text
+
+  - title: Address
+    query: .panelTekst
+    type: text
+
+  - title: Contacts
+    query:
+    type: text
+
+  - title: Audit status
+    query:
+    type: text
+
+  - title: Tariffs
+    query:
+    type: text
+
+  - title: Offer types
+    query:
+    type: text
+
+  - title: Spaces on the programme type
+    query:
+    type: text
+
+  - title: Tilbudsportalen URL
+    query: a
+    type: link

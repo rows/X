@@ -1,0 +1,16 @@
+url: https://supercoach.dailytelegraph.com.au/*
+header: Supercoach search results
+listElementsQuery: .vm-NewsArticlesTabsSectionComponent-itemContainer
+elementParser:
+#a primeira notícia não aparece porque o seu listElementsQuery é diferente, experimentei este .ng-star-inserted e ficou mais estranho
+  - title: Title
+    query: .vm-NewsArticlesTabsSectionComponent-title
+    type: text
+
+  - title: Description
+    query: .vm-NewsArticlesTabsSectionComponent-desc
+    type: text
+
+  - title: Supercoach URL
+    query: a
+    type: link

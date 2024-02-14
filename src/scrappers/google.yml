@@ -1,0 +1,16 @@
+url: https://www.google.com/search*
+header: Google search results
+listElementsQuery: '[lang="fr"]'
+elementParser:
+#Queria adicionar mais elementos mas não consegui.
+  - title: Title
+    query: h3
+    type: text
+
+  - title: Description
+    query: '[data-sncf="1"]'
+    type: text
+
+  - title: Google URL
+    query: a
+    type: link

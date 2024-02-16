@@ -1,0 +1,10 @@
+url: https://supercoach.dailytelegraph.com.au/*
+listElementsQuery: '[class*="vm-NewsArticlesTabsSectionComponent-itemContainer"]'
+elementParser:
+  - title: Title
+    query: .vm-NewsArticlesTabsSectionComponent-title
+    type: text
+
+  - title: Description
+    query: .vm-NewsArticlesTabsSectionComponent-desc
+    type: text

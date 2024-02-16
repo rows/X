@@ -1,0 +1,14 @@
+url: https://www.google.*/search?*
+listElementsQuery: '[data-snc]'
+elementParser:
+  - title: Title
+    query: h3
+    type: text
+
+  - title: Description
+    query: 'div[style="-webkit-line-clamp:2"]'
+    type: text
+
+  - title: URL
+    query: a
+    type: clean-url

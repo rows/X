@@ -1,0 +1,33 @@
+url: https://tilbudsportalen.dk/*
+listElementsQuery: .linkUdenUnderstreg
+elementParser:
+  - title: Name
+    query: h3
+    type: text
+
+  - title: Address
+    query: .row:nth-child(2) .col-sm:nth-child(1) .panelTekst
+    type: text
+
+  - title: Contact person
+    query: .row:nth-child(2) .col-sm:nth-child(2) .panelTekst
+    type: text
+
+  - title: Supervisory status
+    query: .row:nth-child(2) .col-sm:nth-child(3) .panelTekst
+    type: text
+
+  - title: Tariffs
+    query: .row:nth-child(2) .col-sm:nth-child(4) .panelTekst
+    type: text
+
+  - title: Offer types
+    query: .row:nth-child(3) .col-sm:nth-child(1) .panelTekst
+    type: text
+
+  - title: Places on the offer type
+    query: .row:nth-child(3) .col-sm:nth-child(2) .panelTekst
+    type: text
+
+  - title: URL
+    type: link

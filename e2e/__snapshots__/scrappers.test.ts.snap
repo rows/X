@@ -657,3 +657,162 @@ exports[`RowsX - scrappers tests Scrapping - twitter 1`] = `
 =IMAGE("https://pbs.twimg.com/profile_images/1191758809972252679/ov_yxkA7_x96.png")	aNotioneer	@aNotioneer	Certified Notion Consultant, Notion Ambassador, creator & app developer. By @AlexIsMaking .
 =IMAGE("https://pbs.twimg.com/profile_images/1288449070344937473/fKlvccnM_x96.jpg")	KP	@thisiskp_	The "Build In Public" Guy. Founder Relations @PaddleHQ . Host of the @Buildinpublic_ podcast. Founded @BIPF_ & 4 other startups."
 `;
+
+exports[`RowsX - scrappers tests Scrapping - wikipedia 1`] = `
+"Name	Location	Visitors in 2023 and 2022
+Louvre	Paris, France	8,900,000 (2023)[2]
+Musée d'Orsay	Paris, France	5.2 million (including Musée de l'Orangerie) (2023)[3]
+National Museum of Natural History	Washington, D.C., United States	4,400,000 (2023)[4]
+National Museum of Korea	Seoul, South Korea	4.18 million (2023)[5]
+Musée National d'Histoire Naturelle	Paris, France	3.8 million (2023)[7]
+National Air and Space Museum[a]	Washington, D.C., United States	3,100,000 (2023)[8]
+Prado Museum	Madrid, Spain	3,209,285 (2023)[10]
+National Museum of Anthropology	Mexico City, Mexico	2,636,352 (2023)
+Museo Nacional de Historia	Mexico City, Mexico	2,456,825 (2023)
+Smithsonian Museum of American History	Washington, D.C., United States	2,100,000 (2023)[11]
+Guggenheim Museum Bilbao	Bilbao, Spain	1,324,000 (2023)[12]
+Vatican Museums	Vatican City	5,080,866 (This and figures below are from 2022)[13]
+Natural History Museum	London, United Kingdom	4,654,608[14](2022)
+British Museum	London, United Kingdom	4,097,253[1][14] (2022)
+Tate Modern	London, United Kingdom	3,883,160[14] (2022)
+Guangdong Museum	Guangzhou, China	3,359,700[15] (2022)
+Mevlana Museum	Konya, Turkey	3,352,505[16](2022)
+Metropolitan Museum of Art	New York City, United States	3,208,832[b][1] (2022)
+State Hermitage Museum	Saint Petersburg, Russia	2,812,913[1] (2022)
+National Gallery	London, United Kingdom	2,727,119[14] (2022)
+State Russian Museum	Saint Petersburg, Russia	2,651,688[1] (figures below are from 2022)
+National Museum of Marine Science and Technology	Keelung, Taiwan	2,582,444[17]
+Victoria and Albert Museum	London, United Kingdom	2,370,261[14]
+London Science Museum	London, United Kingdom	2,334,930[14]
+Chinese Aviation Museum	Beijing, China	2,300,000[18]
+National Museum of Natural Science	Taichung, Taiwan	2,299,808[17]
+Galleria degli Uffizi	Florence, Italy	2,222,692[1]
+Museum of Modern Art	New York City, United States	2,190,440[1]
+Topography of Terror	Berlin, Germany	2,100,000[19]
+M+	Hong Kong, China	2,034,331[1]
+Opium War Museum [zh]	Dongguan, China	2,025,800[20]
+Cité des Sciences et de l'Industrie	Paris, France	1,992,823[21]
+National Museum of Scotland	Edinburgh, United Kingdom	1,973,751[14]
+State Tretyakov Gallery	Moscow, Russia	1,910,000[1]
+National Taiwan Science Education Center	Taipei, Taiwan	1,878,504[17]
+National Science and Technology Museum	Kaohsiung, Taiwan	1,875,372[17]
+National Museum of Modern and Contemporary Art	Seoul, South Korea	1,806,641[1]
+Rijksmuseum	Amsterdam, Netherlands	1,766,084[22]
+California Science Center	Los Angeles, United States	1,694,000[23]
+National Museum of China	Beijing, China	1,630,911[24]
+Royal Museums Greenwich	London, United Kingdom	1,628,580[14]
+Nanjing Museum	Nanjing, China	1,610,000[25]
+Zhejiang Museum of Natural History	Hangzhou, China	1,581,263[26]
+National Gallery of Victoria	Melbourne, Australia	1,580,303[1]
+Jianchuan Museum Cluster	Chengdu, China	1,538,143[27]
+Houston Museum of Natural Science	Houston, United States	1,520,000[23]
+Tokyo Metropolitan Art Museum	Tokyo, Japan	1,509,970[1]
+Changzhou Museum	Changzhou, China	1,508,229[28]
+Humboldt Forum	Berlin, Germany	1,500,000[1]
+Kaohsiung Museum of Fine Arts	Kaohsiung, Taiwan	1,461,406[17]
+Acropolis Museum	Athens, Greece	1,451,727[1]
+China Science and Technology Museum	Beijing, China	1,431,189[29]
+Galleria dell'Accademia	Florence, Italy	1,428,369[1]
+Suzhou Museum	Suzhou, China	1,417,412[30]
+Chengdu Museum	Chengdu, China	1,404,735[31]
+Shanghai Science and Technology Museum	Shanghai, China	1,403,179[32]
+The National Art Center, Tokyo	Tokyo, Japan	1,400,096[1]
+Louis Vuitton Foundation	Paris, France	1,500,000 (2023)[33]
+Tokyo National Museum	Tokyo, Japan	1,372,132[1]
+National Museum in Kraków	Kraków, Poland	1,365,425[1]
+Centro Cultural Banco do Brasil	São Paulo, Brazil	1,364,208[1]
+Van Gogh Museum	Amsterdam, Netherlands	1,364,023[1]
+National Museum of Nature and Science	Tokyo, Japan	1,350,000[23]
+Kunsthistorisches Museum	Vienna, Austria	1,345,617[1]
+Tianjin Natural History Museum	Tianjin, China	1,320,752[34]
+Palacio de Cristal del Retiro	Madrid, Spain	1,318,823[c][1]
+Museum of European and Mediterranean Civilisations	Marseille, France	1,300,000 (2023)
+Scottish National Gallery	Edinburgh, United Kingdom	1,277,230[1]
+National Gallery Singapore	Singapore	1,262,189[1]
+Museo Reina Sofía	Madrid, Spain	1,253,183[d][1]"
+`;
+
+exports[`RowsX - scrappers tests Scrapping - yahoo-finance 1`] = `
+"Breakdown	ttm	12/31/2023	12/31/2022	12/31/2021	12/31/2020
+
+Total Revenue	307,394,000	307,394,000	282,836,000	257,637,000	182,527,000
+Operating Revenue	307,394,000	307,394,000	282,836,000	257,637,000	182,527,000
+Cost of Revenue	133,332,000	133,332,000	126,203,000	110,939,000	84,732,000
+Gross Profit	174,062,000	174,062,000	156,633,000	146,698,000	97,795,000
+Operating Expense	89,769,000	89,769,000	81,791,000	67,984,000	56,571,000
+Selling General and Administrative	44,342,000	44,342,000	42,291,000	36,422,000	28,998,000
+General & Administrative Expense	16,425,000	16,425,000	15,724,000	13,510,000	11,052,000
+Other G and A	16,425,000	16,425,000	15,724,000	13,510,000	11,052,000
+Selling & Marketing Expense	27,917,000	27,917,000	26,567,000	22,912,000	17,946,000
+Research & Development	45,427,000	45,427,000	39,500,000	31,562,000	27,573,000
+Operating Income	84,293,000	84,293,000	74,842,000	78,714,000	41,224,000
+Net Non Operating Interest Income Expense	3,557,000	3,557,000	1,817,000	1,153,000	1,730,000
+Interest Income Non Operating	3,865,000	3,865,000	2,174,000	1,499,000	1,865,000
+Interest Expense Non Operating	308,000	308,000	357,000	346,000	135,000
+Other Income Expense	-2,133,000	-2,133,000	-5,331,000	10,867,000	5,128,000
+Gain on Sale of Security	-2,061,000	-2,061,000	-6,173,000	12,030,000	5,973,000
+Earnings from Equity Interest	-628,000	-628,000	-337,000	334,000	401,000
+Special Income Charges	-	-	-	0	0
+Other Non Operating Income Expenses	556,000	556,000	1,179,000	-1,497,000	-1,246,000
+Pretax Income	85,717,000	85,717,000	71,328,000	90,734,000	48,082,000
+Tax Provision	11,922,000	11,922,000	11,356,000	14,701,000	7,813,000
+Net Income Common Stockholders	73,795,000	73,795,000	59,972,000	76,033,000	40,269,000
+Net Income	73,795,000	73,795,000	59,972,000	76,033,000	40,269,000
+Net Income Including Non-Controlling Interests	73,795,000	73,795,000	59,972,000	76,033,000	40,269,000
+Net Income Continuous Operations	73,795,000	73,795,000	59,972,000	76,033,000	40,269,000
+Diluted NI Available to Com Stockholders	73,795,000	73,795,000	59,972,000	76,033,000	40,269,000
+Basic EPS	5.25	5.84	4.59	5.69	2.96
+Diluted EPS	5.22	5.80	4.56	5.61	2.93
+Basic Average Shares	12,721,896	12,630,000	13,063,000	13,352,994	13,616,314
+Diluted Average Shares	12,802,045	12,722,000	13,159,000	13,553,474	13,740,554
+Total Operating Income as Reported	84,293,000	84,293,000	74,842,000	78,714,000	41,224,000
+Total Expenses	223,101,000	223,101,000	207,994,000	178,923,000	141,303,000
+Net Income from Continuing & Discontinued Operation	73,795,000	73,795,000	59,972,000	76,033,000	40,269,000
+Normalized Income	75,569,521	75,569,521	65,163,493	65,951,860	35,266,572
+Interest Income	3,865,000	3,865,000	2,174,000	1,499,000	1,865,000
+Interest Expense	308,000	308,000	357,000	346,000	135,000
+Net Interest Income	3,557,000	3,557,000	1,817,000	1,153,000	1,730,000
+EBIT	86,025,000	86,025,000	71,685,000	91,080,000	48,217,000
+EBITDA	97,971,000	97,971,000	85,160,000	103,521,000	61,914,000
+Reconciled Cost of Revenue	133,332,000	133,332,000	126,203,000	110,939,000	84,732,000
+Reconciled Depreciation	11,946,000	11,946,000	13,475,000	12,441,000	13,697,000
+Net Income from Continuing Operation Net Minority Interest	73,795,000	73,795,000	59,972,000	76,033,000	40,269,000
+Total Unusual Items Excluding Goodwill	-2,061,000	-2,061,000	-6,173,000	12,030,000	5,973,000
+Total Unusual Items	-2,061,000	-2,061,000	-6,173,000	12,030,000	5,973,000
+Normalized EBITDA	100,032,000	100,032,000	91,333,000	91,491,000	55,941,000
+Tax Rate for Calcs	0	0	0	0	0
+Tax Effect of Unusual Items	-286,479	-286,479	-981,507	1,948,860	970,572"
+`;
+
+exports[`RowsX - scrappers tests Scrapping - youtube 1`] = `
+"Video thumbnail	Video title	Video views	Video description	Video duration	Video URL	Channel	Channel URL
+=IMAGE("https://i.ytimg.com/vi/rsu1zIkAm6Q/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD_cL1W0XXVNSt_Bs3gmV6HmgLANA")	Introducing Rows 2.0	70 mil visualizações	Introducing Rows 2.0, the easiest way to use data in a spreadsheet.	1:21	https://www.youtube.com/watch?v=rsu1zIkAm6Q&pp=ygUEcm93cw%3D%3D	Rows	https://www.youtube.com/@RowsHQ
+=IMAGE("https://i.ytimg.com/vi/KHmz3GzIXjU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLATbH8GqkamISTHmE-g7ePLFGeJZg")	O fim do reinado do Excel? Conheça Rows.com (e com Inteligência Artificial!)	6 mil visualizações	Será que o Google Planilhas e o Excel podem ser substituídos? Bom, essa é a proposta da nova ferramenta de análise ROWS.	19:13	https://www.youtube.com/watch?v=KHmz3GzIXjU&pp=ygUEcm93cw%3D%3D	MLK DO OFFICE	https://www.youtube.com/@mlkdooffice
+=IMAGE("https://i.ytimg.com/vi/dQ0N-gbhOjQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCOF7iDOX7Xp6FnMm-gNammjMDueQ")	Rows AI Analyst	21 mil visualizações	Introducing your new number crunching sidekick.	1:05	https://www.youtube.com/watch?v=dQ0N-gbhOjQ&pp=ygUEcm93cw%3D%3D	Rows	https://www.youtube.com/@RowsHQ
+=IMAGE("https://i.ytimg.com/vi/0F2krDy3sVQ/hq720.jpg?sqp=-oaymwE2CNAFEJQDSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB1AaAAuADigIMCAAQARhyIFcoJjAP&rs=AOn4CLCDTTAUA7dyKcQdqlwNEecbHz0EAg")	Rows - The Spreadsheet with Superpowers	20 mil visualizações	Slick design. Built-in integrations. Revolutionary sharing. We reinvented spreadsheets for modern teams: • Easily integrate data ...	1:54	https://www.youtube.com/watch?v=0F2krDy3sVQ&pp=ygUEcm93cw%3D%3D	Rows	https://www.youtube.com/@RowsHQ
+=IMAGE("https://i.ytimg.com/vi/mRExtQmMeCM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC0x-DyZfUFrOdnftPJ89-Iiz9WSw")	Rows: É possível destronar o Excel? | Únicos (EP #8)	10 mil visualizações	Humberto Ayres Pereira sabe que destronar o Excel e a Google Sheets é uma missão ambicosa, mas diz que também foi isso ...	9:56	https://www.youtube.com/watch?v=mRExtQmMeCM&pp=ygUEcm93cw%3D%3D	The Next Big Idea	https://www.youtube.com/@thenextbigidea
+=IMAGE("https://i.ytimg.com/vi/rP0lZ_T5P28/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB289F9yYf4gpvLxnraX-8qgNsEtQ")	I loaded 100,000,000 rows into MySQL (fast)	162 mil visualizações	Watch me wrangle over 100000000 rows of data and load it into MySQL. To learn more about PlanetScale, head to ...	18:27	https://www.youtube.com/watch?v=rP0lZ_T5P28&pp=ygUEcm93cw%3D%3D	PlanetScale	https://www.youtube.com/@PlanetScale
+	Fastest Way to Delete Empty Rows in Excel (New)	22 mil visualizações	This video shows you the fastest and safest way to delete empty rows in Excel. There are lots of different ways to remove blank ...	5:49	https://www.youtube.com/watch?v=gbXlo_l20Po&pp=ygUEcm93cw%3D%3D	Easy Sheets	https://www.youtube.com/@easy_sheets
+	Back Exercises Ranked (BEST TO WORST!)	4,1 M de visualizações	With so many back exercises, it might be hard to rank and decide where you should be focusing your efforts to build bigger lats ...	14:27	https://www.youtube.com/watch?v=w4vU3tzVM70&pp=ugMICgJlbhABGAHKBQRyb3dz	ATHLEAN-X™	https://www.youtube.com/@athleanx
+	How To Do Dumbbell Rows: Build a Thicker Back With Proper "Cheating"	1,3 M de visualizações	In this video we're looking at proper technique on rows to maximize muscular development of the back while avoiding injury.	7:23	https://www.youtube.com/watch?v=djKXLt7kv7Q&pp=ugMICgJlbhABGAHKBQRyb3dz	Jeff Nippard	https://www.youtube.com/@JeffNippard
+	How To Train Back WIDTH vs THICKNESS (Close vs Wide Grip? Rows or Pullups?)	2,9 M de visualizações	------------------------------- Help SUPPORT the channel by: 1. Trying one of my training programs: ...	8:52	https://www.youtube.com/watch?v=PAXkl-AdJFg&pp=ugMICgJlbhABGAHKBQRyb3dz	Jeff Nippard	https://www.youtube.com/@JeffNippard
+	Welcome to Rows	24 mil visualizações	Welcome to Rows, the spreadsheet with superpowers! Combine the power of a spreadsheet with built-in integrations with your ...	1:30	https://www.youtube.com/watch?v=Lgz9W9INgdQ&pp=ygUEcm93cw%3D%3D	Rows	https://www.youtube.com/@RowsHQ
+	Adding additional rows to existing data in Power BI | Power BI for beginners	110 visualizações	In this video you will learn to add additional rows to existing dataset in Power BI #powerbi #powerbi_training #powerbideveloper ...	1:47	https://www.youtube.com/watch?v=qE3FAMDBXm8&pp=ygUEcm93cw%3D%3D	The Hima Bindu	https://www.youtube.com/@TheHimaBindu
+	Rows usa IA para ser melhor que o Excel	10 mil visualizações	Essa ferramenta usa inteligência artificial para ser uma planilha mais poderosa que o Excel. #ia #inteligênciaartificial #rows ...	2:11	https://www.youtube.com/watch?v=YHZ4bjCPeAg&pp=ygUEcm93cw%3D%3D	Andre Lug	https://www.youtube.com/@andre_lug
+	ROWS.AI: Explained in Under 2 Minutes!	2,7 mil visualizações	In this video, we'll take a deep dive into the world of ROWS.AI and explain how it can revolutionize the way you work with data.	2:14	https://www.youtube.com/watch?v=Vvg-UhL3IKg&pp=ygUEcm93cw%3D%3D	AI Insider	https://www.youtube.com/@AIInsider.official
+	Excel - Maneira fácil de exibir a linha ou linhas superiores - Episódio 2561c	21 mil visualizações	Tutorial do Microsoft Excel - como exibir as linhas superiores? Bem-vindo ao meu tutorial do Excel sobre como exibir a linha ...	0:30	https://www.youtube.com/watch?v=8nG7m_1FTds&pp=ygUEcm93cw%3D%3D	MrExcel.com	https://www.youtube.com/@MrXL
+	How to do the SINGLE ARM DUMBBELL ROW! | 2 Minute Tutorial	406 mil visualizações	What's up guys and welcome back to 2 Minute Tutorials! This series will cover a broad range of training exercises to help you feel ...	2:00	https://www.youtube.com/watch?v=dFzUjzfih7k&pp=ygUEcm93cw%3D%3D	Max Euceda	https://www.youtube.com/@MaxEuceda7
+	DEBATE entre LUIS MONTENEGRO (PSD) e RUI ROCHA (IL)	12 mil visualizações	DEBATE entre PSD e IL (COMPLETO) |⚪PATREON: https://www.patreon.com/tiagopaiva Instagram: ...	42:43	https://www.youtube.com/watch?v=XMItDH2oEe4&pp=ygUEcm93cw%3D%3D	Clips Tiago Paiva	https://www.youtube.com/@ClipsTiagoPaiva
+	O Estilo de Adriano Silva Martins - Extremamente Desagradável	4,6 mil visualizações	Renascença #astrêsdamanhã #extremamentedesagradável Joana Marques fala-nos de estilo, apesar de não ter nenhum.	14:22	https://www.youtube.com/watch?v=hHErFXq0NWg&pp=ygUEcm93cw%3D%3D	Renascença	https://www.youtube.com/@renascencavmais
+	AI Generated Videos Just Changed Forever	6,1 M de visualizações	Reminder: It's only been 1 YEAR since the Will Smith eating spaghetti video OpenAI Sora: https://openai.com/sora#research ...	12:02	https://www.youtube.com/watch?v=NXpdyAWLDas&t=88s&pp=ygUEcm93cw%3D%3D	Marques Brownlee	https://www.youtube.com/@mkbhd
+	Delete rows with specific text without sorting	41 mil visualizações	In this short video, you will see how rows with specific text can be deleted without sorting data. Here, we want to delete rows ...	0:33	https://www.youtube.com/watch?v=tJBuwF7R1XI&pp=ygUEcm93cw%3D%3D	ITmistic	https://www.youtube.com/@itmistic
+	Rows: The spreadsheet with superpowers	5,6 mil visualizações		0:58	https://www.youtube.com/watch?v=fBTPRWD9F5c&pp=ygUEcm93cw%3D%3D	Rows	https://www.youtube.com/@RowsHQ
+	André Ventura. "O clima dos Açores é como as ideias do Chega: de manhã é uma coisa e à tarde outra?"	41 mil visualizações	Renascença O líder do Chega esteve n'As Três da Manhã e sujeitou-se às questões inusitadas do "Desculpa, mas vais ter de ...	5:26	https://www.youtube.com/watch?v=WMuE1kV7UIU&pp=ygUEcm93cw%3D%3D	Renascença	https://www.youtube.com/@renascencavmais
+	Rubel - Torto Arado feat. Liniker & Luedji Luna (Visualizer)	161 mil visualizações	Ouça Agora: AS PALAVRAS, VOL. 1 & 2 Torto Arado (feat. Liniker & Luedji Luna) (Rubel) Lá bem longe o cacarejo Junto à voz de ...	4:12	https://www.youtube.com/watch?v=aZz0Y1hbMrM&pp=ygUEcm93cw%3D%3D	Rubel	https://www.youtube.com/channel/UCesNI434dJImMNhU0JntoHg
+	As Palavras	30 mil visualizações	Provided to YouTube by Altafonte As Palavras · Rubel · Tim Bernardes AS PALAVRAS, VOL. 1 & 2 ℗ 2023 Dorileo Released on: ...	3:20	https://www.youtube.com/watch?v=1OmWjwocWwU&pp=ygUEcm93cw%3D%3D	Rubel	https://www.youtube.com/channel/UCesNI434dJImMNhU0JntoHg
+	Titanic Strength: Free Weight Rows: Conquering 450lbs x 5 Reps (3rd Set)	0 visualizações	fitness #motivation #motivational #gym #fitnesslifestyle #gymrat #gymmotivation #motivationalvideos #viral #virals #viralvideo ...	1:01	https://www.youtube.com/watch?v=cHvx39-vuMs&pp=ygUEcm93cw%3D%3D	Jason Dandl	https://www.youtube.com/@JasonDandl-nd3qo
+	Shirt Rows - Gym On The Go	0 visualizações		1:24	https://www.youtube.com/watch?v=ktkFY8NWb8s&pp=ygUEcm93cw%3D%3D	Nathan Abela	https://www.youtube.com/@nathan_abela
+	Used Cars Website - Custom Filament Table Rows	621 visualizações	Let's build a Used Cars website using Laravel, Livewire and Filament. Code: https://github.com/tuto1902/laravel-used-cars ...	1:14:02	https://www.youtube.com/watch?v=mZNeFt1_BJA&pp=ygUEcm93cw%3D%3D	Tuto1902	https://www.youtube.com/@Tuto1902
+	Intro to Rows	46 mil visualizações	A quick walkthrough of Rows and how you can get started. Templates: rows.com/templates Community: rows.com/community ...	6:19	https://www.youtube.com/watch?v=EZKmrhVYtJs&t=5s&pp=ugMICgJlbhABGAHKBQRyb3dz	Rows	https://www.youtube.com/@RowsHQ
+	Delete All Blank Rows in Excel Entire Row @BrainUpp	108 mil visualizações	Delete All Blank Rows in Excel Entire Row @BrainUpp A quick way to delete or remove blank rows in Excel Press [F5]. In the ...	SHORTS	https://www.youtube.com/shorts/VqxO2YHjMbs	Brain Up	https://www.youtube.com/@BrainUpp"
+`;

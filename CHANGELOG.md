@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/rows/X/compare/v1.5.0...v1.6.0) (2024-02-21)
+
+
+### Features
+
+* add new scrappers ([#57](https://github.com/rows/X/issues/57)) ([8a4063c](https://github.com/rows/X/commit/8a4063c4f7f4c8816c7bc8fad625cda5836bb36e))
+
 # [1.5.0](https://github.com/rows/X/compare/v1.4.4...v1.5.0) (2024-02-16)
 
 

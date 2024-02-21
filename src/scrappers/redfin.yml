@@ -1,5 +1,5 @@
 url: https://www.redfin.com/*
-listElementsQuery:
+listElementsQuery: '[id*="MapHomeCard_"]'
 elementParser:
   - title: Image
     query: img

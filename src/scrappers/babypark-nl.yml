@@ -1,0 +1,23 @@
+url: https://www.babypark.nl/*
+listElementsQuery: .column
+elementParser:
+
+  - title: Item Description
+    query: .page-title
+    type: text
+
+  - title: Item Number
+    query: '[data-th="Artikelnummer"]'
+    type: text
+
+  - title: EAN
+    query: '[data-th="EAN Code"]'
+    type: text
+  
+  - title: RRP
+    query: '.advice-price-box'
+    type: text
+  
+  - title: Price
+    query: '.price'
+    type: text

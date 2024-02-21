@@ -1,4 +1,4 @@
-url: https://www.pinkorblue.nl/*
+url: https://www.pinkorblue.*
 listElementsQuery: .site-main
 elementParser:
 
@@ -14,10 +14,10 @@ elementParser:
     query: '#product-description-content > div > p:nth-child(3)'
     type: text
 
-  - title: Price
-    query: '[itemprop="price"]'
-    type: text
-
   - title: RRP
     query: '#buybox-options > div.product-options__prices > div:nth-child(1) > div.col-sm-9'
+    type: text
+
+  - title: Price
+    query: '[itemprop="price"]'
     type: text

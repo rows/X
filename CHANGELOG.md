@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/rows/X/compare/v1.4.4...v1.5.0) (2024-02-16)
+
+
+### Features
+
+* add scrappers for google search results, supercoach & tilbudsportalen.dk ([#58](https://github.com/rows/X/issues/58)) ([cb633ab](https://github.com/rows/X/commit/cb633ab24f50b99c500943842153a309bba51f88))
+
+## [1.4.4](https://github.com/rows/X/compare/v1.4.3...v1.4.4) (2024-02-14)
+
 ## [1.4.3](https://github.com/rows/X/compare/v1.4.2...v1.4.3) (2024-02-12)
 
 ## [1.4.2](https://github.com/rows/X/compare/v1.4.1...v1.4.2) (2024-02-12)

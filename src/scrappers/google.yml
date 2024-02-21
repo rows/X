@@ -1,16 +1,14 @@
-url: https://www.google.com/search*
-header: Google search results
-listElementsQuery: '[lang="fr"]'
+url: https://www.google.*/search?*
+listElementsQuery: '[data-snc]'
 elementParser:
-#Queria adicionar mais elementos mas não consegui.
   - title: Title
     query: h3
     type: text
 
   - title: Description
-    query: '[data-sncf="1"]'
+    query: 'div[style="-webkit-line-clamp:2"]'
     type: text
 
-  - title: Google URL
+  - title: URL
     query: a
-    type: link
+    type: clean-url

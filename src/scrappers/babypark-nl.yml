@@ -1,5 +1,6 @@
 url: https://www.babypark.nl/*
 listElementsQuery: .column
+includeHeader: false
 elementParser:
 
   - title: Item Description

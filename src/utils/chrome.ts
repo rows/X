@@ -31,6 +31,7 @@ export async function getCurrentTab() {
 export interface ScrapperOptions {
   url: string | Array<string>;
   header?: string;
+  includeHeader?: boolean;
   listElementsQuery?: string;
   elementParser?: Array<{
     title: string;

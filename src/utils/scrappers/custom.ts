@@ -99,7 +99,7 @@ export async function customScrapper(options: ScrapperOptions) {
     {
       title: options.header,
       table: [[...options.elementParser!.map((element) => element.title)], ...tableElements],
-      includeHeader: options.includeHeader,
+      includeHeader: options.includeHeader ?? true,
     },
   ];
 }

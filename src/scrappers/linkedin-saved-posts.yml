@@ -1,0 +1,19 @@
+url: https://www.linkedin.com/my-items/saved-posts/
+header: Linkedin Saved Posts
+listElementsQuery: '.reusable-search__result-container'
+elementParser:
+  - title: Name
+    query: '.entity-result__title-line--2-lines > span > a > span > span:nth-child(1)'
+    type: text
+
+  - title: Job title
+    query: '.linked-area.flex-1.cursor-pointer > div'
+    type: text
+
+  - title: Profile url
+    query: a
+    type: link
+
+  - title: Post content
+    query: '.entity-result__content-inner-container > div > p'
+    type: text

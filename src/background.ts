@@ -1,48 +1,5 @@
-import { getCurrentTab, getDomainName, runScrapper, ScrapperOptions } from './utils/chrome';
-import scrapperOptions from './scrappers';
-
-function urlMatchesPatternUrl(url: string, patternURL: string) {
-  if (!patternURL) {
-    return false;
-  }
-  // @ts-ignore
-  const pattern = new URLPattern(patternURL);
-
-  return pattern.test(url);
-}
-
-function getScrapperOptionsByUrl(url: string, title: string): ScrapperOptions | null {
-  let options;
-
-  const domain = getDomainName(url);
-
-  if (domain && scrapperOptions.has(domain)) {
-    const scrappers = scrapperOptions.get(domain)!;
-
-    const scrapper = scrappers.find((scrapper) => {
-      if (Array.isArray(scrapper.url)) {
-        return scrapper.url.some((scrapperURL: string) => urlMatchesPatternUrl(url, scrapperURL));
-      } else {
-        return urlMatchesPatternUrl(url, scrapper.url);
-      }
-    });
-
-    options = scrapper;
-  }
-
-  if (options) {
-    if (!options.header) {
-      return {
-        header: title,
-        ...options,
-      };
-    }
-
-    return options;
-  }
-
-  return null;
-}
+import { getCurrentTab, runScrapper } from './utils/chrome';
+import { getScrapperOptionsByUrl } from './utils/scrapperUtils';
 
 async function scrap() {
   const tab = await getCurrentTab();

@@ -1,0 +1,16 @@
+url: 
+  - https://www.babypark.de/search/*
+listElementsQuery: '#kuLandingProductsListUl > li'
+elementParser:
+
+  - title: Item Description
+    query: '.kuName'
+    type: text
+
+  - title: RRP
+    query: '.kuOrigPrice'
+    type: text
+  
+  - title: Price
+    query: '.kuSalePrice'
+    type: text

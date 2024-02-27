@@ -113,6 +113,7 @@ export async function scrapHTMLTables() {
     .map((table, index: number) => ({
       title: titles[index],
       table: toArray(table),
+      includeHeader: true,
     }))
     .filter((table) => !table.table.every((row: Row) => row.every((col) => col === '')));
 }

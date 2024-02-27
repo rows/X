@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/rows/X/compare/v1.6.0...v1.7.0) (2024-02-27)
+
+
+### Features
+
+* enable the possibility to remove the header from the results ([#60](https://github.com/rows/X/issues/60)) ([3c237af](https://github.com/rows/X/commit/3c237af0bffda19a95aa16ce2347157f49e43856))
+
 # [1.6.0](https://github.com/rows/X/compare/v1.5.0...v1.6.0) (2024-02-21)
 
 

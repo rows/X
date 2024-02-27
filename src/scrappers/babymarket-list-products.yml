@@ -1,0 +1,28 @@
+url: 
+  - https://www.babymarkt.de/search/*
+  - https://www.babymarkt.de/unterwegs/*
+  - https://www.babymarkt.de/kindersitze/*
+  - https://www.babymarkt.de/pflegeprodukte/*
+  - https://www.babymarkt.de/ernaehrung/*
+  - https://www.babymarkt.de/kinderzimmer/*
+  - https://www.babymarkt.de/spielzeug/*
+  - https://www.babymarkt.de/mode/*
+  - https://www.babymarkt.de/sale/*
+listElementsQuery: '.col-sm-4.products__item'
+includeHeader: false
+elementParser:
+  - title: Item Brand
+    query: '.product__brand'
+    type: text
+
+  - title: Item Description
+    query: '.product__title'
+    type: text
+
+  - title: RRP
+    query: '.product__price--old'
+    type: text
+  
+  - title: Price
+    query: '.product__price'
+    type: text

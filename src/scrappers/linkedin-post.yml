@@ -1,0 +1,15 @@
+url: https://www.linkedin.com/feed/update/*
+header: Linkedin Post - Profiles who liked
+listElementsQuery: .artdeco-list__item
+elementParser:
+  - title: Name
+    query: .artdeco-entity-lockup__title
+    type: text
+  
+  - title: Job title
+    query: .artdeco-entity-lockup__caption
+    type: text
+
+  - title: Profile url
+    query: a
+    type: link

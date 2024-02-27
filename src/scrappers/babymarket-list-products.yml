@@ -8,8 +8,7 @@ url:
   - https://www.babymarkt.de/spielzeug/*
   - https://www.babymarkt.de/mode/*
   - https://www.babymarkt.de/sale/*
-listElementsQuery: '.col-sm-4.products__item'
-includeHeader: false
+listElementsQuery: '.products__item'
 elementParser:
   - title: Item Brand
     query: '.product__brand'

@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/rows/X/compare/v1.7.0...v1.8.0) (2024-02-27)
+
+
+### Features
+
+* add chaperone reviews list scrapper ([#63](https://github.com/rows/X/issues/63)) ([a9cfc93](https://github.com/rows/X/commit/a9cfc9397c34842386875be063927e8ada5ea522))
+
 # [1.7.0](https://github.com/rows/X/compare/v1.6.0...v1.7.0) (2024-02-27)
 
 

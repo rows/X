@@ -1,0 +1,31 @@
+url: 'https://chaperone.online/wp-admin/admin.php?page=review-list'
+header: Review list
+listElementsQuery: 'tr:has(td)' # The has(td) css selector allows to remove the empty table rows
+elementParser:
+  - title: Ref no
+    query: td:nth-child(1)
+    type: text
+
+  - title: Student Name
+    query: td:nth-child(2)
+    type: text
+  
+  - title: Consultant name
+    query: td:nth-child(3)
+    type: text
+
+  - title: Rating
+    query: td:nth-child(4)
+    type: text
+
+  - title: Comment
+    query: td:nth-child(5)
+    type: text
+
+  - title: Email
+    query: td:nth-child(6)
+    type: text
+
+  - title: Created
+    query: td:nth-child(7)
+    type: text

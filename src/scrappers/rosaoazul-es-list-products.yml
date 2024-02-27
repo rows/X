@@ -1,0 +1,27 @@
+url: 
+  - https://www.rosaoazul.es/search/*
+  - https://www.rosaoazul.es/cochecitos/*
+  - https://www.rosaoazul.es/sillas-de-coche/*
+  - https://www.rosaoazul.es/salud-y-cuidados/*
+  - https://www.rosaoazul.es/hora-de-comer/*
+  - https://www.rosaoazul.es/dormitorio/*
+  - https://www.rosaoazul.es/juguetes/*
+  - https://www.rosaoazul.es/moda/*
+  - https://www.rosaoazul.es/ofertas/*
+listElementsQuery: .products__item
+elementParser:
+  - title: Item Brand
+    query: '.product__brand'
+    type: text
+
+  - title: Item Description
+    query: '.product__title'
+    type: text
+
+  - title: RRP
+    query: '.product__price--old'
+    type: text
+  
+  - title: Price
+    query: '.product__price'
+    type: text

@@ -44,6 +44,7 @@ export async function scrapDivHTMLTables(options: ScrapperOptions) {
     {
       title: options.header,
       table,
+      includeHeader: true,
     },
   ];
 }

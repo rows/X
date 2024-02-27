@@ -1,5 +1,6 @@
 url: https://www.babymarkt.de/*
 listElementsQuery: .site-main
+includeHeader: false
 elementParser:
 
   - title: Item Description

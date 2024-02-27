@@ -12,6 +12,20 @@ function renderCell(cell: string) {
   return cell;
 }
 
+async function copyToClipboard(result: {
+  title?: string;
+  table: string[][];
+  includeHeader?: boolean;
+}) {
+  let tableToCopy = result.table;
+  if (!result.includeHeader) {
+    tableToCopy = result.table.slice(1); // Remove the first row (header)
+  }
+
+  await navigator.clipboard.writeText(array2tsv(tableToCopy));
+  setTimeout(() => window.close(), 200);
+}
+
 interface Props {
   results: ScrapperResults;
 }
@@ -43,10 +57,7 @@ const Preview: FunctionComponent<Props> = ({ results = [] }) => {
                 <Button
                   className="copy-btn"
                   type="secondary"
-                  onClick={async () => {
-                    await navigator.clipboard.writeText(array2tsv(result.table));
-                    setTimeout(() => window.close(), 200);
-                  }}
+                  onClick={() => copyToClipboard(result)}
                 >
                   <img alt="copy" src="/icons/copy.svg" />
                 </Button>

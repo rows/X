@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/rows/X/compare/v1.8.0...v1.9.0) (2024-02-28)
+
+
+### Features
+
+* add LinkedIn likes scrapper on company and user's profiles ([#64](https://github.com/rows/X/issues/64)) ([cc62872](https://github.com/rows/X/commit/cc628729d14b6fbf03283704a9e0e24301d87994))
+
 # [1.8.0](https://github.com/rows/X/compare/v1.7.0...v1.8.0) (2024-02-27)
 
 

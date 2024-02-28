@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/rows/X/compare/v1.9.0...v1.9.1) (2024-02-28)
+
+
+### Bug Fixes
+
+* add linkedIn post url to saved-posts scrapper ([#65](https://github.com/rows/X/issues/65)) ([a0ee654](https://github.com/rows/X/commit/a0ee6541e5b56038f890ead2dbed8114a4e26e7a))
+
 # [1.9.0](https://github.com/rows/X/compare/v1.8.0...v1.9.0) (2024-02-28)
 
 

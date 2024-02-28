@@ -1,0 +1,19 @@
+url:
+  - https://www.linkedin.com/company/*
+  - https://www.linkedin.com/in/*
+  - https://www.linkedin.com/showcase/*
+  - https://www.linkedin.com/posts/*
+header: Linkedin Likes
+listElementsQuery: .artdeco-list__item
+elementParser:
+  - title: Name
+    query: .artdeco-entity-lockup__title
+    type: text
+  
+  - title: Job title
+    query: .artdeco-entity-lockup__caption
+    type: text
+
+  - title: Profile url
+    query: a
+    type: link

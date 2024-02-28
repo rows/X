@@ -14,6 +14,10 @@ elementParser:
     query: a
     type: link
 
+  - title: Post url
+    query: .entity-result__content-inner-container > div.mh4 > a.app-aware-link, .entity-result__content-inner-container > a.app-aware-link
+    type: link
+  
   - title: Post content
     query: '.entity-result__content-inner-container > div > p'
     type: text

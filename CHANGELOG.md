@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/rows/X/compare/v1.9.1...v1.10.0) (2024-02-29)
+
+
+### Features
+
+* add pinkorblue.nl and pinkorblue.it list of products scrapper ([#66](https://github.com/rows/X/issues/66)) ([03c0f5f](https://github.com/rows/X/commit/03c0f5f95b89de4f53a258a203b7b1a142ecdacf))
+
 ## [1.9.1](https://github.com/rows/X/compare/v1.9.0...v1.9.1) (2024-02-28)
 
 

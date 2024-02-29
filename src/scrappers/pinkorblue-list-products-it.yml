@@ -1,0 +1,27 @@
+url: 
+  - https://www.pinkorblue.it/search/*
+  - https://www.pinkorblue.it/passeggini/*
+  - https://www.pinkorblue.it/seggiolini-auto/*
+  - https://www.pinkorblue.it/igiene/*
+  - https://www.pinkorblue.it/alimentazione/*
+  - https://www.pinkorblue.it/camerette/*
+  - https://www.pinkorblue.it/giochi/*
+  - https://www.pinkorblue.it/moda/*
+  - https://www.pinkorblue.it/saldi/*
+listElementsQuery: .products__item
+elementParser:
+  - title: Item Brand
+    query: '.product__brand'
+    type: text
+
+  - title: Item Description
+    query: '.product__title'
+    type: text
+
+  - title: RRP
+    query: '.product__price--old'
+    type: text
+  
+  - title: Price
+    query: '.product__price'
+    type: text

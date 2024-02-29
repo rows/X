@@ -1,0 +1,27 @@
+url: 
+  - https://www.pinkorblue.nl/search/*
+  - https://www.pinkorblue.nl/kinderwagens/*
+  - https://www.pinkorblue.nl/autostoelen/*
+  - https://www.pinkorblue.nl/verzorging/*
+  - https://www.pinkorblue.nl/voeding/*
+  - https://www.pinkorblue.nl/kinderkamer/*
+  - https://www.pinkorblue.nl/speelgoed/*
+  - https://www.pinkorblue.nl/mode/*
+  - https://www.pinkorblue.nl/outlet/*
+listElementsQuery: .products__item
+elementParser:
+  - title: Item Brand
+    query: '.product__brand'
+    type: text
+
+  - title: Item Description
+    query: '.product__title'
+    type: text
+
+  - title: RRP
+    query: '.product__price--old'
+    type: text
+  
+  - title: Price
+    query: '.product__price'
+    type: text

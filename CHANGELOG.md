@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/rows/X/compare/v1.10.0...v1.11.0) (2024-03-04)
+
+
+### Features
+
+* remove google maps scrapper ([#67](https://github.com/rows/X/issues/67)) ([d076b74](https://github.com/rows/X/commit/d076b74c1a4e5c566f016f1760846280e0cf72ab))
+
 # [1.10.0](https://github.com/rows/X/compare/v1.9.1...v1.10.0) (2024-02-29)
 
 

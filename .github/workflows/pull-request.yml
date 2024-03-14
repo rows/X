@@ -19,7 +19,7 @@ jobs:
 
   static-analysis:
     name: Static analysis
-    runs-on: rows-fe-default
+    runs-on: rows-fe-4core
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

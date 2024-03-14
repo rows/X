@@ -20,6 +20,7 @@ jobs:
   static-analysis:
     name: Static analysis
     runs-on: rows-fe-4core
+    timeout-minutes: 20
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -42,6 +43,7 @@ jobs:
   test:
     name: E2E Tests
     runs-on: rows-fe-default
+    timeout-minutes: 20
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

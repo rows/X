@@ -78,6 +78,8 @@ export async function customScrapper(options: ScrapperOptions) {
         return getAttribute(element, query, attribute);
       case 'float':
         return getFloat(element, query);
+      case 'self-link':
+        return element ? element.href : '';
       default:
         return '';
     }

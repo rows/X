@@ -1,0 +1,16 @@
+url: https://www.apple.com/newsroom/archive/*
+header: Apple News
+listElementsQuery: .result__item
+elementParser:
+  - title: Tag
+    query: .item__category
+    type: text
+  - title: Title
+    query: .item__headline
+    type: text
+  - title: Date of publication
+    query: .item__date
+    type: text
+  - title: URL
+    query: href
+    type: self-link

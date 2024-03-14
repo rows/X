@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/rows/X/compare/v1.11.0...v1.12.0) (2024-03-14)
+
+
+### Features
+
+* add apple newsroom scrapper ([#68](https://github.com/rows/X/issues/68)) ([9385f0c](https://github.com/rows/X/commit/9385f0c323dd9652cc36cb91b3adc5311be566b5))
+
 # [1.11.0](https://github.com/rows/X/compare/v1.10.0...v1.11.0) (2024-03-04)
 
 

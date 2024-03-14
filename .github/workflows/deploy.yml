@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   test:
     name: E2E Tests
-    runs-on: rows-fe-default
+    runs-on: rows-fe-4core
     timeout-minutes: 20
     steps:
       - name: Checkout code

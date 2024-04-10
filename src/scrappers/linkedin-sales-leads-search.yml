@@ -1,0 +1,22 @@
+url: https://www.linkedin.com/sales/lists/people/*
+header: Linkedin Sales Navigator Leads List
+listElementsQuery: 'tr.artdeco-models-table-row'
+elementParser:
+  - title: Avatar
+    query: img
+    type: image
+  - title: Name
+    query: '[data-anonymize="person-name"]'
+    type: text
+  - title: Job
+    query: '[data-anonymize="job-title"]'
+    type: text
+  - title: Company
+    query: '[data-anonymize="company-name"]'
+    type: text
+  - title: Location
+    query: '[data-anonymize="location"]'
+    type: text
+  - title: Profile url
+    query: '[data-anonymize="person-name"]'
+    type: clean-url

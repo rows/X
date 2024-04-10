@@ -1,0 +1,22 @@
+url: https://www.linkedin.com/sales/search/*
+header: Linkedin Sales Navigator search results
+listElementsQuery: '.artdeco-list__item'
+elementParser:
+  - title: Avatar
+    query: img
+    type: image
+  - title: Name
+    query: '.artdeco-entity-lockup__title > a'
+    type: text
+  - title: Job
+    query: '.artdeco-entity-lockup__subtitle > span:nth-child(1)'
+    type: text
+  - title: Company
+    query: '.artdeco-entity-lockup__subtitle > a'
+    type: text
+  - title: Location
+    query: '.artdeco-entity-lockup__caption'
+    type: text
+  - title: Profile url
+    query: '.artdeco-entity-lockup__title > a'
+    type: clean-url

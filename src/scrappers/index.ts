@@ -1,5 +1,6 @@
 import { getDomainName, ScrapperOptions } from '../utils/chrome';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const data = import.meta.glob('./*.yml', { eager: true });
 const scrappers = new Map<string, Array<ScrapperOptions>>();

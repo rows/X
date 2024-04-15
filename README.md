@@ -18,7 +18,7 @@ RowsX was born during a team hackathon in January of 2024. We built it to solve 
 
 We're opening RowsX to the community and invite everyone to contribute with new features, support to new websites or new ideas to improve it. 
 
-## How to run it on dev mode?
+## Get Started
 
 To start, you'll need to install the project on your local machine.
 This requires Node.js to be installed on your system.

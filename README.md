@@ -1,6 +1,6 @@
 # RowsX
 
-RowsX is a Chrome extension designed to streamline simple web scraping tasks for business users. Its made to load data from websites with HTML tables, and is developed by [Rows.com](https://rows.com).
+RowsX is a Chrome extension that performs simple web scraping tasks for business users. It was built to help users load data from websites with HTML tables into spreadsheets, and is developed by [Rows.com](https://rows.com).
 
 [Demo video](https://www.youtube.com/watch?v=RjOLjgCvayM) · [Install extension from the Chrome Web Store](https://chromewebstore.google.com/detail/rowsx/abkccndhocmfdombbpmnhfjidcdcjjeo) · [X](https://twitter.com/RowsHQ) · [LinkedIn](https://www.linkedin.com/company/rowshq) · [Discord](https://discord.gg/MqnBDJdf)
 

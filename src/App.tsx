@@ -1,3 +1,4 @@
+import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import './index.css';
 import NoResults from './components/no-results';
@@ -5,7 +6,7 @@ import Header from './components/header';
 import Preview from './components/preview';
 import LoadingSkeleton from './components/loading-skeleton';
 
-const App = () => {
+const App: FunctionalComponent = () => {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
 

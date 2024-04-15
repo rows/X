@@ -13,6 +13,7 @@ type ScrapperRow = Array<ScrapperColumn>;
 
 type TableWithRowAndColSpan = Array<ScrapperRow>;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function scrapHTMLTables() {
   function removeEmptyColumns(arr: Table) {
     // detect empty columns
@@ -84,6 +85,7 @@ export async function scrapHTMLTables() {
 
     titles.push(title);
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return Array.from(tableElement!.querySelectorAll(rowSelector)).map((tr) => {
       if (!tr) {
         return [];

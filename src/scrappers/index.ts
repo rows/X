@@ -17,6 +17,7 @@ for (const scrapperPath in data) {
 
   if (hostname) {
     if (scrappers.has(hostname)) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const options = scrappers.get(hostname)!;
       scrappers.set(hostname, [...options, data[scrapperPath].default]);
     } else {

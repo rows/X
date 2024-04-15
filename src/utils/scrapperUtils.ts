@@ -8,7 +8,8 @@ export function getScrapperOptionsByUrl(url: string, title: string): ScrapperOpt
   const domain = getDomainName(url);
 
   if (domain && scrapperOptions.has(domain)) {
-    const scrappers = scrapperOptions.get(domain)!;
+    const scrappers = scrapperOptions.get(domain);
+    if (!scrappers) return null;
 
     const scrapper = scrappers.find((scrapper) => {
       if (Array.isArray(scrapper.url)) {

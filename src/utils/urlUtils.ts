@@ -1,4 +1,4 @@
-export function urlMatchesPatternUrl(url: string, patternURL: string) {
+export function urlMatchesPatternUrl(url: string, patternURL: string): boolean {
   if (!patternURL) {
     return false;
   }

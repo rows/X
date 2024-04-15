@@ -1,6 +1,6 @@
-export function hasImage(cell: string) {
+export function hasImage(cell: string): boolean {
   if (!cell) {
-    return '';
+    return false;
   }
 
   return (
@@ -31,7 +31,7 @@ function processCell(cell: string) {
   return cell;
 }
 
-export function array2tsv(data: string[][] = []) {
+export function array2tsv(data: string[][] = []): string {
   return `${data
     .map((row) => row.map(processCell).join('\t'))
     .join('\n')

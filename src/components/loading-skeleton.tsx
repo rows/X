@@ -1,8 +1,10 @@
+import React from 'react';
+
 function randomNumber(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const LoadingSkeleton = () => {
+const LoadingSkeleton: React.FC = () => {
   return (
     <div className="skeleton-results">
       <div className="table-preview" style={{ opacity: 0.5 }}>

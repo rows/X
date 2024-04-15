@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { getCurrentTab, runScrapper } from './utils/chrome';
 import { getScrapperOptionsByUrl } from './utils/scrapperUtils';
 
 async function scrap() {
   const tab = await getCurrentTab();
-  const options = getScrapperOptionsByUrl(tab.url!, tab.title!);
+  if (!tab || !tab.url || !tab.title) return;
+
+  const options = getScrapperOptionsByUrl(tab.url, tab.title);
 
   return await runScrapper(tab, options);
 }

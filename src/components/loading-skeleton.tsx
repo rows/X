@@ -1,10 +1,10 @@
-import React from 'react';
+import { FunctionalComponent } from 'preact';
 
 function randomNumber(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const LoadingSkeleton: React.FC = () => {
+const LoadingSkeleton: FunctionalComponent = () => {
   return (
     <div className="skeleton-results">
       <div className="table-preview" style={{ opacity: 0.5 }}>

@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   test:
     name: E2E Tests
-    runs-on: rows-fe-4core
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
   build-and-deploy-extension:
     name: Build & deploy extension
     needs: test
-    runs-on: rows-fe-default
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v1

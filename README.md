@@ -161,6 +161,17 @@ In the following image, you can see how it works and each step will have a bette
 9. After that the app will trigger a paste event that will load the TSV into a new Table.
 10. The user sees the scrapped information in Table 1 of a new Page.
 
+## Open Bounties Program
+
+Join our Open Bounties Program and get rewarded for enhancing the extension! 
+
+Current Open Bounties:
+
+- Port extension to Safari: $250
+- Support parsing tables in PDFs: $150. [Example](https://www.oecd.org/pisa/OECD_2022_PISA_Results_Comparing%20countries%E2%80%99%20and%20economies%E2%80%99%20performance%20in%20mathematics.pdf).
+
+To ensure quality and alignment with our goals, features are only eligible for a bounty once they are approved by our team and made publicly available. If you have submitted code to solve one of the bounties, let us know at security@rows.com
+
 ## Contributions
 
 Contributions to RowsX are welcome! If you have issues or suggestions for improving the extension, please feel free to open an issue or submit a pull request on the GitHub repository.

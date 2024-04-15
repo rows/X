@@ -1,8 +1,8 @@
 # RowsX
 
-RowsX is a versatile Chrome extension designed to streamline web scraping tasks, specifically tailored for websites with HTML tables, developed by [Rows.com](https://rows.com).
+RowsX is a Chrome extension designed to streamline simple web scraping tasks for business users. Its made to load data from websites with HTML tables, and is developed by [Rows.com](https://rows.com).
 
-[Demo video](https://www.youtube.com/watch?v=RjOLjgCvayM) · [Chrome Web Store listing](https://chromewebstore.google.com/detail/rowsx/abkccndhocmfdombbpmnhfjidcdcjjeo) · [X](https://twitter.com/RowsHQ) · [LinkedIn](https://www.linkedin.com/company/rowshq) · [Discord](https://discord.gg/MqnBDJdf)
+[Demo video](https://www.youtube.com/watch?v=RjOLjgCvayM) · [Install extension from the Chrome Web Store](https://chromewebstore.google.com/detail/rowsx/abkccndhocmfdombbpmnhfjidcdcjjeo) · [X](https://twitter.com/RowsHQ) · [LinkedIn](https://www.linkedin.com/company/rowshq) · [Discord](https://discord.gg/MqnBDJdf)
 
 
 ![RowsX](https://github.com/rows/X/assets/31993620/c80634eb-27d5-443f-b5de-bb8c2c21e1b3)
@@ -14,9 +14,10 @@ RowsX is a versatile Chrome extension designed to streamline web scraping tasks,
 
 ## Why Open-source RowsX?
 
-RowsX was born during a team hackathon in January of 2024. We built it to solve a problem we see our customers struggle with everyday: getting data from the web to a spreadsheet. Since launching it, more than two thousand people have used it to import lists of data from hundreds of sites, internal tools and back office systems.
-
 We're opening RowsX to the community and invite everyone to contribute with new features, support to new websites or new ideas to improve it. 
+
+RowsX was born during a team hackathon in January of 2024. We built it to solve a problem we see our customers struggle with everyday: getting data from the web to a spreadsheet. The Rows platform lets you import data from files, via Integrations with APIs and SaaS services, and conectors on 3rd party platforms that call our Rows API. RowsX extends the importing options to the Browser! Since launching it, more than two thousand people have used it to import lists of data from countless sites, internal tools and back office systems.
+
 
 ## Open Bounties Program
 
@@ -26,8 +27,12 @@ Current Open Bounties:
 
 - Port extension to Safari: $250
 - Support parsing tables in PDFs: $150. [Example](https://www.oecd.org/pisa/OECD_2022_PISA_Results_Comparing%20countries%E2%80%99%20and%20economies%E2%80%99%20performance%20in%20mathematics.pdf).
+- Better handling of RowsX when opened on browser blank page: $20.
+- Improve Help state. $100. a) Replace the "Talk to Us" action with a submission to a Rows spreasdheet. If website doesn't have a matching table, have a button called report. This button inserts a line into a Rows spreadsheet with a compatible UTC datetime, url, domain, browser, browser version, and report type ("no table detected"). Check the Rows API. b) If there is at least one table detected, still on every screen show a "report" text link, at the top in a light gray button next to the closing x with Report. This report shows 3 radio options. "table not detected", "table broken", "something else: <30 chars>".
 
-To ensure quality and alignment with our goals, features are only eligible for a bounty once they are approved by our team and made publicly available. If you have submitted code to solve one of the bounties, let us know at security@rows.com
+To ensure quality and alignment with our goals, features are only eligible for a bounty once they are approved by our team and made publicly available. If you have submitted code to solve one of the bounties, let us know at security@rows.com.
+
+Note: RowsX is a tool for business people to use that translates what they see into a spreadsheet. Atm we don't aim to build a fully automated scrapper platform that operates beyond the actions of the user and what the user can see.
 
 ## Get Started
 

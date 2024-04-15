@@ -27,7 +27,7 @@ Current Open Bounties:
 
 - Port extension to Safari: $250
 - Support parsing tables in PDFs: $150. [Example](https://www.oecd.org/pisa/OECD_2022_PISA_Results_Comparing%20countries%E2%80%99%20and%20economies%E2%80%99%20performance%20in%20mathematics.pdf).
-- Better handling of RowsX when opened on browser blank page: $20.
+- Better handling of RowsX when opened on browser blank page: $20. Currently it shows a loading and doesn't go anywhere. It should display instructions "Open a page with a table, then open again!"
 - Improve Help state. $100. a) Replace the "Talk to Us" action with a submission to a Rows spreasdheet. If website doesn't have a matching table, have a button called report. This button inserts a line into a Rows spreadsheet with a compatible UTC datetime, url, domain, browser, browser version, and report type ("no table detected"). Check the Rows API. b) If there is at least one table detected, still on every screen show a "report" text link, at the top in a light gray button next to the closing x with Report. This report shows 3 radio options. "table not detected", "table broken", "something else: <30 chars>".
 
 To ensure quality and alignment with our goals, features are only eligible for a bounty once they are approved by our team and made publicly available. If you have submitted code to solve one of the bounties, let us know at security@rows.com.

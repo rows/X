@@ -1,7 +1,7 @@
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import './index.css';
-import Exception from "./components/expection";
+import Exception from "./components/exception";
 import NoResults from './components/no-results';
 import Header from './components/header';
 import Preview from './components/preview';

@@ -1,10 +1,21 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import {ERROR_MESSAGES, ErrorCodes} from "./error-codes";
 import { getCurrentTab, runScrapper } from './utils/chrome';
 import { getScrapperOptionsByUrl } from './utils/scrapperUtils';
 
 async function scrap() {
   const tab = await getCurrentTab();
-  if (!tab || !tab.url || !tab.title) return;
+
+  if (!tab || !tab.url || !tab.title) {
+    return;
+  }
+
+  if (tab.url.includes('chrome://')) {
+    return {
+      code: ErrorCodes.GOOGLE_CHROME_INTERNAL_PAGES,
+      message: ERROR_MESSAGES.get(ErrorCodes.GOOGLE_CHROME_INTERNAL_PAGES)
+    };
+  }
 
   const options = getScrapperOptionsByUrl(tab.url, tab.title);
 

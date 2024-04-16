@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/rows/X/compare/v1.12.4...v1.13.0) (2024-04-16)
+
+
+### Features
+
+* **bounty:** add empty state when it's a internal chrome page ([#79](https://github.com/rows/X/issues/79)) ([80509e7](https://github.com/rows/X/commit/80509e7ec092562e8133745c3af3e8ed55e39a98))
+
 ## [1.12.4](https://github.com/rows/X/compare/v1.12.3...v1.12.4) (2024-04-16)
 
 ## [1.12.3](https://github.com/rows/X/compare/v1.12.2...v1.12.3) (2024-04-15)

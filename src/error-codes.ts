@@ -4,7 +4,7 @@ export enum ErrorCodes {
   
   export const ERROR_MESSAGES = new Map<ErrorCodes, string>(
     [
-      [ErrorCodes.GOOGLE_CHROME_INTERNAL_PAGES, "Open a page with a table, then open again!"]
+      [ErrorCodes.GOOGLE_CHROME_INTERNAL_PAGES, "Open a page with a table, then try again!"]
     ]
   );
  

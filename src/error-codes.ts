@@ -7,4 +7,4 @@ export enum ErrorCodes {
       [ErrorCodes.GOOGLE_CHROME_INTERNAL_PAGES, "Open a page with a table, then open again!"]
     ]
   );
-  
+ 

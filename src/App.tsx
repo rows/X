@@ -29,9 +29,10 @@ const App: FunctionalComponent = () => {
         setException(response.message);
       } else {
         setResults(response);
-        setLoading(false);
         setException("");
       }
+
+      setLoading(false);
     });
   }, []);
 

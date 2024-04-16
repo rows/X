@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import {ERROR_MESSAGES, ErrorCodes} from "./error-codes";
+import { ERROR_MESSAGES, ErrorCodes } from './error-codes';
 import { getCurrentTab, runScrapper } from './utils/chrome';
 import { getScrapperOptionsByUrl } from './utils/scrapperUtils';
 

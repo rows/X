@@ -1,7 +1,6 @@
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import './index.css';
-import Exception from "./components/exception";
 import NoResults from './components/no-results';
 import Header from './components/header';
 import Preview from './components/preview';
@@ -43,7 +42,7 @@ const App: FunctionalComponent = () => {
         {showLoading && (<LoadingSkeleton />)}
         {showResults &&  <Preview results={results} />}
         {noResults && <NoResults />}
-        {hasExceptions && <Exception message={exceptionOnScrapperResult} />}
+        {hasExceptions && <NoResults message={exceptionOnScrapperResult} />}
       </div>
     </>
   );

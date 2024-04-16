@@ -3,7 +3,11 @@ import './no-results.css';
 import Button from './button';
 import { getCurrentTab } from '../utils/chrome';
 
-const NoResults = (): JSX.Element => {
+interface Props {
+  message?: string;
+}
+
+const NoResults = ({ message }: Props): JSX.Element => {
   const redirectToFeedback = async () => {
     const tab = await getCurrentTab();
     if (!tab || !tab.url) return;
@@ -25,7 +29,7 @@ const NoResults = (): JSX.Element => {
       <div className="no-results">
         <img src="/empty.svg" />
         <strong>No results</strong>
-        <span>Would you like RowsX to support this website?</span>
+        <span>{message ?? 'Would you like RowsX to support this website?'}</span>
         <div className="btn-container">
           <Button type="primary" onClick={redirectToFeedback}>
             Talk to us

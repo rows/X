@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { DOM_Element } from './types';
 import { ScrapperOptions } from '../chrome';
 

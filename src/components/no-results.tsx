@@ -1,11 +1,14 @@
+import { JSX } from 'preact';
 import './no-results.css';
 import Button from './button';
 import { getCurrentTab } from '../utils/chrome';
 
-const NoResults = () => {
+const NoResults = (): JSX.Element => {
   const redirectToFeedback = async () => {
     const tab = await getCurrentTab();
-    const url = new URL(tab.url!);
+    if (!tab || !tab.url) return;
+
+    const url = new URL(tab.url);
     const message =
       'Hi Rows team,\n\n' +
       `I'd like to add "${tab.url}" to be compatible with RowsX.\n\nBest,\n\n--`;

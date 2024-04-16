@@ -1,7 +1,8 @@
-export function urlMatchesPatternUrl(url: string, patternURL: string) {
+export function urlMatchesPatternUrl(url: string, patternURL: string): boolean {
   if (!patternURL) {
     return false;
   }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const pattern = new URLPattern(patternURL);
 

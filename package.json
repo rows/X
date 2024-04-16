@@ -24,8 +24,6 @@
     "@crxjs/vite-plugin": "^2.0.0-beta.23",
     "@modyfi/vite-plugin-yaml": "^1.1.0",
     "@preact/preset-vite": "^2.8.1",
-    "@rows/eslint-config": "^2.1.4",
-    "@rows/prettier-config": "^1.0.0",
     "@types/chrome": "^0.0.256",
     "@types/jest": "^29.5.11",
     "@types/js-yaml": "^4.0.9",

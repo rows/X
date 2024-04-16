@@ -2,7 +2,7 @@ import { customScrapper } from './scrappers/custom';
 import { scrapHTMLTables } from './scrappers/html-tables';
 import { scrapDivHTMLTables, ScrapDivTablesOptions } from './scrappers/div-tables';
 
-export function getDomainName(url: string) {
+export function getDomainName(url: string): string {
   const urlParsed = new URL(url);
 
   // Split the hostname into parts
@@ -16,10 +16,10 @@ export function getDomainName(url: string) {
     hostnameParts.pop();
   }
 
-  return hostnameParts.at(-1)!;
+  return hostnameParts.at(-1) ?? '';
 }
 
-export async function getCurrentTab() {
+export async function getCurrentTab(): Promise<chrome.tabs.Tab | undefined> {
   const [tab] = await chrome.tabs.query({
     active: true,
     lastFocusedWindow: true,
@@ -49,23 +49,27 @@ type ScrapperResultItem = {
 
 export type ScrapperResults = Array<ScrapperResultItem>;
 
-export async function runScrapper(currentTab: chrome.tabs.Tab, options: ScrapperOptions | null) {
+export async function runScrapper(currentTab: chrome.tabs.Tab, options: ScrapperOptions | null): Promise<ScrapperResults> {
   let computation: Array<{ result: ScrapperResults }>;
+
+  if (!currentTab.id) {
+    throw new Error('Invalid tab ID.'); // Handle the case where tab ID is missing
+  }
 
   if (!options) {
     computation = await chrome.scripting.executeScript({
-      target: { tabId: currentTab.id! },
+      target: { tabId: currentTab.id },
       func: scrapHTMLTables,
     });
   } else if (options.parseTables) {
     computation = (await chrome.scripting.executeScript({
-      target: { tabId: currentTab.id! },
+      target: { tabId: currentTab.id },
       args: [options],
       func: scrapDivHTMLTables,
     })) as Array<{ result: ScrapperResults }>;
   } else {
     computation = (await chrome.scripting.executeScript({
-      target: { tabId: currentTab.id! },
+      target: { tabId: currentTab.id },
       args: [options],
       func: customScrapper,
     })) as Array<{ result: ScrapperResults }>;

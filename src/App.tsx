@@ -1,19 +1,36 @@
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import './index.css';
+import Exception from "./components/expection";
 import NoResults from './components/no-results';
 import Header from './components/header';
 import Preview from './components/preview';
 import LoadingSkeleton from './components/loading-skeleton';
 
+function isResponseIsAnException(response) {
+  return response.code >= 0 && typeof response.message === 'string';
+}
+
 const App: FunctionalComponent = () => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
+  const [exceptionOnScrapperResult, setException] = useState("");
   const [results, setResults] = useState([]);
+
+  const hasExceptions = Boolean(exceptionOnScrapperResult);
+  const showLoading = !hasExceptions && isLoading;
+  const showResults = !showLoading && results.length > 0;
+  const noResults = !showLoading && (!hasExceptions && results.length === 0);
 
   useEffect(() => {
     chrome.runtime.sendMessage({ action: 'rows-x:scrap' }, (response) => {
-      setResults(response);
-      setLoading(false);
+      if (isResponseIsAnException(response)) {
+        setResults([]);
+        setException(response.message);
+      } else {
+        setResults(response);
+        setLoading(false);
+        setException("");
+      }
     });
   }, []);
 
@@ -21,11 +38,10 @@ const App: FunctionalComponent = () => {
     <>
       <Header />
       <div className="container">
-        {loading ? (
-          <LoadingSkeleton />
-        ) : (
-          <>{results.length > 0 ? <Preview results={results} /> : <NoResults />}</>
-        )}
+        {showLoading && (<LoadingSkeleton />)}
+        {showResults &&  <Preview results={results} />}
+        {noResults && <NoResults />}
+        {hasExceptions && <Exception message={exceptionOnScrapperResult} />}
       </div>
     </>
   );

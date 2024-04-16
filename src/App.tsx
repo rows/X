@@ -6,8 +6,9 @@ import NoResults from './components/no-results';
 import Header from './components/header';
 import Preview from './components/preview';
 import LoadingSkeleton from './components/loading-skeleton';
+import { ExceptionMessage } from "./types";
 
-function isResponseIsAnException(response) {
+function isResponseIsAnException(response: ExceptionMessage) {
   return response.code >= 0 && typeof response.message === 'string';
 }
 

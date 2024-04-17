@@ -1,7 +1,6 @@
 import { JSX } from 'preact';
 import './no-results.css';
-import { useEffect } from 'preact/hooks';
-import { createAddEmptyPageRow, createReportHeader } from '../utils/rows-api/report';
+import { createNewReportEntryRow} from '../utils/rows-api/report';
 import Button from './button';
 
 interface Props {
@@ -11,12 +10,8 @@ interface Props {
 const NoResults = ({ message }: Props): JSX.Element => {
   const redirectToFeedback = () => {
     setTimeout(() => window.close(), 150);
-    createAddEmptyPageRow();
+    createNewReportEntryRow();
   };
-
-  useEffect(() => {
-    createReportHeader();
-  }, []);
 
   return (
     <div className="no-results-container">

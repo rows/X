@@ -18,7 +18,8 @@
     "@types/jest-environment-puppeteer": "^5.0.6",
     "@types/puppeteer": "^7.0.4",
     "eslint-plugin-import": "^2.29.1",
-    "preact": "^10.19.3"
+    "preact": "^10.19.3",
+    "ua-parser-js": "^1.0.37"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.23",
@@ -27,6 +28,7 @@
     "@types/chrome": "^0.0.256",
     "@types/jest": "^29.5.11",
     "@types/js-yaml": "^4.0.9",
+    "@types/ua-parser-js": "^0.7.39",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.0.0",
     "commitizen": "^4.3.0",

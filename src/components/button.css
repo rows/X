@@ -27,6 +27,16 @@
   padding: 0.5rem 2rem;
 }
 
+.text {
+  width: auto;
+  padding: 0;
+  color: var(--grey);
+}
+
+.text:hover {
+  background: transparent;
+}
+
 .primary:hover {
   background: var(--button-primary-hover);
 }

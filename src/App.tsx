@@ -1,6 +1,7 @@
 import { FunctionalComponent } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useState, useReducer } from 'preact/hooks';
 import './index.css';
+import FeedbackForm from './components/feedback-form';
 import NoResults from './components/no-results';
 import Header from './components/header';
 import Preview from './components/preview';
@@ -15,6 +16,7 @@ const App: FunctionalComponent = () => {
   const [isLoading, setLoading] = useState(true);
   const [exceptionOnScrapperResult, setException] = useState("");
   const [results, setResults] = useState([]);
+  const [isReportFormOpen, toggleReportTab] = useReducer((isOpen) => !isOpen, false);
 
   const hasExceptions = Boolean(exceptionOnScrapperResult);
   const showLoading = !hasExceptions && isLoading;
@@ -28,7 +30,7 @@ const App: FunctionalComponent = () => {
         setException(response.message);
       } else {
         setResults(response);
-        setException("");
+        setException('');
       }
 
       setLoading(false);
@@ -37,12 +39,18 @@ const App: FunctionalComponent = () => {
 
   return (
     <>
-      <Header />
+      <Header onReportClick={toggleReportTab} />
       <div className="container">
-        {showLoading && (<LoadingSkeleton />)}
-        {showResults &&  <Preview results={results} />}
-        {noResults && <NoResults />}
-        {hasExceptions && <NoResults message={exceptionOnScrapperResult} />}
+        {isReportFormOpen ? (
+          <FeedbackForm />
+        ) : (
+          <>
+            {showLoading && (<LoadingSkeleton />)}
+            {showResults &&  <Preview results={results} />}
+            {noResults && <NoResults />}
+            {hasExceptions && <NoResults message={exceptionOnScrapperResult} />}
+          </>
+        )}
       </div>
     </>
   );

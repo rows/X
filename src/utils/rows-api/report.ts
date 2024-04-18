@@ -2,7 +2,7 @@ import { getCurrentTab } from '../chrome';
 import fetch from './fetch';
 import UAParser from 'ua-parser-js';
 
-export async function createNewReportEntryRow() {
+export async function createNewReportEntryRow(feedback? : string) {
   const tab = await getCurrentTab();
 
   if (!tab) {
@@ -17,7 +17,7 @@ export async function createNewReportEntryRow() {
     new URL(tab.url!).hostname,
     userAgent.getBrowser().name,
     userAgent.getBrowser().version,
-    'no table detected'
+    feedback ?? 'no table detected'
   ];
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

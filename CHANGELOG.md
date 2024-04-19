@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/rows/X/compare/v1.13.0...v1.14.0) (2024-04-19)
+
+
+### Features
+
+* **bounty:** add report button that append data to a spreadsheet using Rows API ([#81](https://github.com/rows/X/issues/81)) ([578f7c5](https://github.com/rows/X/commit/578f7c5a55227fbc35ea3eb67c8fadfbd57ba6f5))
+
 # [1.13.0](https://github.com/rows/X/compare/v1.12.4...v1.13.0) (2024-04-16)
 
 

@@ -1,3 +1,10 @@
 .header {
+  display: flex;
   justify-content: space-between;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }

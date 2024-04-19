@@ -67,6 +67,38 @@ a:link {
   max-height: 600px;
 }
 
+.input-wrapper {
+  display: flex;
+  align-content: center;
+  margin-bottom: 0.5rem;
+}
+
+input[type="radio"] {
+  margin: 0;
+  accent-color: black;
+  margin-right: 0.5rem;
+}
+
+input[type="text"] {
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  background: var(--lighter-grey);
+  padding: 0.5rem;
+  width: 80%;
+  -webkit-transition: 0.5s;
+  transition: 300ms;
+}
+
+input[type="text"]:focus {
+  border: 1px solid var(--grey);
+  outline: none;
+}
+
+input[type="text"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .skeleton {
   border-radius: 4px;
   animation: skeleton-loading 1s linear infinite alternate;

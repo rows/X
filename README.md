@@ -63,6 +63,16 @@ Once your development environment is set up, follow these steps to start using o
 > 6. Pin the extension to reach it easily :smiley:
 > 7. You can make changes to your extension files, and they will automatically be reflected in the browser.
 
+### .env File
+
+The environment configuration file plays a crucial role in managing the application's integration with the Rows API (this is needed to store the information of user feedback, if you're not doing anywork related with that we could leave it empty in our local computer). The env file contains three specific variables essential for ensuring that the application can securely and accurately interact with the Rows API. Here’s a brief explanation of each variable:
+
+- `VITE_ROWS_API_KEY`: This variable stores the Rows API key, which is necessary for authenticating requests made from our application to the Rows service. It ensures that our application has the permission to access and modify the spreadsheet data.
+- `VITE_SPREADSHEET_ID`: This variable holds the ID of the spreadsheet we want to access. It specifies the target spreadsheet within the Rows platform where all the data from our application is stored or retrieved from.
+- `VITE_TABLE_ID`: This variable contains the ID of the specific table within the spreadsheet mentioned above. It identifies the exact location within the spreadsheet where data entries should be made or updated.
+
+By storing these keys in the environment configuration file and automating its creation during the release process via GitHub Actions, we ensure that the setup is secure, efficient, and less prone to errors, enabling seamless integration and data management.
+
 ## How to add a new scrapper?
 
 There are 2 different ways of building a custom scrapper:

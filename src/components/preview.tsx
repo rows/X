@@ -56,14 +56,14 @@ const Preview: FunctionComponent<Props> = ({ results = [] }) => {
               <div className="table-actions">
                 <Button
                   className="copy-btn"
-                  type="secondary"
+                  variant="secondary"
                   onClick={() => copyToClipboard(result)}
                 >
                   <img alt="copy" src="/icons/copy.svg" />
                 </Button>
                 <Button
                   className="open-rows-btn"
-                  type="primary"
+                  variant="primary"
                   onClick={() => {
                     chrome.runtime.sendMessage({
                       action: 'rows-x:store',

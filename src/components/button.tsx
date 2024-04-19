@@ -2,22 +2,24 @@ import './button.css';
 import { FunctionComponent, ComponentChildren } from 'preact';
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
   children: ComponentChildren;
-  type?: 'text' | 'primary' | 'secondary';
+  variant?: 'text' | 'primary' | 'secondary' | 'from';
+  type?: string;
   className?: string;
   size?: 'small';
 }
 
 const Button: FunctionComponent<Props> = ({
   onClick,
-  className,
-  type = 'text',
+  className = '',
+  variant = 'text',
+  type,
   size = '',
   children,
 }) => {
   return (
-    <button className={`btn ${className} ${type} ${size}`} onClick={onClick}>
+    <button type={type} className={`btn ${className} ${variant} ${size}`} onClick={onClick}>
       {children}
     </button>
   );

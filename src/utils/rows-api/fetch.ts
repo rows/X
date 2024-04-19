@@ -15,9 +15,6 @@ async function makeRequest(method: 'GET' | 'POST', url = "", data = {}) {
 }
 
 export default {
-  get: function (url: string) {
-    return makeRequest('GET', url);
-  },
   post: function (url: string, data = {}) {
     return makeRequest('POST', url, data);
   }

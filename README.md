@@ -16,7 +16,7 @@ RowsX is a Chrome extension that performs simple web scraping tasks for business
 
 We're opening RowsX to the community and invite everyone to contribute with new features, support to new websites or new ideas to improve it. 
 
-RowsX was born during a team hackathon in January of 2024. We built it to solve a problem we see our customers struggle with everyday: getting data from the web to a spreadsheet. The Rows platform lets you import data from files, via Integrations with APIs and SaaS services, and conectors on 3rd party platforms that call our Rows API. RowsX extends the importing options to the Browser! Since launching it, more than two thousand people have used it to import lists of data from countless sites, internal tools and back office systems.
+RowsX was born during a team hackathon in January of 2024. We built it to solve a problem we see our customers struggle with everyday: getting data from the web to a spreadsheet. The Rows platform lets you import data from files, via Integrations with APIs and SaaS services, and connectors on 3rd party platforms that call our Rows API. RowsX extends the importing options to the Browser! Since launching it, more than two thousand people have used it to import lists of data from countless sites, internal tools and back office systems.
 
 
 ## Open Bounties Program
@@ -27,11 +27,10 @@ Current Open Bounties:
 
 - [ ] Port extension to Safari: $250
 - [ ] Support parsing tables in PDFs: $150. [Example](https://www.oecd.org/pisa/OECD_2022_PISA_Results_Comparing%20countries%E2%80%99%20and%20economies%E2%80%99%20performance%20in%20mathematics.pdf).
-- [ ] Improve Help state. $100. a) Replace the "Talk to Us" action with a submission to a Rows spreasdheet. If website doesn't have a matching table, have a button called report. This button inserts a line into a Rows spreadsheet with a compatible UTC datetime, url, domain, browser, browser version, and report type ("no table detected"). Check the Rows API. b) If there is at least one table detected, still on every screen show a "report" text link, at the top in a light gray button next to the closing x with Report. This report shows 3 radio options. "table not detected", "table broken", "something else: <30 chars>".
 
 To ensure quality and alignment with our goals, features are only eligible for a bounty once they are approved by our team and made publicly available. If you have submitted code to solve one of the bounties, let us know at security@rows.com.
 
-Note: RowsX is a tool for business people to use that translates what they see into a spreadsheet. Atm we don't aim to build a fully automated scrapper platform that operates beyond the actions of the user and what the user can see.
+Note: RowsX is a tool for business people to use that translates what they see into a spreadsheet. Atm we don't aim to build a fully automated scraper platform that operates beyond the actions of the user and what the user can see.
 
 ## Get Started
 
@@ -73,9 +72,9 @@ The environment configuration file plays a crucial role in managing the applicat
 
 By storing these keys in the environment configuration file and automating its creation during the release process via GitHub Actions, we ensure that the setup is secure, efficient, and less prone to errors, enabling seamless integration and data management.
 
-## How to add a new scrapper?
+## How to add a new scraper?
 
-There are 2 different ways of building a custom scrapper:
+There are 2 different ways of building a custom scraper:
 
 1. **The data is loaded from a list**
 
@@ -184,11 +183,11 @@ In the following image, you can see how it works and each step will have a bette
 
 8. The app renders and will look for the value of `rows_x` at `LocalStorage`, if there is any data it will load the info to the clipboard
 9. After that the app will trigger a paste event that will load the TSV into a new Table.
-10. The user sees the scrapped information in Table 1 of a new Page.
+10. The user sees the scraped information in Table 1 of a new Page.
 
 
 ## Contributions
 
 Contributions to RowsX are welcome! If you have issues or suggestions for improving the extension, please feel free to open an issue or submit a pull request on the GitHub repository.
 
-Happy scrapping with RowsX!
+Happy scraping with RowsX!

@@ -32,6 +32,10 @@ jobs:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/setup-node
       - uses: ./.github/actions/create-env-file
+        with:
+          rows-api-key: ${{ secrets.ROWS_API_KEY }}
+          spreadsheet-id: ${{ secrets.SPREADSHEET_ID }}
+          table-id: ${{ secrets.TABLE_ID }}
       - uses: ./.github/actions/install-dependencies
         with:
           node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}

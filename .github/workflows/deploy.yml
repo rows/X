@@ -3,20 +3,6 @@ name: Deploy to Google Store
 on: workflow_dispatch
 
 jobs:
-  create-envfile:
-    name: Creating the .env file
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v2.0
-      with:
-        envkey_VITE_ROWS_API_KEY: ${{ secrets.ROWS_API_KEY }}
-        envkey_VITE_SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
-        envkey_VITE_TABLE_ID: ${{ secrets.TABLE_ID }}
-        file_name: .env
-        fail_on_empty: true
-
   test:
     name: E2E Tests
     runs-on: ubuntu-latest
@@ -40,12 +26,12 @@ jobs:
     name: Build & deploy extension
     needs: 
       - test
-      - create-envfile
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/create-env-file
       - uses: ./.github/actions/install-dependencies
         with:
           node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}
@@ -55,6 +41,11 @@ jobs:
           npm run build
           cd dist
           zip -r ../chrome-extension-${{ github.sha }}.zip *
+      - name: Archive extension build
+        uses: actions/upload-artifact@v4
+        with:
+          name: extension-dist-content
+          path: dist
       - name: Upload & release
         uses: mnao305/chrome-extension-upload@v5.0.0
         with:

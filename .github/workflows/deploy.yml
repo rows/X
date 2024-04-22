@@ -41,6 +41,11 @@ jobs:
           npm run build
           cd dist
           zip -r ../chrome-extension-${{ github.sha }}.zip *
+      - name: Archive extension build
+        uses: actions/upload-artifact@v4
+        with:
+          name: extension-dist-content
+          path: dist
       - name: Upload & release
         uses: mnao305/chrome-extension-upload@v5.0.0
         with:

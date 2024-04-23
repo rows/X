@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/rows/X/compare/v1.14.0...v1.15.0) (2024-04-23)
+
+
+### Features
+
+* add support for Github issues ([#87](https://github.com/rows/X/issues/87)) ([360d820](https://github.com/rows/X/commit/360d82015cc0292eccf7ab694209b31b4839d56f))
+
 # [1.14.0](https://github.com/rows/X/compare/v1.13.0...v1.14.0) (2024-04-19)
 
 

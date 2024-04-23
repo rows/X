@@ -1,0 +1,10 @@
+url: https://github.com/*
+header: GitHub issues
+listElementsQuery: .Box-row
+elementParser:
+  - title: Link
+    query: .Link--primary
+    type: link
+  - title: Title
+    query: .Link--primary
+    type: text

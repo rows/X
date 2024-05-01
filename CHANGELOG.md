@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/rows/X/compare/v1.15.0...v1.16.0) (2024-05-01)
+
+
+### Features
+
+* add support for videos in Youtube playlist ([#89](https://github.com/rows/X/issues/89)) ([47161e8](https://github.com/rows/X/commit/47161e8f756d5506a087533b696d446a4372ffc0))
+
 # [1.15.0](https://github.com/rows/X/compare/v1.14.0...v1.15.0) (2024-04-23)
 
 

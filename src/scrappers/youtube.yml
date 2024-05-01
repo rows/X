@@ -1,7 +1,8 @@
 url:
   - https://www.youtube.com/feed/history
   - https://www.youtube.com/results
-listElementsQuery: 'ytd-video-renderer'
+  - https://www.youtube.com/playlist
+listElementsQuery: 'ytd-video-renderer, ytd-playlist-video-renderer, ytd-rich-item-renderer'
 elementParser:
   - title: Video thumbnail
     query: "img"
@@ -12,7 +13,7 @@ elementParser:
     type: text
 
   - title: Video views
-    query: "#metadata-line > span"
+    query: "#metadata-line > span, yt-formatted-string > span"
     type: text
 
   - title: Video description
@@ -20,7 +21,7 @@ elementParser:
     type: text
 
   - title: Video duration
-    query: "#time-status"
+    query: "ytd-thumbnail-overlay-time-status-renderer > div"
     type: text
 
   - title: Video URL

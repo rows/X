@@ -1,0 +1,19 @@
+url: https://www.linkedin.com/groups/
+header: Linkedin groups
+listElementsQuery: .scaffold-finite-scroll__content > div > ul > li
+elementParser:
+  - title: Avatar
+    query: img
+    type: image
+
+  - title: Name
+    query: '[class*="group-listing-item__title-link-"]'
+    type: text
+
+  - title: Link
+    query: '[class*="group-listing-item__title-link-"]'
+    type: link
+
+  - title: Number of members
+    query: .artdeco-entity-lockup__metadata
+    type: text

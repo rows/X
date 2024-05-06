@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/rows/X/compare/v1.16.0...v1.17.0) (2024-05-06)
+
+
+### Features
+
+* add scrapper for LinkedIn Groups ([#90](https://github.com/rows/X/issues/90)) ([f25ef5b](https://github.com/rows/X/commit/f25ef5b82bb56fe85cad95c98ad532474a0bf772))
+
 # [1.16.0](https://github.com/rows/X/compare/v1.15.0...v1.16.0) (2024-05-01)
 
 

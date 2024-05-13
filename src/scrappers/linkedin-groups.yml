@@ -1,4 +1,4 @@
-url: https://www.linkedin.com/groups/
+url: https://www.linkedin.com/groups/*
 header: Linkedin groups
 listElementsQuery: .scaffold-finite-scroll__content > div > ul > li
 elementParser:

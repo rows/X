@@ -1,4 +1,4 @@
-url: https://www.linkedin.com/jobs/search/
+url: https://www.linkedin.com/jobs/search/*
 header: Linkedin jobs search results
 listElementsQuery: .jobs-search-results__list-item
 elementParser:

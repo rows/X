@@ -1,0 +1,20 @@
+url: 
+  - https://www.johnlewis.com/*
+listElementsQuery: article
+elementParser:
+
+  - title: Item Description
+    query: '[data-test="product-title"] > h2 > span:nth-child(2)'
+    type: text
+
+  - title: Item brand
+    query: '[data-test="product-title"] > h2 > span:nth-child(1)'
+    type: text
+  
+  - title: RRP
+    query: '[data-test="product-card-price-prev"]'
+    type: text
+  
+  - title: Price
+    query: '[data-test="product-card-price-now"]'
+    type: text

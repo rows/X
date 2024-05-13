@@ -1,0 +1,20 @@
+url: 
+  - https://www.bol.com/*
+listElementsQuery: .product-item, .product-item--row
+elementParser:
+
+  - title: Item Description
+    query: .product-title
+    type: text
+
+  - title: Brand
+    query: '[itemprop="name"]'
+    type: text
+  
+  - title: RRP
+    query: '[data-test="list-price"], [data-test="from-price"]'
+    type: text
+
+  - title: Price
+    query: .promo-price
+    type: text

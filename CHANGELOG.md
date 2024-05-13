@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/rows/X/compare/v1.18.0...v1.18.1) (2024-05-13)
+
+
+### Bug Fixes
+
+* fix amazon scrapping ([#92](https://github.com/rows/X/issues/92)) ([a47b7d9](https://github.com/rows/X/commit/a47b7d9139e96511d56b433907419c3e52a74439))
+
 # [1.18.0](https://github.com/rows/X/compare/v1.17.0...v1.18.0) (2024-05-13)
 
 

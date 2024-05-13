@@ -1,13 +1,5 @@
 url: 
-  - https://www.babymarkt.de/search/*
-  - https://www.babymarkt.de/unterwegs/*
-  - https://www.babymarkt.de/kindersitze/*
-  - https://www.babymarkt.de/pflegeprodukte/*
-  - https://www.babymarkt.de/ernaehrung/*
-  - https://www.babymarkt.de/kinderzimmer/*
-  - https://www.babymarkt.de/spielzeug/*
-  - https://www.babymarkt.de/mode/*
-  - https://www.babymarkt.de/sale/*
+  - https://www.babymarkt.de/*/*
 listElementsQuery: '.products__item'
 elementParser:
   - title: Item Brand

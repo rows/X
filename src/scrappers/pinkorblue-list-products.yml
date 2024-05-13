@@ -1,12 +1,5 @@
 url: 
-  - https://www.pinkorblue.be/search/*
-  - https://www.pinkorblue.be/kinderwagens/*
-  - https://www.pinkorblue.be/autostoelen/*
-  - https://www.pinkorblue.be/verzorging/*
-  - https://www.pinkorblue.be/kinderkamer/*
-  - https://www.pinkorblue.be/speelgoed/*
-  - https://www.pinkorblue.be/mode/*
-  - https://www.pinkorblue.be/outlet/*
+  - https://www.pinkorblue.be/*/*
 listElementsQuery: .products__item
 elementParser:
   - title: Item Brand

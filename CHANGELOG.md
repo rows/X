@@ -1,3 +1,10 @@
+## [1.18.2](https://github.com/rows/X/compare/v1.18.1...v1.18.2) (2024-05-13)
+
+
+### Bug Fixes
+
+* fix URL matching scrappers ([#93](https://github.com/rows/X/issues/93)) ([ad3adc9](https://github.com/rows/X/commit/ad3adc9f520eaefccd3a76ff8f222d9a4d327fc8))
+
 ## [1.18.1](https://github.com/rows/X/compare/v1.18.0...v1.18.1) (2024-05-13)
 
 

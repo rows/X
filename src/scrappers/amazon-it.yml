@@ -1,0 +1,24 @@
+url: 'https://www.amazon.it*'
+header: Amazon search results
+listElementsQuery: '[class*="sg-"][data-cel-widget*="search_result_"]'
+elementParser:
+  - title: Product image
+    query: img
+    type: image
+
+  - title: Product name
+    query: '[data-cy="title-recipe"]'
+    type: text
+
+  - title: Price
+    query: .a-price .a-offscreen
+    type: text
+
+  - title: Rating
+    query: .a-row.a-size-small > span
+    type: get-attribute
+    attribute: aria-label
+
+  - title: Amazon link
+    query: '[data-cy="title-recipe"] a'
+    type: link

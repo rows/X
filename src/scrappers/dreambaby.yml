@@ -1,0 +1,12 @@
+url: 
+  - https://www.dreambaby.be/*
+listElementsQuery: '[data-name="Product"]'
+elementParser:
+
+  - title: Item Description
+    query: 'h3'
+    type: text
+  
+  - title: Price
+    query: '[itemprop="price"]'
+    type: text

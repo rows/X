@@ -1,0 +1,16 @@
+url: 
+  - https://www.jollyroom.se/*
+listElementsQuery: '.product-info'
+elementParser:
+
+  - title: Item Description
+    query: h3
+    type: text
+  
+  - title: RRP
+    query: .recommmended-price
+    type: text
+  
+  - title: Price
+    query: .price
+    type: text

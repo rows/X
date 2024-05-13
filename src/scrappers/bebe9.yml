@@ -1,0 +1,20 @@
+url: 
+  - https://www.bebe9.com/*
+listElementsQuery: '.products-list > article'
+elementParser:
+
+  - title: Item Description
+    query: .product-name
+    type: text
+
+  - title: Item brand
+    query: .product-brand
+    type: text
+  
+  - title: RRP
+    query: .product-public-sale-price
+    type: text
+  
+  - title: Price
+    query: .product-price
+    type: text

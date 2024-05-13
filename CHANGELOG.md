@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/rows/X/compare/v1.17.0...v1.18.0) (2024-05-13)
+
+
+### Features
+
+* add scrapper to new sites ([#91](https://github.com/rows/X/issues/91)) ([1e716b1](https://github.com/rows/X/commit/1e716b16f679d1bfb66ef9b16ba1d4a911ad0cb5))
+
 # [1.17.0](https://github.com/rows/X/compare/v1.16.0...v1.17.0) (2024-05-06)
 
 

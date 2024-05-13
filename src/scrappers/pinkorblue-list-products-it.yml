@@ -1,13 +1,5 @@
 url: 
-  - https://www.pinkorblue.it/search/*
-  - https://www.pinkorblue.it/passeggini/*
-  - https://www.pinkorblue.it/seggiolini-auto/*
-  - https://www.pinkorblue.it/igiene/*
-  - https://www.pinkorblue.it/alimentazione/*
-  - https://www.pinkorblue.it/camerette/*
-  - https://www.pinkorblue.it/giochi/*
-  - https://www.pinkorblue.it/moda/*
-  - https://www.pinkorblue.it/saldi/*
+  - https://www.pinkorblue.it/*/*
 listElementsQuery: .products__item
 elementParser:
   - title: Item Brand

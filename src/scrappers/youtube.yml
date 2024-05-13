@@ -1,7 +1,7 @@
 url:
-  - https://www.youtube.com/feed/history
-  - https://www.youtube.com/results
-  - https://www.youtube.com/playlist
+  - https://www.youtube.com/feed/history*
+  - https://www.youtube.com/results*
+  - https://www.youtube.com/playlist*
 listElementsQuery: 'ytd-video-renderer, ytd-playlist-video-renderer, ytd-rich-item-renderer'
 elementParser:
   - title: Video thumbnail

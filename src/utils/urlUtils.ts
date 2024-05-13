@@ -2,9 +2,7 @@ export function urlMatchesPatternUrl(url: string, patternURL: string): boolean {
   if (!patternURL) {
     return false;
   }
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const pattern = new URLPattern(patternURL);
 
-  return pattern.test(url);
+  const regex = new RegExp('^' + patternURL.replace(/\*/g, '.*') + '$');
+  return regex.test(url);
 }

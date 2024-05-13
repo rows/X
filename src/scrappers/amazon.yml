@@ -1,4 +1,4 @@
-url: 'https://www.amazon.co.uk*'
+url: 'https://www.amazon.*' 
 header: Amazon search results
 listElementsQuery: '[class*="sg-"][data-cel-widget*="search_result_"]'
 elementParser:

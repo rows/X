@@ -1,4 +1,4 @@
-url: https://www.yellowpages.com/search
+url: https://www.yellowpages.com/search*
 listElementsQuery: .result
 elementParser:
   - title: Logo

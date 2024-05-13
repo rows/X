@@ -1,0 +1,16 @@
+url: 
+  - https://www.cdiscount.com/*
+listElementsQuery: '[data-cs-override-id="Offres-LP"] > li'
+elementParser:
+
+  - title: Item Description
+    query: h2
+    type: text
+  
+  - title: RRP
+    query: '.c-price-s > s'
+    type: text
+  
+  - title: Price
+    query: .c-price
+    type: text

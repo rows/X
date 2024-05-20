@@ -1,0 +1,39 @@
+url: https://ads.google.com/*
+header: Google Ads Keyword Planner
+listElementsQuery: '.particle-table-row'
+elementParser:
+  - title: Keyword
+    query: 'ess-cell[essfield="keyword"] .keyword'
+    type: text
+
+  - title: Avg. monthly searches
+    query: 'ess-cell[essfield="stats.search_volume"] .value-text'
+    type: text
+
+  - title: Three month change
+    query: 'ess-cell[essfield="stats.recent_search_trend_change"] text-field'
+    type: text
+
+  - title: YoY change
+    query: 'ess-cell[essfield="stats.recent_yoy_search_trend_change"] text-field'
+    type: text
+
+  - title: Competition
+    query: 'ess-cell[essfield="competition"] text-field'
+    type: text
+
+  - title: Ad impression share
+    query: 'ess-cell[essfield="stats.ad_impression_share"] text-field'
+    type: text
+
+  - title: Top of page bid (low range)
+    query: 'ess-cell[essfield="stats.bid_min"] text-field'
+    type: text
+
+  - title: Top of page bid (high range)
+    query: 'ess-cell[essfield="stats.bid_max"] text-field'
+    type: text
+
+  - title: Account Status
+    query: 'ess-cell[essfield="is_in_account"] status-chips'
+    type: text

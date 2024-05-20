@@ -1,0 +1,18 @@
+url: https://www.ikea.*
+listElementsQuery: '[data-testid="plp-product-card"]'
+elementParser:
+  - title: Product image
+    query: img
+    type: image
+
+  - title: Product name
+    query: .plp-price-module__product-name
+    type: text
+
+  - title: Product description
+    query: .plp-price-module__description
+    type: text
+
+  - title: Price
+    query: .plp-price__nowrap
+    type: text

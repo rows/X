@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/rows/X/compare/v1.18.2...v1.19.0) (2024-05-20)
+
+
+### Features
+
+* add ikea scrapper ([#95](https://github.com/rows/X/issues/95)) ([68f194b](https://github.com/rows/X/commit/68f194b1deb36cbd15dada8202b141fdc99285cc))
+
 ## [1.18.2](https://github.com/rows/X/compare/v1.18.1...v1.18.2) (2024-05-13)
 
 

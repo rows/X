@@ -1,0 +1,22 @@
+url: 'https://www.voeazul.com.br/br/pt/home/selecao-voo*'
+listElementsQuery: '.trip-container .flight-card'
+elementParser:
+  - title: Departure time
+    query: .departure
+    type: text
+
+  - title: Arrival time
+    query: .arrival
+    type: text
+
+  - title: Flight leg information
+    query: .flight-leg-info
+    type: text
+
+  - title: Duration
+    query: button
+    type: text
+
+  - title: Price starting at
+    query: '[data-test-id="fare-price"]'
+    type: text

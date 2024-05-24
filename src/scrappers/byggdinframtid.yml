@@ -1,0 +1,42 @@
+url: https://byggdinframtid.se/se*
+listElementsQuery: .school
+elementParser:
+  - title: Logo
+    query: .logo > img
+    type: image
+
+  - title: Type
+    query: .type
+    type: text
+
+  - title: Name
+    query: h3
+    type: text
+
+  - title: Description
+    query: .desc > div > p
+    type: text
+
+  - title: Specializations
+    query: .item:nth-child(1)
+    type: text
+  
+  - title: Occupations
+    query: .item:nth-child(2)
+    type: text
+
+  - title: Website
+    query: .info-contact > .item:nth-child(1) > a
+    type: link
+
+  - title: Contact info 1
+    query: .info-contact > .item:nth-child(2) > a
+    type: link
+
+  - title: Contact info 2
+    query: .info-contact > .item:nth-child(3)
+    type: text
+
+  - title: Contact info 3
+    query: .info-contact > .item:nth-child(4)
+    type: text

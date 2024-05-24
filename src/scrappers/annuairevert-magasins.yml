@@ -1,0 +1,14 @@
+url: https://www.annuairevert.com/magasins*
+listElementsQuery: .company
+elementParser:
+  - title: Image
+    query: img
+    type: image
+  
+  - title: Title
+    query: .title-container > p
+    type: text
+
+  - title: Address
+    query: address > span
+    type: text

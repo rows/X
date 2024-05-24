@@ -1,0 +1,19 @@
+url: 'https://www.joinef.com/portfolio/*' 
+header: Portfolio
+listElementsQuery: .tile--company--row
+elementParser:
+  - title: Name
+    query: .tile__name
+    type: text
+
+  - title: Description
+    query: .tile__description
+    type: text
+
+  - title: Tags
+    query: .tile__tags
+    type: text
+
+  - title: Link
+    query: .tile__link
+    type: link

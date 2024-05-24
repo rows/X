@@ -1,0 +1,15 @@
+url: https://www.notion.so*
+header: Templates
+listElementsQuery: .template-grid > section
+elementParser:
+  - title: Title
+    query: '[class*="UserBaseInfo_textInfoContainer"]'
+    type: text
+
+  - title: Userbase rights
+    query: '[class*="templatePreview_userBaseRight"]'
+    type: text
+
+  - title: Link
+    query: '[class*="DynamicModal_trigger"]'
+    type: link

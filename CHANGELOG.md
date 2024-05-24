@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/rows/X/compare/v1.19.0...v1.19.1) (2024-05-24)
+
+
+### Bug Fixes
+
+* **scraper:** fix imovirtual scraper ([#97](https://github.com/rows/X/issues/97)) ([45bb9a6](https://github.com/rows/X/commit/45bb9a6455213116b61ffdd948325e56432130a0))
+
 # [1.19.0](https://github.com/rows/X/compare/v1.18.2...v1.19.0) (2024-05-20)
 
 

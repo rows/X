@@ -1,0 +1,18 @@
+url: https://www.vrbo.com*
+listElementsQuery: '[data-stid="lodging-card-responsive"]'
+elementParser:
+  - title: Title
+    query: h3.uitk-heading
+    type: text
+
+  - title: Description
+    query: .uitk-text
+    type: text
+  
+  - title: Price information
+    query: '[data-test-id="price-summary"]'
+    type: text
+  
+  - title: Link
+    query: '[data-stid="open-hotel-information"]'
+    type: link

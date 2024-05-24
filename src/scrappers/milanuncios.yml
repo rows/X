@@ -1,0 +1,22 @@
+url: https://www.milanuncios.com/*
+listElementsQuery: article
+elementParser:
+  - title: Title
+    query: .ma-AdCardListingV2-TitleLink
+    type: text
+
+  - title: Price
+    query: .ma-AdPrice-value
+    type: text
+
+  - titlte: Address
+    query: .ma-AdLocation-text
+    type: text
+
+  - title: Details
+    query: .ma-AdCardV2-description
+    type: text
+
+  - title: Link
+    query: .ma-AdCardListingV2-TitleLink
+    type: link

@@ -1,0 +1,15 @@
+url: 'https://www.joinef.com/posts/' 
+header: Posts
+listElementsQuery: article
+elementParser:
+  - title: Title
+    query: .tile__link
+    type: text
+
+  - title: Categories
+    query: .tile__categories
+    type: text
+
+  - title: Link
+    query: .tile__link
+    type: link

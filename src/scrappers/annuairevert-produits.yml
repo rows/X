@@ -1,0 +1,18 @@
+url: https://www.annuairevert.com/produits*
+listElementsQuery: '[data-type="product"] > .row > a'
+elementParser:
+  - title: Image
+    query: img
+    type: image
+  
+  - title: Title
+    query: .title-container > p
+    type: text
+
+  - title: Fabricant
+    query: .manufacturer > .entreprise-name
+    type: text
+  
+  - title: Distributeur
+    query: .distributor > .distributor-name
+    type: text

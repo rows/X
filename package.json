@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint src -c ./.eslintrc.cjs --ext .jsx,.js,.ts,.tsx",
     "check-types": "tsc --noEmit",
-    "prepare": "husky"
+    "prepare": "husky",
+    "clean": "rm -rf dist"
   },
   "prettier": "@rows/prettier-config",
   "dependencies": {

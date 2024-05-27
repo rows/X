@@ -7,6 +7,10 @@ elementParser:
     query: .product-name
     type: text
 
+  - title: Item model
+    query: 'product-model'
+    type: text
+
   - title: Item brand
     query: .product-brand
     type: text

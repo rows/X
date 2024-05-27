@@ -6,6 +6,10 @@ elementParser:
     query: '[data-test="product-title"] > h2 > span:nth-child(1)'
     type: text
 
+  - title: Item model
+    query: '.model'
+    type: text
+
   - title: Item Description
     query: '[data-test="product-title"] > h2 > span:nth-child(2)'
     type: text

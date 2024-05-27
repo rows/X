@@ -2,6 +2,13 @@ url:
   - https://www.cdiscount.com/*
 listElementsQuery: ul > li[data-sku]
 elementParser:
+  - title: Item brand
+    query: '.brand'
+    type: text
+
+  - title: Item model
+    query: '.model'
+    type: text
 
   - title: Item Description
     query: h2
@@ -15,6 +22,6 @@ elementParser:
     query: .prdtBILPrice > .price
     type: text
 
-  - title: ULR
+  - title: URL
     query: a
     type: link

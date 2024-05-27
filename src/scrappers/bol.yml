@@ -2,13 +2,16 @@ url:
   - https://www.bol.com/*
 listElementsQuery: .product-item, .product-item--row
 elementParser:
+  - title: Item brand
+    query: '.product-brand'
+    type: text
+
+  - title: Item model
+    query: '.product-model'
+    type: text
 
   - title: Item Description
     query: .product-title
-    type: text
-
-  - title: Brand
-    query: '[itemprop="name"]'
     type: text
   
   - title: RRP

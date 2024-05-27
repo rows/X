@@ -2,7 +2,14 @@ url:
   - https://www.babypark.nl/search/*
 listElementsQuery: '#kuLandingProductsListUl > li'
 elementParser:
+  - title: Item brand
+    query: 'kuBrand'
+    type: text
 
+  - title: Item model
+    query: 'kuModel'
+    type: text
+    
   - title: Item Description
     query: '.kuName'
     type: text

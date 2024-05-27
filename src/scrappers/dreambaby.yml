@@ -2,11 +2,22 @@ url:
   - https://www.dreambaby.be/*
 listElementsQuery: '[data-name="Product"]'
 elementParser:
+  - title: Item brand
+    query: '.brand'
+    type: text
+
+  - title: Item model
+    query: '.model'
+    type: text
 
   - title: Item Description
     query: 'h3'
     type: text
   
+  - title: RRP
+    query: 'empty'
+    type: text
+
   - title: Price
     query: '[itemprop="price"]'
     type: text

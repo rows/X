@@ -3,6 +3,14 @@ url:
 listElementsQuery: '.product-info'
 elementParser:
 
+  - title: Item brand
+    query: '[itemprop="brand"]'
+    type: text
+
+  - title: Item model
+    query: '[itemprop="model"]'
+    type: text
+    
   - title: Item Description
     query: h3
     type: text

@@ -10,7 +10,7 @@
         "releaseRules": [
           { "type": "chore", "release": "patch" },
           { "type": "ci", "release": "patch" },
-          { "type": "improvement", "release": "patch" },
+          { "type": "improvement", "release": "minor" },
           { "type": "perf", "release": "patch" },
           { "type": "refactor", "release": "patch" },
           { "type": "revert", "release": "patch" }
@@ -20,6 +20,5 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/npm",
     "@semantic-release/git"
-  ],
-
+  ]
 }

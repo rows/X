@@ -1,6 +1,6 @@
 url: 
   - https://www.cdiscount.com/*
-listElementsQuery: '[data-cs-override-id="Offres-LP"] > li'
+listElementsQuery: ul > li[data-sku]
 elementParser:
 
   - title: Item Description
@@ -12,5 +12,9 @@ elementParser:
     type: text
   
   - title: Price
-    query: .c-price
+    query: .prdtBILPrice > .price
     type: text
+
+  - title: ULR
+    query: a
+    type: link

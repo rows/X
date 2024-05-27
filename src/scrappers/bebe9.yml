@@ -18,3 +18,7 @@ elementParser:
   - title: Price
     query: .product-price
     type: text
+
+  - title: URL
+    query: a
+    type: link

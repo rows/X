@@ -25,3 +25,7 @@ elementParser:
   - title: Price
     query: '.product__price'
     type: text
+
+  - title: URL
+    query: .product__link
+    type: link

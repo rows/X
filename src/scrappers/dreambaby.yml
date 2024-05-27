@@ -10,3 +10,7 @@ elementParser:
   - title: Price
     query: '[itemprop="price"]'
     type: text
+
+  - title: URL
+    query: a
+    type: link

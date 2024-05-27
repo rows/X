@@ -14,3 +14,7 @@ elementParser:
   - title: Price
     query: '.kuSalePrice'
     type: text
+
+  - title: URL
+    query: a
+    type: link

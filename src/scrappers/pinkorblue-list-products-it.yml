@@ -6,6 +6,10 @@ elementParser:
     query: '.product__brand'
     type: text
 
+  - title: Item model
+    query: '.product__model'
+    type: text
+    
   - title: Item Description
     query: '.product__title'
     type: text
@@ -17,3 +21,7 @@ elementParser:
   - title: Price
     query: '.product__price'
     type: text
+
+  - title: URL
+    query: .product__link
+    type: link

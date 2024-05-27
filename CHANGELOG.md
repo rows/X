@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/rows/X/compare/v1.19.1...v1.20.0) (2024-05-27)
+
+
+### Features
+
+* **release-rules:** fix release rules ([#100](https://github.com/rows/X/issues/100)) ([5c83b80](https://github.com/rows/X/commit/5c83b80fd7d7a2f37b90e6604aeb2d8c6582b580))
+
 ## [1.19.1](https://github.com/rows/X/compare/v1.19.0...v1.19.1) (2024-05-24)
 
 

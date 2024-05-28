@@ -31,3 +31,8 @@ Develop > Web Extension Background Content > RowsX Personal
 ### Reloading
 
 The `xcodebuild` command reloads the extension automatically.
+
+Indicators that it has reloaded:
+
+- The Inspector window will close
+- If you have `RowsX` selected in the Extensions tab of Preferences, it will deselect

@@ -3,34 +3,57 @@ import './preview.css';
 import { array2tsv, hasImage } from '../utils/copy';
 import { FunctionComponent } from 'preact';
 import { ScrapperResults } from '../utils/chrome';
-
-function renderCell(cell: string) {
-  if (hasImage(cell)) {
-    return <img alt="rows_x_image" src={cell} />;
-  }
-
-  return cell;
-}
-
-async function copyToClipboard(result: {
-  title?: string;
-  table: string[][];
-  includeHeader?: boolean;
-}) {
-  let tableToCopy = result.table;
-  if (!result.includeHeader) {
-    tableToCopy = result.table.slice(1); // Remove the first row (header)
-  }
-
-  await navigator.clipboard.writeText(array2tsv(tableToCopy));
-  setTimeout(() => window.close(), 200);
-}
+import { reportUsage } from '../utils/rows-api/report';
 
 interface Props {
   results: ScrapperResults;
 }
 
 const Preview: FunctionComponent<Props> = ({ results = [] }) => {
+  const openInRows = async (table: string[][]) => {
+    try {
+      await chrome.runtime.sendMessage({
+        action: 'rows-x:store',
+        data: array2tsv(table),
+      }).then(() => {
+        // Send usage report
+        reportUsage({action: 'open_in_Rows'});
+      });
+    } catch (error) {
+      console.error("Failed to open data in Rows:", error);
+    }
+  };
+  
+  const copyToClipboard = async (result: {
+    title?: string;
+    table: string[][];
+    includeHeader?: boolean;
+  }) => {
+    let tableToCopy = result.table;
+    if (!result.includeHeader) {
+      tableToCopy = result.table.slice(1); // Remove the first row (header)
+    }
+  
+    try {
+      await navigator.clipboard.writeText(array2tsv(tableToCopy));
+    
+      // Send usage report
+      await reportUsage({action: 'copy_values'});
+    } catch (error) {
+      console.error("Failed to copy data to clipboard:", error);
+    }
+  
+    setTimeout(() => window.close(), 200);
+  };  
+
+  const renderCell = (cell: string) => {
+    if (hasImage(cell)) {
+      return <img alt="rows_x_image" src={cell} />;
+    }
+  
+    return cell;
+  };
+
   return (
     <div className="results">
       {results.map((result) => {
@@ -64,12 +87,7 @@ const Preview: FunctionComponent<Props> = ({ results = [] }) => {
                 <Button
                   className="open-rows-btn"
                   variant="primary"
-                  onClick={() => {
-                    chrome.runtime.sendMessage({
-                      action: 'rows-x:store',
-                      data: array2tsv(result.table),
-                    });
-                  }}
+                  onClick={() => openInRows(result.table)}
                 >
                   Open in Rows
                 </Button>

@@ -69,6 +69,7 @@ The environment configuration file plays a crucial role in managing the applicat
 - `VITE_ROWS_API_KEY`: This variable stores the Rows API key, which is necessary for authenticating requests made from our application to the Rows service. It ensures that our application has the permission to access and modify the spreadsheet data.
 - `VITE_SPREADSHEET_ID`: This variable holds the ID of the spreadsheet we want to access. It specifies the target spreadsheet within the Rows platform where all the data from our application is stored or retrieved from.
 - `VITE_TABLE_ID`: This variable contains the ID of the specific table within the spreadsheet mentioned above. It identifies the exact location within the spreadsheet where data entries should be made or updated.
+- `VITE_TABLE_ID_USAGE`: This variable contains the ID of the specific table within the spreadsheet mentioned above. It identifies the exact location within the spreadsheet where data entries should be made or updated. The table is then used to store this extension usage.
 
 By storing these keys in the environment configuration file and automating its creation during the release process via GitHub Actions, we ensure that the setup is secure, efficient, and less prone to errors, enabling seamless integration and data management.
 

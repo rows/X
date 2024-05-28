@@ -9,5 +9,6 @@ runs:
         envkey_VITE_ROWS_API_KEY: ${{ inputs.rows-api-key }}
         envkey_VITE_SPREADSHEET_ID: ${{ inputs.spreadsheet-id }}
         envkey_VITE_TABLE_ID: ${{ inputs.table-id }}
+        envkey_VITE_TABLE_ID_USAGE: ${{ inputs.usage-table-id }}
         file_name: .env
         fail_on_empty: true

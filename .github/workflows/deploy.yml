@@ -36,6 +36,7 @@ jobs:
           rows-api-key: ${{ secrets.ROWS_API_KEY }}
           spreadsheet-id: ${{ secrets.SPREADSHEET_ID }}
           table-id: ${{ secrets.TABLE_ID }}
+          usage-table-id: ${{ secrets.USAGE_TABLE_ID }}
       - uses: ./.github/actions/install-dependencies
         with:
           node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}

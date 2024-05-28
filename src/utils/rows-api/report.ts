@@ -32,7 +32,6 @@ export async function createNewReportEntryRow(feedback? : string) {
 }
 
 export async function reportUsage(params: ReportUsageParams): Promise<void> {
-  const table_id = '807a86fd-f22a-46ab-828c-258920d9b73c';
   const { action } = params;
   const tab = await getCurrentTab();
   if (!tab) {

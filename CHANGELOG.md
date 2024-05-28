@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/rows/X/compare/v1.20.0...v1.21.0) (2024-05-28)
+
+
+### Features
+
+* **analytics:** report extension usage ([#101](https://github.com/rows/X/issues/101)) ([00a73e6](https://github.com/rows/X/commit/00a73e612265417cd5f602cfc5b07fb019ba17fd))
+
 # [1.20.0](https://github.com/rows/X/compare/v1.19.1...v1.20.0) (2024-05-27)
 
 

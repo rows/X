@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { ERROR_MESSAGES, ErrorCodes } from './error-codes';
 import { getCurrentTab, runScrapper } from './utils/chrome';
+import { reportUsage } from './utils/rows-api/report';
 import { getScrapperOptionsByUrl } from './utils/scrapperUtils';
 
 async function scrap() {
@@ -39,7 +40,7 @@ chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
       break;
     case 'rows-x:store':
       chrome.tabs.create({ url: 'https://rows.com/new' }, (tab) => {
-        return storeRowsXData(message.data, tab.id!);
+        return storeRowsXData(message.data, tab.id!).then(() => reportUsage({action: 'open_in_Rows'}));
       });
       break;
     default:

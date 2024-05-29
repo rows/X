@@ -49,3 +49,11 @@ chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
 
   return true; // return true to indicate you want to send a response asynchronously
 });
+
+// Listener when the extension is uninstalled
+chrome.runtime.onInstalled.addListener(details => {
+  if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
+    const uninstall_form_link = 'https://rows.com/share/uninstall-survey-1N9rGowAFzUfdRn4BLihHnOb6qUq1pdLRfHSEEHa9eoE';
+    chrome.runtime.setUninstallURL(uninstall_form_link);
+  }
+});

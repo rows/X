@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/rows/X/compare/v1.21.1...v1.22.0) (2024-05-29)
+
+
+### Features
+
+* **core:** add uninstall form ([#103](https://github.com/rows/X/issues/103)) ([253aebb](https://github.com/rows/X/commit/253aebb5c5cc44d1580c6b076594d0b4c6a562c2))
+
 ## [1.21.1](https://github.com/rows/X/compare/v1.21.0...v1.21.1) (2024-05-29)
 
 

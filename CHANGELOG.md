@@ -1,3 +1,10 @@
+## [1.21.1](https://github.com/rows/X/compare/v1.21.0...v1.21.1) (2024-05-29)
+
+
+### Bug Fixes
+
+* start reporting the usage when the user selects Open in Rows ([#102](https://github.com/rows/X/issues/102)) ([4c5110d](https://github.com/rows/X/commit/4c5110dac86780793ba0969def9dd190229de54e))
+
 # [1.21.0](https://github.com/rows/X/compare/v1.20.0...v1.21.0) (2024-05-28)
 
 

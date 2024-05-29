@@ -15,9 +15,6 @@ const Preview: FunctionComponent<Props> = ({ results = [] }) => {
       await chrome.runtime.sendMessage({
         action: 'rows-x:store',
         data: array2tsv(table),
-      }).then(() => {
-        // Send usage report
-        reportUsage({action: 'open_in_Rows'});
       });
     } catch (error) {
       console.error("Failed to open data in Rows:", error);

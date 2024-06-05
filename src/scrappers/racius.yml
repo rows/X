@@ -1,0 +1,14 @@
+url: https://www.racius.com/*
+listElementsQuery: article
+elementParser:
+  - title: Name
+    query: .results__name
+    type: text
+  
+  - title: Activity
+    query: .results__activity
+    type: text
+
+  - title: Location
+    query: .results__col-location
+    type: text

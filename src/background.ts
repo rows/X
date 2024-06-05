@@ -48,7 +48,6 @@ async function storeRowsXData(tsv: string, tabId: number) {
 }
 
 chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
-  const tab = getCurrentTab();
   switch (message.action) {
     case 'rows-x:scrap':
       scrap().then((data) => sendResponse(data));

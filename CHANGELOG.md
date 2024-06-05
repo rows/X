@@ -1,3 +1,15 @@
+# [1.23.0](https://github.com/rows/X/compare/v1.22.0...v1.23.0) (2024-06-05)
+
+
+### Bug Fixes
+
+* **usage-metrics:** correctly report the current tab URL when `Opening in Rows` ([#105](https://github.com/rows/X/issues/105)) ([eaf5de3](https://github.com/rows/X/commit/eaf5de341ef9ab8560b11631ff70af1dcc47fff4))
+
+
+### Features
+
+* **scraper:** add racius.com scraper ([#104](https://github.com/rows/X/issues/104)) ([10e0774](https://github.com/rows/X/commit/10e0774972faf466b63b4731bf1f77dfc1ee2072))
+
 # [1.22.0](https://github.com/rows/X/compare/v1.21.1...v1.22.0) (2024-05-29)
 
 

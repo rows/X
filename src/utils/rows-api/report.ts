@@ -4,6 +4,7 @@ import UAParser from 'ua-parser-js';
 
 interface ReportUsageParams {
   action: 'copy_values' | 'open_in_Rows';
+  url?: string;
 }
 
 export async function createNewReportEntryRow(feedback? : string) {
@@ -42,8 +43,8 @@ export async function reportUsage(params: ReportUsageParams): Promise<void> {
 
   const row_cells = [
     new Date(),
-    tab.url,
-    new URL(tab.url!).hostname,
+    params.url ? params.url : tab.url,
+    new URL(params.url ? params.url : tab.url!).hostname,
     userAgent.getBrowser().name,
     userAgent.getBrowser().version,
     action,

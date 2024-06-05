@@ -23,6 +23,20 @@ async function scrap() {
   return await runScrapper(tab, options);
 }
 
+async function openInRows(message: { data: string; }) {
+  const tab = await getCurrentTab();
+
+  if (!tab || !tab.url || !tab.title) {
+    return;
+  }
+
+  const tabUrl = tab.url;
+
+  chrome.tabs.create({ url: 'https://rows.com/new' }, (tab) => {
+    return storeRowsXData(message.data, tab.id!).then(() => reportUsage({ action: 'open_in_Rows', url: tabUrl }));
+  });
+}
+
 async function storeRowsXData(tsv: string, tabId: number) {
   await chrome.scripting.executeScript({
     target: { tabId },
@@ -39,9 +53,7 @@ chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
       scrap().then((data) => sendResponse(data));
       break;
     case 'rows-x:store':
-      chrome.tabs.create({ url: 'https://rows.com/new' }, (tab) => {
-        return storeRowsXData(message.data, tab.id!).then(() => reportUsage({action: 'open_in_Rows'}));
-      });
+      openInRows(message);
       break;
     default:
       break;

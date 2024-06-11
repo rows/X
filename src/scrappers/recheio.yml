@@ -1,0 +1,10 @@
+url: https://www.recheio.pt/*
+listElementsQuery: ul.rch-search-layout li
+elementParser:
+  - title: Image
+    query: img
+    type: image
+
+  - title: Description
+    query: span
+    type: text

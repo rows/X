@@ -1,0 +1,26 @@
+url: https://gumroad.com*
+listElementsQuery: article
+elementParser:
+  - title: Name
+    query: h3
+    type: text
+
+  - title: User
+    query: .user
+    type: text
+
+  - title: User profile URL
+    query: .user
+    type: link
+
+  - title: Link
+    query: .stretched-link
+    type: link
+  
+  - title: Price
+    query: .price
+    type: text
+  
+  - title: Rating/Reviews
+    query: .rating
+    type: text

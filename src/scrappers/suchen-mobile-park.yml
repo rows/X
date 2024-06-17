@@ -1,0 +1,18 @@
+url: https://www.mobile.de/park*
+listElementsQuery: '[class*="BaseListing_link"]'
+elementParser:
+  - title: Car Name
+    query:  '[class*="ListingTitle_titleContainer"]'
+    type: text
+
+  - title: Attributes
+    query: '[class*="ListingListView_attributes"]'
+    type: text
+
+  - title: Price
+    query: '[class*="ListingPriceStandard_price"]'
+    type: text
+
+  - title: Mobile URL
+    query: a
+    type: link

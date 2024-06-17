@@ -1,3 +1,10 @@
+## [1.23.1](https://github.com/rows/X/compare/v1.23.0...v1.23.1) (2024-06-17)
+
+
+### Bug Fixes
+
+* **core:** bump package manually ([#109](https://github.com/rows/X/issues/109)) ([20a9127](https://github.com/rows/X/commit/20a91278af38d30046fd0540f85d9bd97c0c264f))
+
 # [1.23.0](https://github.com/rows/X/compare/v1.22.0...v1.23.0) (2024-06-05)
 
 

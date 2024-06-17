@@ -32,7 +32,7 @@ export async function customScrapper(options: ScrapperOptions) {
       elem = element?.querySelector(query);
     }
 
-    return elem ? elem.href : '';
+    return elem ? elem.href : (element ? element.href : '');
   }
 
   function getCleanUrl(element?: DOM_Element, query?: string) {

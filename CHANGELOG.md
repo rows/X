@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/rows/X/compare/v1.23.1...v1.24.0) (2024-06-17)
+
+
+### Features
+
+* **core:** add mobile.de park scraper ([#110](https://github.com/rows/X/issues/110)) ([e6bbef1](https://github.com/rows/X/commit/e6bbef18a8f9a250147a41b8686c45f76bce14c2))
+
 ## [1.23.1](https://github.com/rows/X/compare/v1.23.0...v1.23.1) (2024-06-17)
 
 

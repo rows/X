@@ -1,0 +1,27 @@
+url: 
+  - https://www.prenatal.com/*
+listElementsQuery: '[data-hits] [x-bind="card"]'
+elementParser:
+  - title: Item Brand
+    query: 'div.relative.px-2.py-2 > span'
+    type: text
+
+  - title: Item model
+    query: '.no_model'
+    type: text
+    
+  - title: Item Description
+    query: '[x-html="hit.title"]'
+    type: text
+
+  - title: RRP
+    query: 'div.relative.px-2.py-2 > div > div'
+    type: text
+  
+  - title: Price
+    query: 'div.relative.px-2.py-2 > div.flex.items-center.pb-2 > div.flex.flex-row.items-center > span'
+    type: text
+
+  - title: URL
+    query: 'div.swiper-slide.swiper-slide-active > a'
+    type: link

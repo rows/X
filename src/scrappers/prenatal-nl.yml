@@ -1,0 +1,27 @@
+url: 
+  - https://www.prenatal.nl/*
+listElementsQuery: .search-result-items > li
+elementParser:
+  - title: Item Brand
+    query: '.no_brand'
+    type: text
+
+  - title: Item model
+    query: '.no_model'
+    type: text
+    
+  - title: Item Description
+    query: '.name-link'
+    type: text
+
+  - title: RRP
+    query: '.product-standard-price'
+    type: text
+  
+  - title: Price
+    query: '.product-sales-price'
+    type: text
+
+  - title: URL
+    query: .thumb-link
+    type: link

@@ -1,5 +1,5 @@
 url: https://suchen.mobile.de/*
-listElementsQuery: 'span[data-testid*="result-listing-"]'
+listElementsQuery: '.mN_WC'
 elementParser:
   - title: Car Name
     query:  h2

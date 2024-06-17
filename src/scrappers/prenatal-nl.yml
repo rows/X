@@ -7,7 +7,7 @@ elementParser:
     type: text
 
   - title: Item model
-    query: 'no_model'
+    query: '.no_model'
     type: text
     
   - title: Item Description

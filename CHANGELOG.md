@@ -1,3 +1,10 @@
+## [1.24.1](https://github.com/rows/X/compare/v1.24.0...v1.24.1) (2024-07-02)
+
+
+### Bug Fixes
+
+* **g2-scraper:** fix bug with pagination ([#111](https://github.com/rows/X/issues/111)) ([1eb7888](https://github.com/rows/X/commit/1eb788812bffb93be054556448deb359d8787fb1))
+
 # [1.24.0](https://github.com/rows/X/compare/v1.23.1...v1.24.0) (2024-06-17)
 
 

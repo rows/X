@@ -1,4 +1,4 @@
-url: https://www.g2.com/*/reviews
+url: https://www.g2.com/*/reviews*
 header: 'G2 product reviews'
 listElementsQuery: '[id*="survey-response"]'
 elementParser:

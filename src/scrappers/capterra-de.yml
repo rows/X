@@ -1,0 +1,23 @@
+url: 'https://www.capterra.com.de/*' 
+header: Capterra reviews
+listElementsQuery: '[data-container-view="ca-review"]'
+elementParser:
+  - title: Title
+    query: '.row > div:nth-child(2) > h3'
+    type: text
+
+  - title: Rating
+    query: '.mos-star-rating'
+    type: text
+
+  - title: Comment
+    query: '.row > div:nth-child(2) > p > span:nth-child(2)'
+    type: text
+
+  - title: Advantages
+    query: '.row > div:nth-child(2) > p.fw-bold + p'
+    type: text
+
+  - title: Disadvantages
+    query: '.row > div:nth-child(2) > p:last-of-type'
+    type: text

@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/rows/X/compare/v1.24.1...v1.25.0) (2024-07-11)
+
+
+### Features
+
+* add capterra.de scraper ([#112](https://github.com/rows/X/issues/112)) ([1e683a9](https://github.com/rows/X/commit/1e683a95b60d335778b7f274e80705f6f08e46a3))
+
 ## [1.24.1](https://github.com/rows/X/compare/v1.24.0...v1.24.1) (2024-07-02)
 
 

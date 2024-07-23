@@ -33,11 +33,3 @@ elementParser:
   - title: Link 3
     query: 'td> div > div:nth-child(3) > div > a:nth-child(4)'
     type: link
-
-  # - title: Email
-  #   query: ''
-  #   type: text
-
-  # - title: Phone
-  #   query: ''
-  #   type: text

@@ -1,0 +1,35 @@
+url: 'https://www.ocean.io/lookalike-search*' 
+header: Search results
+listElementsQuery: 'tr:nth-child(n+3)'
+elementParser:
+  - title: Score
+    query: 'td:nth-child(1)'
+    type: text
+
+  - title: Company
+    query: 'td:nth-child(2)'
+    type: text
+
+  - title: Size
+    query: 'td:nth-child(3)'
+    type: text
+
+  - title: Country
+    query: 'td:nth-child(4)'
+    type: text
+
+  - title: Domain
+    query: 'td> div > div:nth-child(3) > div > a:nth-child(1)'
+    type: link
+
+  - title: Link 1
+    query: 'td> div > div:nth-child(3) > div > a:nth-child(2)'
+    type: link
+
+  - title: Link 2
+    query: 'td> div > div:nth-child(3) > div > a:nth-child(3)'
+    type: link
+  
+  - title: Link 3
+    query: 'td> div > div:nth-child(3) > div > a:nth-child(4)'
+    type: link

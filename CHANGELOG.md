@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/rows/X/compare/v1.25.0...v1.26.0) (2024-07-24)
+
+
+### Features
+
+* add capterra scraper ([#114](https://github.com/rows/X/issues/114)) ([ea0aa74](https://github.com/rows/X/commit/ea0aa7400454cdbe5125ec41bb781935c5b96fef))
+
 # [1.25.0](https://github.com/rows/X/compare/v1.24.1...v1.25.0) (2024-07-11)
 
 

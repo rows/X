@@ -1,0 +1,23 @@
+url: 'https://www.capterra.com/*' 
+header: Capterra reviews
+listElementsQuery: '[data-test-id="review-card"]'
+elementParser:
+  - title: Title
+    query: '[data-testid="review-content"] > div:nth-child(1)'
+    type: text
+
+  - title: Rating
+    query: '.star-rating-label'
+    type: text
+
+  - title: Comment
+    query: '[data-testid="overall-content"]'
+    type: text
+
+  - title: Advantages
+    query: '[data-testid="pros-content"]'
+    type: text
+
+  - title: Disadvantages
+    query: '[data-testid="cons-content"]'
+    type: text

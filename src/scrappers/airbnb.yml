@@ -1,0 +1,22 @@
+url: https://www.airbnb.com*
+listElementsQuery: '[itemprop="itemListElement"]'
+elementParser:
+  - title: Title
+    query: '[data-testid="listing-card-title"]'
+    type: text
+
+  - title: Sub-title
+    query: '[data-testid="listing-card-subtitle"]'
+    type: text
+
+  - title: Price per night
+    query: '[data-testid="price-availability-row"] > .dir-ltr > div > div > span > div'
+    type: text
+
+  - title: Price total
+    query: '[data-testid="price-availability-row"] > .dir-ltr > div > div > span:nth-child(3) > div > button > div > div'
+    type: text
+
+  - title: Link
+    query: '[data-testid="card-container"] > a'
+    type: clean-url

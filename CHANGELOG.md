@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/rows/X/compare/v1.26.0...v1.27.0) (2024-07-31)
+
+
+### Features
+
+* add airbnb scraper ([#115](https://github.com/rows/X/issues/115)) ([43bd12f](https://github.com/rows/X/commit/43bd12f48737aa654eeb62b45110f57e29b58a34))
+
 # [1.26.0](https://github.com/rows/X/compare/v1.25.0...v1.26.0) (2024-07-24)
 
 

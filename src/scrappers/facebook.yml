@@ -1,0 +1,10 @@
+url: https://www.facebook.com*
+listElementsQuery: '[role="dialog"] [role="article"]'
+elementParser:
+  - title: Name
+    query: 'div:nth-child(2) > div > div > div > div > span'
+    type: text
+
+  - title: Comment
+    query: 'div:nth-child(2) > div > div > div > div > div > span > div'
+    type: text

@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/rows/X/compare/v1.27.0...v1.28.0) (2024-07-31)
+
+
+### Features
+
+* add facebook post comments scraper ([#116](https://github.com/rows/X/issues/116)) ([8f83de2](https://github.com/rows/X/commit/8f83de27473eb6b932b6b877d2c83f5a5c5a9628))
+
 # [1.27.0](https://github.com/rows/X/compare/v1.26.0...v1.27.0) (2024-07-31)
 
 

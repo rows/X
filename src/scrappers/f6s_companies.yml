@@ -1,0 +1,22 @@
+url: https://www.f6s.com/companies/*
+header: F6S Companies
+listElementsQuery: '.b16.company-block'
+elementParser:
+  - title: Company Name
+    type: text
+    query: h2.company-entry-title a.t-accent.t-heavy
+  - title: Link
+    type: clean-url
+    query: h2.company-entry-title a.t-accent.t-heavy
+  - title: Subtitle
+    type: text
+    query: h3.mt4.mb8
+  - title: Location
+    type: text
+    query: div.centered-content.g8
+  - title: Founding Year
+    type: text
+    query: p.centered-content.g8.mt12
+  - title: Funding Info
+    type: text
+    query: div.centered-content.mt12 div.overview-line-content

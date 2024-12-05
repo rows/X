@@ -1,0 +1,50 @@
+url: https://clutch.co*
+listElementsQuery: '.profile-review'
+elementParser:
+  - title: Title
+    query: '.profile-review__header > h4'
+    type: text
+  
+  - title: Project services
+    query: '.profile-review__data > ul > li:nth-child(1)'
+    type: text
+
+  - title: Project size
+    query: '.profile-review__data > ul > li:nth-child(2)'
+    type: text
+  
+  - title: Project length
+    query: '.profile-review__data > ul > li:nth-child(3)'
+    type: text
+
+  - title: Project summary
+    query: '.profile-review__summary > p:nth-child(2)'
+    type: text
+
+  - title: Rating
+    query: '.sg-rating__number'
+    type: text
+
+  - title: Review
+    query: '.profile-review__quote'
+    type: text
+
+  - title: Review date
+    query: '.profile-review__date'
+    type: text
+
+  - title: Review date
+    query: '.profile-review__feedback > p:nth-child(2)'
+    type: text
+
+  - title: Reviewer position
+    query: '.reviewer_position'
+    type: text
+
+  - title: Reviewer name
+    query: '.reviewer_card--name'
+    type: text
+
+  - title: Reviewer information
+    query: '.reviewer_list'
+    type: text

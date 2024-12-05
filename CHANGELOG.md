@@ -1,3 +1,10 @@
+# [1.29.0](https://github.com/rows/X/compare/v1.28.1...v1.29.0) (2024-12-05)
+
+
+### Features
+
+* **clutch.co:** add clutch.co reviews scraper ([#120](https://github.com/rows/X/issues/120)) ([8f24454](https://github.com/rows/X/commit/8f24454c0d88c726c88faa7bdd307e796a65428b))
+
 ## [1.28.1](https://github.com/rows/X/compare/v1.28.0...v1.28.1) (2024-08-21)
 
 # [1.28.0](https://github.com/rows/X/compare/v1.27.0...v1.28.0) (2024-07-31)

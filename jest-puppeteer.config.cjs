@@ -5,6 +5,8 @@ module.exports = {
     args: [
       '--disable-extensions-except=./dist',
       '--load-extension=./dist',
+      '--no-sandbox', 
+      '--disable-setuid-sandbox',
     ],
 },
 };

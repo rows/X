@@ -50,7 +50,7 @@ type ScrapperResultItem = {
 export type ScrapperResults = Array<ScrapperResultItem>;
 
 export async function runScrapper(currentTab: chrome.tabs.Tab, options: ScrapperOptions | null): Promise<ScrapperResults> {
-  let computation: Array<{ result: ScrapperResults }>;
+  let computation: chrome.scripting.InjectionResult<ScrapperResults>[];
 
   if (!currentTab.id) {
     throw new Error('Invalid tab ID.'); // Handle the case where tab ID is missing
@@ -62,18 +62,18 @@ export async function runScrapper(currentTab: chrome.tabs.Tab, options: Scrapper
       func: scrapHTMLTables,
     });
   } else if (options.parseTables) {
-    computation = (await chrome.scripting.executeScript({
+    computation = await chrome.scripting.executeScript({
       target: { tabId: currentTab.id },
       args: [options],
       func: scrapDivHTMLTables,
-    })) as Array<{ result: ScrapperResults }>;
+    }) as Array<chrome.scripting.InjectionResult<ScrapperResults>>;
   } else {
-    computation = (await chrome.scripting.executeScript({
+    computation = await chrome.scripting.executeScript({
       target: { tabId: currentTab.id },
       args: [options],
       func: customScrapper,
-    })) as Array<{ result: ScrapperResults }>;
+    }) as Array<chrome.scripting.InjectionResult<ScrapperResults>>;
   }
 
-  return computation[0].result ?? [];
+  return computation[0].result ? computation[0].result : [];
 }

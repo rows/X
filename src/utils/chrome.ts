@@ -75,5 +75,5 @@ export async function runScrapper(currentTab: chrome.tabs.Tab, options: Scrapper
     }) as Array<chrome.scripting.InjectionResult<ScrapperResults>>;
   }
 
-  return computation[0].result ? computation[0].result : [];
+  return computation[0].result ?? [];
 }

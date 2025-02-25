@@ -1,6 +1,5 @@
-dist
-# Created by https://www.toptal.com/developers/gitignore/api/node,macos,windows,linux,webstorm,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,macos,windows,linux,webstorm,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/node,linux,macos,windows,webstorm,visualstudiocode,xcode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,linux,macos,windows,webstorm,visualstudiocode,xcode
 
 ### Linux ###
 *~
@@ -219,7 +218,6 @@ dist
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-.idea
 
 # AWS User-specific
 .idea/**/aws.xml
@@ -323,8 +321,6 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 
-.idea/**/*.xml
-
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -351,4 +347,21 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,macos,windows,linux,webstorm,visualstudiocode
+### Xcode ###
+## User settings
+xcuserdata/
+
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# End of https://www.toptal.com/developers/gitignore/api/node,linux,macos,windows,webstorm,visualstudiocode,xcode

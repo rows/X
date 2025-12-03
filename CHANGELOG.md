@@ -1,3 +1,5 @@
+## [1.30.5](https://github.com/rows/X/compare/v1.30.4...v1.30.5) (2025-12-03)
+
 ## [1.30.4](https://github.com/rows/X/compare/v1.30.3...v1.30.4) (2025-11-25)
 
 ## [1.30.3](https://github.com/rows/X/compare/v1.30.2...v1.30.3) (2025-11-21)

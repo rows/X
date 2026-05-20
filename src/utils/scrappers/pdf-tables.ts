@@ -31,6 +31,7 @@ type PageText = {
 };
 
 const PDF_VIEWER_SRC_PARAMS = ['src', 'file'];
+const SAFE_PDF_URL_PROTOCOLS = new Set(['http:', 'https:']);
 const LINE_Y_TOLERANCE = 3;
 const COLUMN_X_TOLERANCE = 18;
 const MAX_TABLE_ROW_GAP = 30;
@@ -38,17 +39,20 @@ const MAX_TABLE_ROW_GAP = 30;
 export function getPDFUrl(url: string, title = ''): string | null {
   try {
     const parsedUrl = new URL(url);
-    const pathname = parsedUrl.pathname.toLowerCase();
 
-    if (pathname.endsWith('.pdf') || title.toLowerCase().endsWith('.pdf')) {
-      return url;
+    if (isSafePDFUrl(parsedUrl, title)) {
+      return parsedUrl.href;
     }
 
     for (const param of PDF_VIEWER_SRC_PARAMS) {
       const viewerSource = parsedUrl.searchParams.get(param);
 
-      if (viewerSource && viewerSource.toLowerCase().includes('.pdf')) {
-        return viewerSource;
+      if (viewerSource) {
+        const parsedViewerSource = new URL(viewerSource, parsedUrl.href);
+
+        if (isSafePDFUrl(parsedViewerSource)) {
+          return parsedViewerSource.href;
+        }
       }
     }
   } catch {
@@ -56,6 +60,14 @@ export function getPDFUrl(url: string, title = ''): string | null {
   }
 
   return null;
+}
+
+export function isSafePDFUrl(url: URL, title = ''): boolean {
+  if (!SAFE_PDF_URL_PROTOCOLS.has(url.protocol) || isLocalOrPrivateHost(url.hostname)) {
+    return false;
+  }
+
+  return url.pathname.toLowerCase().endsWith('.pdf') || title.toLowerCase().endsWith('.pdf');
 }
 
 export function isPDFUrl(url: string, title = ''): boolean {
@@ -70,7 +82,7 @@ export async function scrapPDFTablesFromUrl(url: string, title = ''): Promise<Sc
   }
 
   try {
-    const response = await fetch(pdfUrl);
+    const response = await fetch(pdfUrl); // nosemgrep: Semgrep_rules_lgpl_javascript_ssrf_rule-node-ssrf - client-side PDF fetch after protocol, host, and extension validation.
 
     if (!response.ok) {
       return [];
@@ -83,6 +95,23 @@ export async function scrapPDFTablesFromUrl(url: string, title = ''): Promise<Sc
     console.error('Failed to extract tables from PDF', error);
     return [];
   }
+}
+
+function isLocalOrPrivateHost(hostname: string) {
+  const host = hostname.toLowerCase();
+
+  return (
+    host === 'localhost' ||
+    host.endsWith('.localhost') ||
+    host === '0.0.0.0' ||
+    host === '::1' ||
+    host.startsWith('169.254.') ||
+    host.startsWith('10.') ||
+    host.startsWith('127.') ||
+    host.startsWith('192.168.') ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(host) ||
+    (host.includes(':') && (host.startsWith('fc') || host.startsWith('fd') || host.startsWith('fe80')))
+  );
 }
 
 export async function scrapPDFTablesFromBytes(bytes: Uint8Array, title = ''): Promise<ScrapperResults> {

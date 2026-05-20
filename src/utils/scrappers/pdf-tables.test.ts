@@ -6,6 +6,9 @@ describe('PDF table scraping', () => {
     expect(getPDFUrl('chrome-extension://viewer/index.html?src=https%3A%2F%2Fexample.com%2Ftable.pdf')).toBe('https://example.com/table.pdf');
     expect(getPDFUrl('https://example.com/report', 'report.pdf')).toBe('https://example.com/report');
     expect(getPDFUrl('https://example.com/report.html')).toBeNull();
+    expect(getPDFUrl('file:///tmp/report.pdf')).toBeNull();
+    expect(getPDFUrl('http://127.0.0.1/report.pdf')).toBeNull();
+    expect(getPDFUrl('chrome-extension://viewer/index.html?src=http%3A%2F%2Flocalhost%2Ftable.pdf')).toBeNull();
   });
 
   it('groups positioned PDF text into aligned tables', () => {

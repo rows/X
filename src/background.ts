@@ -56,7 +56,7 @@ async function fetchPDFBytesFromTab(tabId: number, pdfUrl: string) {
       target: { tabId },
       args: [pdfUrl],
       func: async (url: string) => {
-        const response = await fetch(url);
+        const response = await fetch(url); // nosemgrep: Semgrep_rules_lgpl_javascript_ssrf_rule-node-ssrf - URL is prevalidated before active-tab fetch.
 
         if (!response.ok) {
           return null;

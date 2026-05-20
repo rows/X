@@ -3,7 +3,7 @@ import { ERROR_MESSAGES, ErrorCodes } from './error-codes';
 import { getCurrentTab, runScrapper } from './utils/chrome';
 import { reportUsage } from './utils/rows-api/report';
 import { getScrapperOptionsByUrl } from './utils/scrapperUtils';
-import { getPDFUrl, isPDFUrl, scrapPDFTablesFromBytes, scrapPDFTablesFromUrl } from './utils/scrappers/pdf-tables';
+import { getPDFUrl, isPDFUrl, scrapPDFTablesFromBytes } from './utils/scrappers/pdf-tables';
 
 async function scrap() {
   const tab = await getCurrentTab();
@@ -29,22 +29,16 @@ async function scrap() {
 }
 
 async function scrapPDFTab(tab: chrome.tabs.Tab) {
-  const backgroundResults = await scrapPDFTablesFromUrl(tab.url!, tab.title);
-
-  if (backgroundResults.length > 0 || !tab.id) {
-    return backgroundResults;
-  }
-
   const pdfUrl = getPDFUrl(tab.url!, tab.title);
 
-  if (!pdfUrl) {
-    return backgroundResults;
+  if (!pdfUrl || !tab.id) {
+    return [];
   }
 
   const bytes = await fetchPDFBytesFromTab(tab.id, pdfUrl);
 
   if (!bytes) {
-    return backgroundResults;
+    return [];
   }
 
   return await scrapPDFTablesFromBytes(bytes, tab.title);

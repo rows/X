@@ -74,29 +74,6 @@ export function isPDFUrl(url: string, title = ''): boolean {
   return getPDFUrl(url, title) !== null;
 }
 
-export async function scrapPDFTablesFromUrl(url: string, title = ''): Promise<ScrapperResults> {
-  const pdfUrl = getPDFUrl(url, title);
-
-  if (!pdfUrl) {
-    return [];
-  }
-
-  try {
-    const response = await fetch(pdfUrl); // nosemgrep: Semgrep_rules_lgpl_javascript_ssrf_rule-node-ssrf - client-side PDF fetch after protocol, host, and extension validation.
-
-    if (!response.ok) {
-      return [];
-    }
-
-    const buffer = await response.arrayBuffer();
-
-    return scrapPDFTablesFromBytes(new Uint8Array(buffer), title);
-  } catch (error) {
-    console.error('Failed to extract tables from PDF', error);
-    return [];
-  }
-}
-
 function isLocalOrPrivateHost(hostname: string) {
   const host = hostname.toLowerCase();
 

@@ -3,6 +3,7 @@ import { ERROR_MESSAGES, ErrorCodes } from './error-codes';
 import { getCurrentTab, runScrapper } from './utils/chrome';
 import { reportUsage } from './utils/rows-api/report';
 import { getScrapperOptionsByUrl } from './utils/scrapperUtils';
+import { getPDFUrl, isPDFUrl, scrapPDFTablesFromBytes, scrapPDFTablesFromUrl } from './utils/scrappers/pdf-tables';
 
 async function scrap() {
   const tab = await getCurrentTab();
@@ -20,7 +21,58 @@ async function scrap() {
 
   const options = getScrapperOptionsByUrl(tab.url, tab.title);
 
+  if (isPDFUrl(tab.url, tab.title)) {
+    return await scrapPDFTab(tab);
+  }
+
   return await runScrapper(tab, options);
+}
+
+async function scrapPDFTab(tab: chrome.tabs.Tab) {
+  const backgroundResults = await scrapPDFTablesFromUrl(tab.url!, tab.title);
+
+  if (backgroundResults.length > 0 || !tab.id) {
+    return backgroundResults;
+  }
+
+  const pdfUrl = getPDFUrl(tab.url!, tab.title);
+
+  if (!pdfUrl) {
+    return backgroundResults;
+  }
+
+  const bytes = await fetchPDFBytesFromTab(tab.id, pdfUrl);
+
+  if (!bytes) {
+    return backgroundResults;
+  }
+
+  return await scrapPDFTablesFromBytes(bytes, tab.title);
+}
+
+async function fetchPDFBytesFromTab(tabId: number, pdfUrl: string) {
+  try {
+    const results = await chrome.scripting.executeScript({
+      target: { tabId },
+      args: [pdfUrl],
+      func: async (url: string) => {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          return null;
+        }
+
+        return Array.from(new Uint8Array(await response.arrayBuffer()));
+      },
+    }) as Array<chrome.scripting.InjectionResult<number[] | null>>;
+
+    const bytes = results[0]?.result;
+
+    return bytes ? new Uint8Array(bytes) : null;
+  } catch (error) {
+    console.error('Failed to fetch PDF from the active tab', error);
+    return null;
+  }
 }
 
 async function openInRows(message: { data: string; }) {

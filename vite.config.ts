@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 import { crx } from '@crxjs/vite-plugin';
-import viteYaml from '@modyfi/vite-plugin-yaml';
+import yaml from '@rollup/plugin-yaml';
 import manifest from './manifest';
 import npmPackage from './package';
 
@@ -18,7 +18,7 @@ const e2eTestManifest = {
 export default defineConfig(({ mode }) => ({
   plugins: [
     preact(),
-    viteYaml(),
+    yaml(),
     crx({
       manifest: mode === 'e2e' ? e2eTestManifest : extensionManifest,
     }),
